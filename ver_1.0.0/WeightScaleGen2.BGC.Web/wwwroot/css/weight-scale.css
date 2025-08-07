@@ -27,6 +27,7 @@
     --text-size-h6: 16px;
     --text-size-p: 14px;
     --text-shadow-1: 0 1px 4px rgba(0, 0, 0, 0.3);
+    --loaderStyle-1: no-repeat linear-gradient(#4741A6 0 0);
 }
 
 * {
@@ -126,6 +127,7 @@ img {
     left: 0;
     width: 15%;
     transition: width 0.2s ease-out;
+    z-index: 2;
 }
 
 .sideMenu nav {
@@ -136,6 +138,10 @@ img {
 .sideMenu.slideShow nav {
     opacity: 1;
     transition: 0.02s ease-out;
+}
+
+#sideMenuOverlay {
+    display: none;
 }
 
 .sideMenu .sliderButtonBox {
@@ -258,14 +264,15 @@ img {
 }
 
 .sideMenu .menuNav li.active {
-    font-size: 14px;
-    padding: 14px 24px;
-    width: 100%;
     background: var(--bg-color-1);
-    box-shadow: var(--box-shadow-1);
-    border-radius: 6px;
-    margin-bottom: 6px;
-    cursor: pointer;
+}
+
+.sideMenu .menuNav li.active img {
+    filter: brightness(0) invert(1);
+}
+
+.sideMenu .menuNav li.active lord-icon[colors] {
+    primary: #fff;
 }
 
 .sideMenu .menuNav li:last-child {
@@ -284,6 +291,12 @@ img {
 
 .sideMenu .sideNav .NavModifier {
     padding: 0 2px;
+    overflow-y: scroll;
+    height: 696px;
+}
+
+.sideMenu .sideNav .NavModifier::-webkit-scrollbar {
+    display: none;
 }
 
 .sideMenu .sideNav .NavModifier li {
@@ -680,7 +693,7 @@ select {
 
 .dataSide table.dataTable thead tr th {
     border-collapse: collapse !important;
-    border-right: 1px solid #dedede;
+    border-right: 1px solid rgb(101 97 177);
 }
 
 .dataSide table.dataTable thead tr th:last-child {
@@ -693,9 +706,8 @@ select {
     font-weight: 400;
     padding: 14px !important;
     text-transform: capitalize;
-
     border-collapse: collapse !important;
-    border-right: 1px solid #878787;
+    border-right: 1px solid rgb(174 174 174 / 50%);
 }
 
 .dataSide table.dataTable tbody tr td:last-child {
@@ -1159,6 +1171,65 @@ select {
     top: calc(50% - 22px / 2);
 }
 
+.toggleSwitch-1 {
+    background: #e8e8e8;
+    padding: 6px 18px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-1);
+}
+
+.toggleSwitch-1:hover label {
+    filter: brightness(0.9);
+}
+
+.toggleSwitch-1 span#btn_weight_status {
+    height: 22px;
+    width: 22px;
+}
+
+.toggleSwitch-1 label:nth-child(1) {
+    height: 26px;
+    width: 48px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.toggleSwitch-1 label:nth-child(2) {
+    padding-left: 8px;
+    height: 100%;
+    align-content: center;
+    -webkit-user-drag: none;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+
+.loaderStyle-1 {
+    height: 8px;
+    width: 100%;
+    max-width: 588px;
+    background: var(--loaderStyle-1), var(--loaderStyle-1), #d7b8fc;
+    background-size: 60% 100%;
+    animation: loader1 3s infinite;
+}
+
+@keyframes loader1 {
+    0% {
+        background-position: -150% 0, -150% 0
+    }
+
+    66% {
+        background-position: 250% 0, -150% 0
+    }
+
+    100% {
+        background-position: 250% 0, 250% 0
+    }
+}
+
+#weightMaster-ProgressBar {
+    display: none;
+}
+
 @media (min-width:768px) and (max-width:1279.98px) {
     .sideMenu {
         position: absolute;
@@ -1181,30 +1252,6 @@ select {
         top: 0;
         bottom: 0;
         padding: 12px;
-    }
-
-    .sideMenu::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: #212020b3;
-        z-index: -1;
-        width: 0;
-    }
-
-    .sideMenu.slideShow::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: #212020b3;
-        z-index: -1;
-        width: 100vw;
     }
 
     .dataSide {
@@ -1236,6 +1283,11 @@ select {
 }
 
 @media (min-width:1280px) and (max-width:1535.98px) {
+    .sideMenu .sideNav .NavModifier {
+        overflow-y: scroll;
+        height: 518px;
+    }
+
     .sideMenu.slideShow {
         width: 22%;
     }
@@ -1258,6 +1310,34 @@ select {
 }
 
 @media (max-width: 1279.98px) {
+    /* .sideMenu.slideShow::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: #212020b3;
+        z-index: -1;
+        width: 100vw;
+    } */
+
+    #sideMenuOverlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #212020b3;
+        z-index: 1;
+    }
+
+    /* แสดงเมื่อ active */
+    #sideMenuOverlay.hide {
+        display: none;
+    }
+
     .HomePage .weightStatButton svg {
         transform: translate(0, -50%);
     }
@@ -1282,16 +1362,13 @@ select {
 
     .sideMenu .sideNav .NavModifier {
         overflow-y: scroll;
-        height: 500px;
-    }
-
-    .sideMenu .sideNav .NavModifier::-webkit-scrollbar {
-        display: none;
+        height: 578px;
     }
 
     .dataSide .dataContainer {
         overflow: unset;
-        height: unset;
+        height: unset !important;
+        min-height: 90%;
     }
 
     .loginPage {
@@ -1325,6 +1402,12 @@ select {
 }
 
 @media (max-width: 767.98px) {
+
+    .sideMenu .sideNav .NavModifier {
+        overflow-y: scroll;
+        height: 578px;
+    }
+
     .sideMenu {
         position: absolute;
         left: 0;
@@ -1346,30 +1429,6 @@ select {
         top: 0;
         bottom: 0;
         padding: 12px;
-    }
-
-    .sideMenu::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: #212020b3;
-        z-index: -1;
-        width: 0;
-    }
-
-    .sideMenu.slideShow::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background: #212020b3;
-        z-index: -1;
-        width: 100vw;
     }
 
     .dataSide {
@@ -1448,6 +1507,8 @@ select {
 
     .HomePage .weightStatButton p {
         font-size: 12px;
+        text-align: center;
+        line-height: 1.2;
     }
 
     .weightStamp {
