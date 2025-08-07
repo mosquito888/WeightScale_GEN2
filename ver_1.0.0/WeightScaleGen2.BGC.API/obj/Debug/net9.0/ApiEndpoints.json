@@ -1,0 +1,2296 @@
+[
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.AboutController",
+    "Method": "Get",
+    "RelativePath": "api/v{version}/About",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.AboutController",
+    "Method": "GetConnectionDb",
+    "RelativePath": "api/v{version}/About/GetConnection",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.AboutController",
+    "Method": "TestConnection",
+    "RelativePath": "api/v{version}/About/TestConnection",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.CompanyController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/Company/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Company.ResultGetCompInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.CompanyController",
+    "Method": "GetCompanyListData",
+    "RelativePath": "api/v{version}/Company/GetCompanyListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.CompanyController",
+    "Method": "GetSearchCompanyListData",
+    "RelativePath": "api/v{version}/Company/GetSearchCompanyListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Company.ParamSearchCompViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.CompanyController",
+    "Method": "PostItem",
+    "RelativePath": "api/v{version}/Company/PostItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Company.ResultGetCompInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.CompanyController",
+    "Method": "PutItem",
+    "RelativePath": "api/v{version}/Company/PutItem",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Company.ResultGetCompInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DashboardController",
+    "Method": "GetSearchListDashboardHistorySummary",
+    "RelativePath": "api/v{version}/Dashboard/GetSearchListDashboardHistorySummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DashboardController",
+    "Method": "GetSearchListDashboardSummary",
+    "RelativePath": "api/v{version}/Dashboard/GetSearchListDashboardSummary",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DepartmentController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/Department/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Department.ResultGetDeptInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DepartmentController",
+    "Method": "GetDepartmentListData",
+    "RelativePath": "api/v{version}/Department/GetDepartmentListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DepartmentController",
+    "Method": "GetSearchDepartmentListData",
+    "RelativePath": "api/v{version}/Department/GetSearchDepartmentListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Department.ParamSearchDeptViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DepartmentController",
+    "Method": "PostItem",
+    "RelativePath": "api/v{version}/Department/PostItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Department.ResultGetDeptInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DepartmentController",
+    "Method": "PutItem",
+    "RelativePath": "api/v{version}/Department/PutItem",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Department.ResultGetDeptInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DocumentPOController",
+    "Method": "GetDocumentPOInfo",
+    "RelativePath": "api/v{version}/DocumentPO/GetDocumentPOInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "purchase_number",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.DocumentPOController",
+    "Method": "GetSearchListDocumentPO",
+    "RelativePath": "api/v{version}/DocumentPO/GetSearchListDocumentPO",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.DocumentPO.ParamSearchDocumentPOViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.EmployeeController",
+    "Method": "GetEmployeeInfo",
+    "RelativePath": "api/v{version}/Employee/GetEmployeeInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Employee.ParamEmpInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.EmployeeController",
+    "Method": "GetEmployeeListData",
+    "RelativePath": "api/v{version}/Employee/GetEmployeeListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.EmployeeController",
+    "Method": "GetSearchEmployeeListData",
+    "RelativePath": "api/v{version}/Employee/GetSearchEmployeeListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Employee.ParamSearchEmpViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.EmployeeController",
+    "Method": "PostEmployeeInfo",
+    "RelativePath": "api/v{version}/Employee/PostEmployeeInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Employee.ResultGetEmpInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.EmployeeController",
+    "Method": "PutEmployeeInfo",
+    "RelativePath": "api/v{version}/Employee/PutEmployeeInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Employee.ResultGetEmpInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.GroupMasterController",
+    "Method": "GetGroupMasterListData",
+    "RelativePath": "api/v{version}/GroupMaster/GetGroupMasterListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/ItemMaster/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMaster.ResultGetItemMasterInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterController",
+    "Method": "GetItemMasterInfo",
+    "RelativePath": "api/v{version}/ItemMaster/GetItemMasterInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMaster.ParamItemMasterInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterController",
+    "Method": "GetItemMasterListData",
+    "RelativePath": "api/v{version}/ItemMaster/GetItemMasterListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterController",
+    "Method": "GetSearchEmployeeListData",
+    "RelativePath": "api/v{version}/ItemMaster/GetSearchItemMasterListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMaster.ParamSearchItemMasterViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterController",
+    "Method": "PostItemMasterInfo",
+    "RelativePath": "api/v{version}/ItemMaster/PostItemMasterInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMaster.ResultGetItemMasterInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterController",
+    "Method": "PutItemMasterInfo",
+    "RelativePath": "api/v{version}/ItemMaster/PutItemMasterInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMaster.ResultGetItemMasterInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterRelationController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/ItemMasterRelation/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMasterRelation.ResultGetItemMasterRelationInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterRelationController",
+    "Method": "GetItemMasterInfo",
+    "RelativePath": "api/v{version}/ItemMasterRelation/GetItemMasterRelationInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMasterRelation.ParamItemMasterRelationInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterRelationController",
+    "Method": "GetEmployeeListData",
+    "RelativePath": "api/v{version}/ItemMasterRelation/GetItemMasterRelationListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterRelationController",
+    "Method": "GetSearchEmployeeListData",
+    "RelativePath": "api/v{version}/ItemMasterRelation/GetSearchItemMasterRelationListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMasterRelation.ParamSearchItemMasterRelationViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterRelationController",
+    "Method": "PostItemMasterRelationInfo",
+    "RelativePath": "api/v{version}/ItemMasterRelation/PostItemMasterRelationInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMasterRelation.ResultGetItemMasterRelationInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ItemMasterRelationController",
+    "Method": "PutItemMasterRelationInfo",
+    "RelativePath": "api/v{version}/ItemMasterRelation/PutItemMasterRelationInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ItemMasterRelation.ResultGetItemMasterRelationInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.LogController",
+    "Method": "GetSearchLogCriteria",
+    "RelativePath": "api/v{version}/Log/GetSearchLogCriteria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.LogController",
+    "Method": "SearchLogData",
+    "RelativePath": "api/v{version}/Log/SearchLogData",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Log.ParamSearchLogViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MasterController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/Master/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Master.ResultGetMasterInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MasterController",
+    "Method": "GetMasterListData",
+    "RelativePath": "api/v{version}/Master/GetMasterListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MasterController",
+    "Method": "GetMasterListDataType",
+    "RelativePath": "api/v{version}/Master/GetMasterListDataType",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MasterController",
+    "Method": "GetSearchMasterListData",
+    "RelativePath": "api/v{version}/Master/GetSearchMasterListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Master.ParamSearchMasterViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MasterController",
+    "Method": "PostItem",
+    "RelativePath": "api/v{version}/Master/PostItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Master.ResultGetMasterInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MasterController",
+    "Method": "PutItem",
+    "RelativePath": "api/v{version}/Master/PutItem",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Master.ResultGetMasterInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "AuthenticateMenuUser",
+    "RelativePath": "api/v{version}/Menu/AuthenticateMenuUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Menu.PramGetMenuViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "DeleteRole",
+    "RelativePath": "api/v{version}/Menu/DeleteRole",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Role.ResultRoleInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "GetMenuRole",
+    "RelativePath": "api/v{version}/Menu/GetMenuRole",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "GetRoleInfo",
+    "RelativePath": "api/v{version}/Menu/GetRoleInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Role.ResultRoleInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "PostNewRole",
+    "RelativePath": "api/v{version}/Menu/PostNewRole",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Role.ResultRoleInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "PutRole",
+    "RelativePath": "api/v{version}/Menu/PutRole",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Role.ResultRoleInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "UpdateMenuRole",
+    "RelativePath": "api/v{version}/Menu/UpdateMenuRole",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Role.ParamUpdateRoleItemViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MenuController",
+    "Method": "UpdateMenuRoleSelect",
+    "RelativePath": "api/v{version}/Menu/UpdateMenuRoleSelect",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Role.UpdateRoleItemSection",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MMPOController",
+    "Method": "GetSearchListMMPO",
+    "RelativePath": "api/v{version}/MMPO/GetSearchListMMPO",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.MMPO.ParamSearchMMPOViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MMPOController",
+    "Method": "GetSearchMMPOCheckQtyPending",
+    "RelativePath": "api/v{version}/MMPO/GetSearchMMPOCheckQtyPending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.MMPO.ParamSearchMMPOQtyPendingViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MMPOController",
+    "Method": "UpdateMMPOSapToDocumentPO",
+    "RelativePath": "api/v{version}/MMPO/UpdateMMPOSapToDocumentPO",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.MMPO.ParamSearchMMPOViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.MMPOController",
+    "Method": "UpdateMMPOSapToDocumentPOData",
+    "RelativePath": "api/v{version}/MMPO/UpdateMMPOSapToDocumentPOData",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.PlantController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/Plant/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Plant.ResultGetPlantInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.PlantController",
+    "Method": "GetPlantListData",
+    "RelativePath": "api/v{version}/Plant/GetPlantListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.PlantController",
+    "Method": "GetSearchPlantListData",
+    "RelativePath": "api/v{version}/Plant/GetSearchPlantListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Plant.ParamSearchPlantViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.PlantController",
+    "Method": "PostItem",
+    "RelativePath": "api/v{version}/Plant/PostItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Plant.ResultGetPlantInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.PlantController",
+    "Method": "PutItem",
+    "RelativePath": "api/v{version}/Plant/PutItem",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Plant.ResultGetPlantInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.PrefixController",
+    "Method": "GetRunningDocument",
+    "RelativePath": "api/v{version}/Prefix/GetRunningDocument",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "docType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "compType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "plantType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "plantShortType",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ReturnDataController",
+    "Method": "GetSearchListReturnData",
+    "RelativePath": "api/v{version}/ReturnData/GetSearchListReturnData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ReturnData.ParamSearchReturnDataViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.ReturnDataController",
+    "Method": "PostDataToSAP",
+    "RelativePath": "api/v{version}/ReturnData/PostDataToSAP",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.ReturnData.ParamSearchReturnDataViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SenderController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/Sender/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Sender.ResultGetSenderInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SenderController",
+    "Method": "GetSearchEmployeeListData",
+    "RelativePath": "api/v{version}/Sender/GetSearchSenderListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Sender.ParamSearchSenderViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SenderController",
+    "Method": "GetSenderInfo",
+    "RelativePath": "api/v{version}/Sender/GetSenderInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Sender.ParamSenderInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SenderController",
+    "Method": "GetSenderListData",
+    "RelativePath": "api/v{version}/Sender/GetSenderListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SenderController",
+    "Method": "PostSenderInfo",
+    "RelativePath": "api/v{version}/Sender/PostSenderInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Sender.ResultGetSenderInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SenderController",
+    "Method": "PutSenderInfo",
+    "RelativePath": "api/v{version}/Sender/PutSenderInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Sender.ResultGetSenderInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SendMailController",
+    "Method": "sendMail",
+    "RelativePath": "api/v{version}/SendMail/sendmail",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "mail",
+        "Type": "WeightScaleGen2.BGC.Models.ServicesModels.SendMail",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SendMailController",
+    "Method": "sendMailDemo",
+    "RelativePath": "api/v{version}/SendMail/sendmailDemo/{sentto}/{type}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sentto",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "type",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SupplierController",
+    "Method": "DeleteItem",
+    "RelativePath": "api/v{version}/Supplier/DeleteItem",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Supplier.ResultGetSupplierInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SupplierController",
+    "Method": "GetSearchEmployeeListData",
+    "RelativePath": "api/v{version}/Supplier/GetSearchSupplierListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Supplier.ParamSearchSupplierViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SupplierController",
+    "Method": "GetSupplierInfo",
+    "RelativePath": "api/v{version}/Supplier/GetSupplierInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Supplier.ParamSupplierInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SupplierController",
+    "Method": "GetSupplierListData",
+    "RelativePath": "api/v{version}/Supplier/GetSupplierListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SupplierController",
+    "Method": "PostSupplierInfo",
+    "RelativePath": "api/v{version}/Supplier/PostSupplierInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Supplier.ResultGetSupplierInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SupplierController",
+    "Method": "PutSupplierInfo",
+    "RelativePath": "api/v{version}/Supplier/PutSupplierInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.Supplier.ResultGetSupplierInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.SystemController",
+    "Method": "GetSystemListData",
+    "RelativePath": "api/v{version}/System/GetSystemListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UOMConversionController",
+    "Method": "GetUOMConversionListByMaterialCode",
+    "RelativePath": "api/v{version}/UOMConversion/GetUOMConversionListByMaterialCode",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "materialCode",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UOMConversionController",
+    "Method": "GetUOMConversionListData",
+    "RelativePath": "api/v{version}/UOMConversion/GetUOMConversionListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UOMConversionController",
+    "Method": "GetUOMConversionListDataBy",
+    "RelativePath": "api/v{version}/UOMConversion/GetUOMConversionListDataBy",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.UOMConversion.ParamSearchUOMConversionViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "GetImageAll",
+    "RelativePath": "api/v{version}/User/GetAllImage",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "GetSearchUserCriteria",
+    "RelativePath": "api/v{version}/User/GetSearchUserCriteria",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "GetSearchUserCriteriaNotAssign",
+    "RelativePath": "api/v{version}/User/GetSearchUserCriteriaNotAssign",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "GetUser",
+    "RelativePath": "api/v{version}/User/GetUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "GetUserByName",
+    "RelativePath": "api/v{version}/User/GetUserByName",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "GetUserByUsername",
+    "RelativePath": "api/v{version}/User/GetUserByUsername",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "GetUserByUsernamePassword",
+    "RelativePath": "api/v{version}/User/GetUserByUsernamePassword",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.User.ParamLoginUser",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "PostInfo",
+    "RelativePath": "api/v{version}/User/PostItem",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.User.ResultGetUserInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "SearchUser",
+    "RelativePath": "api/v{version}/User/SearchUser",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.User.ParamSearchUser",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/v{version}/User/UpdateUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.User.ParamUpdateUser",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.UserController",
+    "Method": "UploadImage",
+    "RelativePath": "api/v{version}/User/UploadImage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.User.ParamUploadImage",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightCompareController",
+    "Method": "GetSearchListWeightCompare",
+    "RelativePath": "api/v{version}/WeightCompare/GetSearchListWeightCompare",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightCompare.ParamSearchWeightCompareViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightDailyController",
+    "Method": "GetSearchListWeightDaily",
+    "RelativePath": "api/v{version}/WeightDaily/GetSearchListWeightDaily",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightDaily.ParamSearchWeightDailyViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightHistoryController",
+    "Method": "GetSearchWeightHistoryListData",
+    "RelativePath": "api/v{version}/WeightHistory/GetSearchWeightHistoryListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightHistory.ParamSearchWeightHistoryViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightHistoryController",
+    "Method": "GetWeightHistoryInfo",
+    "RelativePath": "api/v{version}/WeightHistory/GetWeightHistoryInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightHistory.ParamWeightHistoryInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInController",
+    "Method": "GetSearchWeightInListData",
+    "RelativePath": "api/v{version}/WeightIn/GetSearchWeightInListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightIn.ParamSearchWeightInViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInController",
+    "Method": "GetWeightInInfo",
+    "RelativePath": "api/v{version}/WeightIn/GetWeightInInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightIn.ParamWeightInInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInController",
+    "Method": "GetWeightInInfoByCarLicense",
+    "RelativePath": "api/v{version}/WeightIn/GetWeightInInfoByCarLicense",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightIn.ParamWeightInInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInController",
+    "Method": "PostWeightInInfo",
+    "RelativePath": "api/v{version}/WeightIn/PostWeightInInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightIn.ResultGetWeightInInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInController",
+    "Method": "PutWeightOutInfo",
+    "RelativePath": "api/v{version}/WeightIn/PutWeightInInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightIn.ResultGetWeightInInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInController",
+    "Method": "PutWeightOutStatus",
+    "RelativePath": "api/v{version}/WeightIn/PutWeightInStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightIn.ResultGetWeightInInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInHistoryController",
+    "Method": "GetListWeightInHistory",
+    "RelativePath": "api/v{version}/WeightInHistory/GetListWeightInHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightInHistoryController",
+    "Method": "GetSearchWeightInHistoryListData",
+    "RelativePath": "api/v{version}/WeightInHistory/GetSearchWeightInHistoryListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightInHistory.ParamSearchWeightInHistoryViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightMasterController",
+    "Method": "CopyDeleteWeightMaster",
+    "RelativePath": "api/v{version}/WeightMaster/CopyDeleteWeightMaster",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutController",
+    "Method": "GetSearchWeightOutListData",
+    "RelativePath": "api/v{version}/WeightOut/GetSearchWeightOutListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightOut.ParamSearchWeightOutViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutController",
+    "Method": "GetWeightOutInfo",
+    "RelativePath": "api/v{version}/WeightOut/GetWeightOutInfo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightOut.ParamWeightOutInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutController",
+    "Method": "GetWeightOutInfoByCarLicense",
+    "RelativePath": "api/v{version}/WeightOut/GetWeightOutInfoByCarLicense",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightOut.ParamWeightOutInfo",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutController",
+    "Method": "PostWeightInInfo",
+    "RelativePath": "api/v{version}/WeightOut/PostWeightOutInfo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightOut.ResultGetWeightOutInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutController",
+    "Method": "PutWeightOutInfo",
+    "RelativePath": "api/v{version}/WeightOut/PutWeightOutInfo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightOut.ResultGetWeightOutInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutController",
+    "Method": "PutWeightOutStatus",
+    "RelativePath": "api/v{version}/WeightOut/PutWeightOutStatus",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightOut.ResultGetWeightOutInfoViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutHistoryController",
+    "Method": "GetListWeightOutHistory",
+    "RelativePath": "api/v{version}/WeightOutHistory/GetListWeightOutHistory",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightOutHistoryController",
+    "Method": "GetSearchWeightOutHistoryListData",
+    "RelativePath": "api/v{version}/WeightOutHistory/GetSearchWeightOutHistoryListData",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightOutHistory.ParamSearchWeightOutHistoryViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WeightScaleGen2.BGC.API.Controllers.WeightSummaryDayController",
+    "Method": "GetSearchListWeightSummaryDay",
+    "RelativePath": "api/v{version}/WeightSummaryDay/GetSearchListWeightSummaryDay",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "param",
+        "Type": "WeightScaleGen2.BGC.Models.ViewModels.WeightSummaryDay.ParamSearchWeightSummaryDayViewModel",
+        "IsRequired": true
+      },
+      {
+        "Name": "version",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

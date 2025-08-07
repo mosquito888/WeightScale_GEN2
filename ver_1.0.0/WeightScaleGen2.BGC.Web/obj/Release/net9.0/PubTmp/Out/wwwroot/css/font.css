@@ -1,0 +1,8 @@
+﻿@font-face {
+    font-family: 'Mitr Light';
+    src: url('../font/mitr/Mitr-Light.ttf') format('truetype');
+}
+
+html, body, * {
+    font-family: 'Mitr Light';
+}

@@ -1,0 +1,408 @@
+﻿@using WeightScaleGen2.BGC.Web.Common;
+@model WeightScaleGen2.BGC.Models.ViewModels.Home.ResultHomeViewModel
+@{
+    ViewData["PageTitle"] = @ViewBag.MenuName;
+}
+@Html.AntiForgeryToken()
+
+@if (ViewBag.Login == "Y")
+{
+    <script>
+        $(function () {
+            window.location.reload();
+        });
+    </script>
+}
+else
+{
+
+    @if (ViewBag.AssignPermission == "N")
+    {
+        <div id="dataContainerHeight" class="dataContainer">
+
+            <div class="grid place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+                <div class="text-center">
+                    <img src="~/img/error/not-found.svg" class="w-1/2 mx-auto" />
+                    <p class="text-base font-semibold text-indigo-600">404</p>
+                    <h1 class="mt-4 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl">Page not found</h1>
+                    <p class="mt-6 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">Sorry, we couldn’t find the page you’re looking for.</p>
+                    <div class="mt-10 flex items-center justify-center gap-x-6">
+                        <button type="button" onclick="Login()" class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function Login() {
+                window.location.href = '@Url.Action("Logout", "Home")';
+            }
+        </script>
+    }
+    else
+    {
+        <div class="pageMenuTitle">
+            <h3 class="text-black">หน้าหลัก</h3>
+        </div>
+        <div id="dataContainerHeight" class="dataContainer HomePage h-100">
+            <div class="grid grid-cols-1 xl:grid-cols-2 gap-2 h-fit">
+                <div class="space-y-2">
+                    <div class="bg-white border border-gray-200 rounded-lg shadow-sm h-96 py-4">
+                        <div id="chart" class=""></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2 mb-4 xl:mb-0">
+                        <div class="weightStatButton status-1 py-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
+                                <path d="M402.83-221.91 144.17-480l258.66-258.09 74.08 74.96L346.78-533h469.05v106H346.78l130.13 130.13-74.08 74.96Z" />
+                            </svg>
+                            <h1 id="weight_in" class="w-100 tracking-tight animation-0" data-textify>0</h1>
+                            <p class="">ขึ้นชั่งขาเข้า</p>
+                        </div>
+                        <div class="weightStatButton status-2 py-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
+                                <path d="M402.83-221.91 144.17-480l258.66-258.09 74.08 74.96L346.78-533h469.05v106H346.78l130.13 130.13-74.08 74.96Z" />
+                            </svg>
+                            <h1 id="weight_out" class="w-100 tracking-tight animation-0">0</h1>
+                            <p class="">ขึ้นชั่งขาออก</p>
+                        </div>
+                        <div class="weightStatButton status-3 py-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
+                                <path d="M480-60.78q-86.52 0-162.9-32.96-76.37-32.95-133.39-89.97-57.02-57.02-89.97-133.39Q60.78-393.48 60.78-480q0-87.04 32.95-163.06 32.95-76.03 89.96-133.18 57.01-57.15 133.4-90.07 76.39-32.91 162.91-32.91 22.09 0 37.54 15.46Q533-868.3 533-846.22q0 22.09-15.46 37.55-15.45 15.45-37.54 15.45-130.18 0-221.7 91.52-91.52 91.52-91.52 221.69 0 130.18 91.52 221.71 91.52 91.52 221.69 91.52 130.18 0 221.71-91.52 91.52-91.52 91.52-221.7 0-22.09 15.45-37.54Q824.13-533 846.22-533q22.08 0 37.54 15.46 15.46 15.45 15.46 37.54 0 86.52-32.95 162.92-32.95 76.4-89.96 133.44-57.01 57.03-133.1 89.95Q567.12-60.78 480-60.78Z" />
+                            </svg>
+                            <h1 id="weight_process" class="w-100 tracking-tight animation-0">0 (0)</h1>
+                            <p class="">กำลังลงสินค้า (ขึ้นชั่งภายใน)</p>
+                        </div>
+                        <div class="weightStatButton status-4 py-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ffffff">
+                                <path d="M256-181.91 181.91-256l224-224-224-224L256-778.09l224 224 224-224L778.09-704l-224 224 224 224L704-181.91l-224-224-224 224Z" />
+                            </svg>
+                            <h1 id="weight_cancel" class="w-100 tracking-tight animation-0">0</h1>
+                            <p class="">ยกเลิก</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:mb-2">
+                        <div onclick="DirectTo('/WeightIn');" class="weightStamp checkIn">
+                            <img class="mb-2" src="~/icons/weightin.png" />
+                            <h1 class="">ชั่งเข้า</h1>
+                        </div>
+                        <div onclick="DirectTo('/WeightOut');" class="weightStamp checkOut">
+                            <img class="mb-2" src="~/icons/weightout.png" />
+                            <h1 class="">ชั่งออก</h1>
+                        </div>
+                    </div>
+                    <div class="weightInRecently">
+                        <div class="weightInSearch">
+                            <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">รายการชั่งเข้า</label>
+                            <div class="relative w-full">
+                                <input type="search" id="weight_in_no" class="border bg-white text-black block w-full p-2.5" placeholder="กรอกเลขที่รายการชั่งเข้า" oninput="GetWeightInList()" required />
+                                <button type="button" onclick="GetWeightInList()" class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full rounded-e-lg">
+                                    <lord-icon src="https://cdn.lordicon.com/wjyqkiew.json"
+                                               trigger="loop"
+                                               delay="800"
+                                               stroke="bold"
+                                               colors="primary:#fff,secondary:#66d7ee"
+                                               style="width:20px;height:20px">
+                                    </lord-icon>
+                                    <span class="sr-only">Search</span>
+                                </button>
+                            </div>
+                        </div>
+                        <ul id="weight-in-list" class="divide-y divide-gray-300 m-0">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @section Scripts {
+            <script>
+                $(async function () {
+                    Swal.fire({
+                        title: 'รอสักครู่...',
+                        allowOutsideClick: false,
+                        didOpen: async () => {
+                            Swal.showLoading();
+                            await InitChart();
+                            await GetSummary();
+                            await GetWeightInList();
+                        },
+                    });
+                    setTimeout(function () { Swal.close(); }, 3000);
+                });
+
+                function GetSummary() {
+                $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("SearchSummaryData", "Dashboard")',
+                                data: null,
+                                success: function (data) {
+                                    if (data.status == '@Constants.Result.Success') {
+                                        $('#weight_in').text(data.data[0].total_record);
+                                        $('#weight_out').text(data.data[1].total_record);
+                                        $('#weight_process').text(data.data[2].total_record + " (" + data.data[3].total_record + ")");
+                                        $('#weight_cancel').text(data.data[4].total_record);
+                                        InitTextify();
+                                    } else if (data.status == '@Constants.Result.Invalid') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'คำเตือน',
+                                            text: data.message,
+                                            showCancelButton: false,
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'ตกลง',
+                                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                            buttonsStyling: false,
+                                        })
+                                    } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'คำเตือน',
+                                            text: data.message,
+                                            showCancelButton: false,
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'ตกลง',
+                                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                            buttonsStyling: false,
+                                        })
+                                        toastr['error']('Fail - ' + data.message, 'Warning!', ErrOpt);
+                                    }
+                                },
+                                error: function (err) {
+                                    toastr['error']('Fail', 'Warning!', ErrOpt);
+                                },
+                                complete: function (data) {
+
+                                }
+                            });
+                    }
+
+                function DirectTo(path) {
+                    window.location.href = path;
+                }
+
+                function InitChart() {
+                    $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("SearchSummaryHistoryData", "Dashboard")',
+                                data: null,
+                                success: function (data) {
+                                if (data.status == '@Constants.Result.Success') {
+                                    var weightIn = data.data.weight_in;
+                                    var weightOut = data.data.weight_out;
+
+                                    var categories = [];
+                                    var weightInSeries = [];
+                                    var weightOutSeries = [];
+
+                                    var map = {};
+
+                                    weightIn.forEach(item => {
+                                        var date = item.date;
+                                        map[date] = map[date] || { in: 0, out: 0 };
+                                        map[date].in = item.weight_count;
+                                    });
+
+                                    weightOut.forEach(item => {
+                                        var date = item.date;
+                                        map[date] = map[date] || { in: 0, out: 0 };
+                                        map[date].out = item.weight_count;
+                                    });
+
+                                    Object.keys(map).sort().forEach(date => {
+                                        categories.push(date);
+                                        weightInSeries.push(map[date].in);
+                                        weightOutSeries.push(map[date].out);
+                                    });
+
+                                    var options = {
+                                        chart: {
+                                            type: 'bar',
+                                            height: '100%',
+                                            width: '100%',
+                                            toolbar: {
+                                                show: false
+                                            },
+                                            fontFamily: 'Mitr Light',
+                                        },
+                                        colors: ['#162456', '#193cb8'],
+                                        series: [
+                                            {
+                                                name: 'ขึ้นชั่งขาเข้า',
+                                                data: weightInSeries
+                                            },
+                                            {
+                                                name: 'ขึ้นชั่งขาออก',
+                                                data: weightOutSeries
+                                            }
+                                        ],
+                                        xaxis: {
+                                            categories: categories,
+                                            title: {
+                                                text: 'วันที่'
+                                            },
+                                            labels: {
+                                                style: {
+                                                    fontSize: '10px'
+                                                }
+                                            }
+                                        },
+                                        yaxis: {
+                                            title: {
+                                                text: 'จำนวน'
+                                            },
+                                            labels: {
+                                                style: {
+                                                    fontSize: '10px'
+                                                }
+                                            }
+                                        },
+                                        plotOptions: {
+                                            bar: {
+                                                horizontal: false,
+                                                columnWidth: '60%',
+                                                endingShape: 'rounded'
+                                            }
+                                        },
+                                        dataLabels: {
+                                            enabled: true
+                                        },
+                                        legend: {
+                                            position: 'bottom'
+                                        }
+                                    };
+
+                                    var chart = new ApexCharts(document.querySelector("#chart"), options);
+                                    chart.render();
+                                } else if (data.status == '@Constants.Result.Invalid') {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'คำเตือน',
+                                            text: data.message,
+                                            showCancelButton: false,
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'ตกลง',
+                                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                            buttonsStyling: false,
+                                        })
+                                } else {
+                                        Swal.fire({
+                                            icon: 'error',
+                                            title: 'คำเตือน',
+                                            text: data.message,
+                                            showCancelButton: false,
+                                            confirmButtonColor: '#3085d6',
+                                            confirmButtonText: 'ตกลง',
+                                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                            buttonsStyling: false,
+                                        })
+                                        toastr['error']('Fail - ' + data.message, 'Warning!', ErrOpt);
+                                }
+                                },
+                                error: function (err) {
+                                    toastr['error']('Fail', 'Warning!', ErrOpt);
+                                },
+                                complete: function (data) {
+
+                                }
+                    });
+                }
+
+                function InitTextify() {
+                    new Textify({
+                        el: '.animation-0',
+                        animation: {
+                        stagger: 0.025,
+                        duration: 2.0,
+                        ease: 'expo.inOut',
+                        animateProps: {
+                            opacity: 0,
+                            scale: 0
+                            }
+                        }
+                    }, gsap);
+                }
+
+                function GetWeightInList() {
+                $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("SearchData", "WeightIn")',
+                                data: {
+                                    weight_in_no: $('#weight_in_no').val(),
+                                    start:0,
+                                    draw:10,
+                                    length:10
+                                },
+                                success: function (data) {
+                                    $('#weight-in-list').empty();
+                                    if (data.data && data.data.length > 0) {
+                                        data.data.forEach(function (weightin, index) {
+                                            const p = index === 0 ? 'pb-3 sm:pb-4' : 'py-3 sm:py-4';
+
+                                            const temp = `
+                                            <li class="${p}" onclick="WeightInInfo(${weightin.id});">
+                                                <div class="flex items-center space-x-4 rtl:space-x-reverse">
+                                                    <div class="shrink-0">
+                                                        <lord-icon
+                                                            src="https://cdn.lordicon.com/fjvfsqea.json"
+                                                            trigger="loop"
+                                                            delay="800"
+                                                            state="hover-unfold"
+                                                            colors="primary:#193cb8,secondary:#66d7ee"
+                                                            style="width:40px;height:40px">
+                                                        </lord-icon>
+                                                    </div>
+                                                    <div class="flex-1 min-w-0">
+                                                        <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                                                            ${weightin.weight_in_no}
+                                                        </p>
+                                                        <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                                            ${weightin.item_code} - ${weightin.item_name}
+                                                        </p>
+                                                    </div>
+                                                    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                                        ${weightin.car_license}
+                                                    </div>
+                                                </div>
+                                            </li>`;
+
+                                            $('#weight-in-list').append(temp);
+                                        });
+                                    } else {
+                                        $('#weight-in-list').html(`
+                                              <div class="flex items-center justify-center h-full">
+                                                  <li class="flex flex-col items-center text-center p-4 text-gray-800 dark:text-gray-400 bg-transparent">
+                                                    <lord-icon
+                                                      src="https://cdn.lordicon.com/lltgvngb.json"
+                                                      trigger="loop"
+                                                      delay="800"
+                                                      stroke="bold"
+                                                      colors="primary:#193cb8,secondary:#66d7ee"
+                                                      style="width:50px;height:50px">
+                                                    </lord-icon>
+                                                    <span class="mt-2">Weight In not found.</span>
+                                                  </li>
+                                              </div>
+                                            `);
+                                    }
+                                },
+                                error: function (err) {
+                                    toastr['error']('Fail', 'Warning!', ErrOpt);
+                                },
+                                complete: function (data) {
+
+                                }
+                            });
+                }
+
+                function WeightInInfo(id) {
+                    var url = '@Url.Action("WeightInInfo", "WeightIn")' +
+                    '?mode=' + '@Constants.Mode.Updated' +
+                    '&id=' + id;
+                    window.location.href = url;
+                }
+            </script>
+        }
+    }
+}

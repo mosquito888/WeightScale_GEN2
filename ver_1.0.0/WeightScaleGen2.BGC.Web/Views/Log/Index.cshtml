@@ -1,0 +1,391 @@
+﻿@using WeightScaleGen2.BGC.Web.Common
+@model WeightScaleGen2.BGC.Models.ViewModels.Log.ResultSearchLogCriteriaViewModel
+@{
+    ViewData["PageTitle"] = @ViewBag.MenuName;
+}
+@Html.AntiForgeryToken()
+<div class="h-100">
+    @* Header Section *@
+    <div class="pageMenuTitle">
+        <h3 class="text-black">Log</h3>
+    </div>
+
+    <div id="dataContainerHeight" class="dataContainer">
+
+        <div class="flex flex-row items-center justify-between mb-3 flex-wrap gap-2">
+            <h4 class="dataTitle">Log</h4>
+            <div>
+                <button type="button" onclick="ExportExcel()" class="buttonAction second-bg inline-flex items-center">
+                    @* <i class="fa-solid fa-file-excel me-2"></i> *@
+                    <img src="~/icons/excel.svg" class="" />
+                    ดาวน์โหลด
+                </button>
+            </div>
+        </div>
+
+        @* Search Section *@
+        <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm mb-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
+                <div>
+                    <label for="inputSearch" class="d-block mb-2">ชื่อพนักงานหรือ อีเมล</label>
+                    <input type="text" placeholder="กรอกชื่อพนักงานหรือ อีเมล" class="border text-gray-900 block w-full p-2.5" id="inputSearch">
+                </div>
+                <div>
+                    <label for="inputLevel" class="d-block mb-2">ระดับ</label>
+                    @Html.DropDownListFor(x => x.level_item,
+                    Model.level_item.Select(s => new SelectListItem()
+                    {
+                        Text = s.text,
+                        Value = s.value,
+                        Disabled = !s.is_active
+                    }),
+                                        Constants.SelectOption.SelectOne, new { @class = "border text-gray-900 block w-full p-2.5", id = "inputLevel" })
+                </div>
+                <div>
+                    <label for="inputLogDateFrom" class="d-block mb-2">วันที่เริ่มต้น</label>
+                    <div class="relative">
+                        <lord-icon src="https://cdn.lordicon.com/uphbloed.json"
+                                   trigger="hover"
+                                   style="width: 20px; height: 20px;"
+                                   colors="primary:#193cb8,secondary:#66d7ee"
+                                   class="absolute top-1/2 right-2 transform -translate-y-1/2 w-6 h-6">
+                        </lord-icon>
+                        <input type="text" id="inputLogDateFrom" placeholder="เลือกวันที่เริ่มต้น" class="border text-gray-900 block w-full p-2.5" />
+                    </div>
+                </div>
+                <div>
+                    <label for="inputLogDateTo" class="d-block mb-2">วันที่สิ้นสุด</label>
+                    <div class="relative">
+                        <lord-icon src="https://cdn.lordicon.com/uphbloed.json"
+                                   trigger="hover"
+                                   style="width: 20px; height: 20px;"
+                                   colors="primary:#193cb8,secondary:#66d7ee"
+                                   class="absolute top-1/2 right-2 transform -translate-y-1/2 w-6 h-6">
+                        </lord-icon>
+                        <input type="text" id="inputLogDateTo" placeholder="เลือกวันที่สิ้นสุด" class="border text-gray-900 block w-full p-2.5" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-content-center gap-2 flex-wrap">
+                <button type="button" onclick="SearchLog()" class="buttonAction w-150px primary-bg inline-flex justify-content-center items-center">
+                    <img src="~/icons/search.svg" class="" />Search
+                </button>
+                <button type="button" onclick="Clear()" class="buttonAction w-150px third-bg inline-flex justify-content-center items-center">
+                    <img src="~/icons/close.svg" class="" />เคลียร์
+                </button>
+            </div>
+
+        </div>
+
+        @* Table Section *@
+        <div class="relative overflow-x-auto shadow-sm rounded-lg border border-gray-200 p-4">
+            <table id="log-list" class="w-full text-md text-left rtl:text-right text-gray-700">
+                <thead class="text-white uppercase">
+                    <tr>
+                        <th class="text-center">Level</th>
+                        <th class="text-center">LogDate</th>
+                        <th class="text-center">UserName</th>
+                        <th class="text-center">Message</th>
+                        <th class="text-center">ExceptionMessage</th>
+                        <th class="text-center">LogCallerFilePath</th>
+                        <th class="text-center">LogSoureceLineNumber</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        flatpickr('#inputLogDateTo', {
+            locale: 'en',
+            dateFormat: "d/m/Y",
+        });
+
+        flatpickr('#inputLogDateFrom', {
+            locale: 'en',
+            dateFormat: "d/m/Y",
+        });
+
+        $(document).on('keypress',function(e) {
+            if(e.which == 13) {
+                Search();
+            }
+        });
+
+        $(document).ready(function () {
+            $("#btn-search").click(function () {
+                OpenSearch();
+            });
+            $("#search-header").click(function () {
+                OpenSearch();
+            });
+        });
+
+        function OpenSearch() {
+            event.stopPropagation();
+            $("#search-body").slideToggle("slow", function () {
+                var isVisible = $(this).is(":visible");
+                var iconClass = isVisible ? "fa-caret-up" : "fa-caret-down";
+                $("#btn-search i").removeClass().addClass("fa-solid " + iconClass);
+            });
+        }
+
+        var t
+        var searchParam;
+        var fromSearch = true;
+        $(function () {
+            Swal.fire({
+                title: 'รอสักครู่...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+            SearchPage.init({
+                url: '@Url.RouteUrl("LogReportData")',
+                info_page_url: '@Url.RouteUrl("LogReportData")',
+                tableId: "log-list"
+            });
+            setTimeout(function () { Swal.close(); }, 1000);
+        });
+
+        var SearchPage = function () {
+            var tableList;  // actual table jquery object
+            var opts;       // all param object
+            var initDataTable = function () {
+                t = tableList.DataTable({
+                    ajax: {
+                        url: '@Url.Action("LogReportData", "Log")',
+                        type: "POST",
+                        data: function (d) {
+                            return $.extend({}, d, {
+                                "username": $('#inputSearch').val(),
+                                "level": $('#inputLevel').val(),
+                                "logDataFrom": $('#inputLogDateFrom').val(),
+                                "logDataTo": $('#inputLogDateTo').val()
+                            });
+                        },
+                        dataType: "json",
+                        error: function (jqXhr, txtStatus, errorThrown) {
+                            if (typeof console === "object") {
+                                console.log("Code: " + jqXhr.status);
+                                console.log("Status: " + txtStatus);
+                                console.log("Error Thrown: " + errorThrown);
+                            }
+                        }
+                    },
+                    ordering: false,
+                    // scrollX: true,
+                    // scrollY: "calc(100vh - 300px)",
+                    deferRender: true,
+                    iDisplayLength: 10,
+                    paging: true,
+                    serverSide: true,
+                    autoWidth: false,
+                    searching: false,
+                    info: true,
+                    // dom: '<"flex flex-wrap items-center gap-3 mb-3 view-filter"<"w-full sm:w-auto"<"mr-3"l><"mr-3"f>>>' + 't' + '<"flex justify-center mt-3 view-pager"<"w-full sm:w-auto"ip>>',
+                    language: {
+                        paginate: {
+                            first: 'หน้าแรก',
+                            last: 'หน้าสุดท้าย',
+                            next: 'ถัดไป →',
+                            previous: '← ก่อนหน้า'
+                        },
+                        info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+                        infoEmpty: "ไม่มีข้อมูลที่จะแสดง",
+                        lengthMenu: "แสดง _MENU_ รายการ",
+                        infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+                        zeroRecords: "ไม่พบข้อมูลที่ค้นหา",
+                        processing: "รอสักครู่..."
+                    },
+                    preDrawCallback: function (settings) {
+                        Swal.fire({
+                            title: 'รอสักครู่...',
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                                Swal.showLoading()
+                            },
+                        });
+                    },
+                    drawCallback: function (settings) {
+                        Swal.close();
+                    },
+                    columns: [
+                        { data: "level", name: "level", className: "text-left p-4", orderable: false },
+                        { data: "log_date", name: "log_date", className: "text-left p-4", orderable: false, render: renderCol_DateTime_EN },
+                        { data: "username", name: "username", className: "text-left p-4", orderable: false },
+                        { data: "message", name: "message", className: "text-left p-4", orderable: false },
+                        { data: "exception_message", name: "exception_message", className: "text-left p-4", orderable: false },
+                        { data: "log_caller_file_path", name: "log_caller_file_path", className: "text-left p-4", orderable: false },
+                        { data: "log_source_line_number", name: "log_source_line_number", className: "text-left p-4", orderable: false },
+                    ],
+                    order: [[1, "asc"]]
+                });
+            };
+
+            var renderCol_Date_EN = function (data, type, row, meta) {
+                if (data == null)
+                    return "";
+                let d = moment(data);
+                return d.format('DD') + '/' + d.format('MM') + '/' + d.format('YYYY');
+            };
+
+            var renderCol_DateTime_EN = function (data, type, row, meta) {
+                if (data == null)
+                    return "";
+                let d = moment(data);
+                return d.format('DD') + '/' + d.format('MM') + '/' + d.format('YYYY') + ' ' + d.format('HH') + ':' + d.format('mm') + ':' + d.format('ss');
+            };
+
+            var renderCol_Date_TH = function (data, type, row, meta) {
+                if (data == null)
+                    return "";
+                let d = moment(data);
+                return d.format('MM') + '/' + d.format('DD') + '/' + d.add(543, 'y').format('YYYY');
+            };
+
+            var renderCol_DateTime_TH = function (data, type, row, meta) {
+                if (data == null)
+                    return "";
+                let d = moment(data);
+                return d.format('MM') + '/' + d.format('DD') + '/' + d.add(543, 'y').format('YYYY') + ' ' + d.format('HH') + ':' + d.format('mm') + ':' + d.format('ss');
+            };
+
+            var reloadTable = function () {
+                if (tableList) {
+                    tableList.DataTable().ajax.reload();
+                }
+            };
+
+            return {
+                init: function (options) {
+                    opts = $.extend({
+                        ajaxUrl_GetList: '@Url.Action("LogReportData", "Log")',
+                        redirectUrl_InfoPage: options.info_page_url,
+                        updateRole: options.info_page_url,
+                        table: []
+                    }, options);
+                    tableList = $("#" + opts.tableId);
+                    initDataTable();
+                },
+                reloadTableAjax: function () {
+                    reloadTable();
+                }
+            };
+        }();
+
+        function SearchLog() {
+            Swal.fire({
+                title: 'รอสักครู่...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+            fromSearch = true;
+            SearchPage.reloadTableAjax();
+            setTimeout(function () { Swal.close(); }, 1000);
+        }
+
+        function Clear() {
+            $('#inputSearch').val("");
+            $('#inputLevel').val("");
+            $('#inputLogDateFrom').val("");
+            $('#inputLogDateTo').val("");
+            $('#log-list').DataTable().clear().draw();
+        }
+
+        function ExportExcel() {
+
+            Swal.fire({
+                title: 'กำลังส่งออกข้อมูล',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+
+            $.ajax({
+                url: '@Url.Action("ActionCreateExcelFile", "Log")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'username': $('#inputSearch').val(),
+                    'level': $('#inputLevel').val(),
+                    'logDataFrom': $('#inputLogDateFrom').val(),
+                    'logDataTo': $('#inputLogDateTo').val()
+                },
+                success: function (data) {
+                    if (data.status == '@Constants.Result.Success') {
+                        OpenExcel(data.path, data.fileName);
+                        Swal.fire({
+                            title: 'ส่งออกไฟล์สำเร็จ',
+                            html: 'I will close in <strong></strong> seconds.',
+                            timer: 2000,
+                            icon: "success",
+                            showCancelButton: false, // There won't be any cancel button
+                            showConfirmButton: false, // There won't be any confirm button
+                            //confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                            onBeforeOpen: function () {
+                                Swal.showLoading()
+                                timerInterval = setInterval(function () {
+                                    Swal.getContent().querySelector('strong')
+                                        .textContent = Swal.getTimerLeft()
+                                }, 100)
+                            },
+                            onClose: function () {
+                                clearInterval(timerInterval)
+                            }
+                        }).then(function (result) {
+                            if (
+                                // Read more about handling dismissals
+                                result.dismiss === Swal.DismissReason.timer
+                            ) {
+                                clearModal();
+                                Search();
+                            }
+                        })
+                    } else if (data.status == '@Constants.Result.Invalid') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'คำเตือน',
+                            text: data.message,
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'คำเตือน',
+                            text: data.message,
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                        })
+                        toastr['error']('Fail - ' + data.message, 'Warning!', ErrOpt);
+                    }
+                },
+                error: function () {
+                    toastr['error']('Fail', 'Warning!', ErrOpt);
+                }
+            });
+        }
+
+        function OpenExcel(path, fileName) {
+            var url = '@Url.Action("ActionOpenFileExcel", "Log")' +
+                '?path=' + path +
+                '&fileName=' + fileName;
+            window.open(url, '_blank');
+        }
+    </script>
+}

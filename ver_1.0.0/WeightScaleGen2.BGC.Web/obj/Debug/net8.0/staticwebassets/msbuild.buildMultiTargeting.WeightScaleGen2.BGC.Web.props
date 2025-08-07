@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\WeightScaleGen2.BGC.Web.props" />
+</Project>

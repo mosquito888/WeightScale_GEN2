@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\deploy\wsc\api</_PublishTargetUrl>
+    <History>True|2025-08-06T07:39:48.3955619Z||;True|2025-08-05T14:23:29.5415767+07:00||;True|2025-08-01T14:53:20.7836065+07:00||;True|2025-07-25T11:15:13.4685492+07:00||;True|2025-07-25T10:51:36.8544860+07:00||;True|2025-07-23T16:55:10.4379158+07:00||;True|2025-07-23T16:51:03.3105689+07:00||;True|2025-07-23T14:30:28.3721804+07:00||;True|2025-07-09T10:26:40.8880086+07:00||;True|2025-07-08T16:40:08.5018471+07:00||;True|2025-07-07T11:38:27.1924001+07:00||;True|2025-07-07T09:41:02.2237040+07:00||;True|2025-07-01T11:45:37.5653701+07:00||;True|2025-06-27T12:13:45.6491045+07:00||;False|2025-06-27T12:13:11.1586174+07:00||;True|2025-06-10T16:01:00.1577448+07:00||;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+</Project>

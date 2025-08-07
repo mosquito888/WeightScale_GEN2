@@ -1,0 +1,14 @@
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\bin\Release\net9.0\WeightScaleGen2.BGC.Models.deps.json
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\bin\Release\net9.0\WeightScaleGen2.BGC.Models.runtimeconfig.json
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\bin\Release\net9.0\WeightScaleGen2.BGC.Models.dll
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\bin\Release\net9.0\WeightScaleGen2.BGC.Models.pdb
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.csproj.AssemblyReference.cache
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.AssemblyInfoInputs.cache
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.AssemblyInfo.cs
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.csproj.CoreCompileInputs.cache
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.dll
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\refint\WeightScaleGen2.BGC.Models.dll
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.pdb
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\WeightScaleGen2.BGC.Models.genruntimeconfig.cache
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Models\obj\Release\net9.0\ref\WeightScaleGen2.BGC.Models.dll

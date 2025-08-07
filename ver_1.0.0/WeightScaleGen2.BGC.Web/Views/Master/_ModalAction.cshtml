@@ -1,0 +1,200 @@
+﻿@using WeightScaleGen2.BGC.Web.Common;
+@model WeightScaleGen2.BGC.Models.ViewModels.Master.ResultGetMasterInfoViewModel;
+@{
+    ViewData["PageTitle"] = @ViewBag.MenuName;
+}
+@Html.AntiForgeryToken()
+<form id="formModal" class="needs-validation" novalidate>
+    @Html.HiddenFor(x => x.mode, new { @id="mode"})
+    <div class="row">
+        <div class="form-group col-md-12">
+            <div class="portlet box purple">
+                <div class="portlet-body form">
+                    <div class="form-body">
+                        <div class="row mb-4">
+                            <div class="col-12 mb-4">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="form-row">
+
+                                            @if (Model.mode == Constants.Mode.Created)
+                                            {
+                                                <div class="form-group col-md-12">
+                                                    <label for="master_code">Master Code</label>
+                                                    @Html.TextBoxFor(x => x.master_code, new { @class="form-control", @id="master_code", @maxlength="50", @required=true })
+                                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="form-group col-md-12">
+                                                    <label for="master_code">Master Code</label>
+                                                    @Html.TextBoxFor(x => x.master_code, new { @class="form-control", @id="master_code", @maxlength="50", @required=true, @readonly=true })
+                                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                                </div>
+                                            }
+
+                                            @if (Model.mode == Constants.Mode.Created)
+                                            {
+                                                <div class="form-group col-md-12">
+                                                    <label for="master_type">Master Type</label>
+                                                    @Html.DropDownListFor(x => x.master_type, SelectListMethods.GetMasterType(), Constants.SelectOption.SelectOne,
+                                                new {
+                                                @class="form-control",
+                                                @id="master_type",
+                                                @required=true
+                                                })
+                                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="form-group col-md-12">
+                                                    <label for="master_type">Master Type</label>
+                                                    @Html.TextBoxFor(x => x.master_type, new { @class="form-control", @id="master_type", @maxlength="50", @required=true, @readonly=true })
+                                                    <div class="invalid-feedback">Please fill out this field.</div>
+                                                </div>
+                                            }
+
+                                            <div class="form-group col-md-12">
+                                                <label for="master_value1">Master Value</label>
+                                                @Html.TextBoxFor(x => x.master_value1, new { @class="form-control", @id="master_value1", @maxlength="50", @required=true })
+                                                <div class="invalid-feedback">Please fill out this field.</div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="master_desc_th">Master Desc.</label>
+                                                @Html.TextAreaFor(x => x.master_desc_th, new { @class="form-control", @maxlength="50", @id="master_desc_th" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-outline-success shadow-sm" onclick="Save()">Confirm</button>&nbsp;&nbsp;
+                        <button type="button" class="d-none d-sm-inline-block btn btn-sm btn-outline-danger shadow-sm" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    function Save() {
+        var validFormMain = ValidateFormMain();
+        if (validFormMain) {
+            RealSave();
+        }
+    }
+
+    function ValidateFormMain() {
+        if (!$('#formModal')[0].checkValidity()) {
+            document.getElementsByClassName('needs-validation').formModal.classList.add('was-validated');
+            Swal.fire({
+                title: 'คำเตือน',
+                text: 'กรุณากรอกข้อมูลให้ครบถ้วน !',
+                icon: 'error',
+                showCancelButton: false,
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'ตกลง',
+                confirmButtonClass: 'd-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                buttonsStyling: false,
+            })
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    function RealSave() {
+        var formData = $('#formModal').serialize();
+        Swal.fire({
+            title: 'ยืนยันการบันทึกข้อมูล ?',
+            text: '',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'ยืนยัน',
+            cancelButtonText: 'ยกเลิก',
+            confirmButtonClass: 'd-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+            cancelButtonClass: 'd-none d-sm-inline-block btn btn-sm btn-outline-danger shadow-sm ml-1',
+            buttonsStyling: false,
+        }).then(function (result) {
+            if (result.value) {
+                $.ajax({
+                    cache: false,
+                    async: true,
+                    type: "POST",
+                    url: '@Url.Action("SaveItem", "Master")',
+                    data: formData,
+                    success: function (data) {
+                        if (data.status == '@Constants.Result.Success') {
+                            var timerInterval
+                            Swal.fire({
+                                title: 'บันทึกสำเร็จ !',
+                                html: 'I will close in <strong></strong> seconds.',
+                                timer: 750,
+                                icon: "success",
+                                showCancelButton: false, // There won't be any cancel button
+                                showConfirmButton: false, // There won't be any confirm button
+                                buttonsStyling: false,
+                                onBeforeOpen: function () {
+                                    Swal.showLoading()
+                                    timerInterval = setInterval(function () {
+                                        Swal.getContent().querySelector('strong')
+                                            .textContent = Swal.getTimerLeft()
+                                    }, 100)
+                                },
+                                onClose: function () {
+                                    clearInterval(timerInterval)
+                                }
+                            }).then(function (result) {
+                                if (
+                                    // Read more about handling dismissals
+                                    result.dismiss === Swal.DismissReason.timer
+                                ) {
+                                    console.log('หน้าต่างจะปิดในเวลา')
+                                    clearModal();
+                                    Search();
+                                }
+                            })
+                        } else if (data.status == '@Constants.Result.Invalid') {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'คำเตือน',
+                                text: data.message,
+                                showCancelButton: false,
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'ตกลง',
+                                confirmButtonClass: 'd-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                buttonsStyling: false,
+                            })
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'คำเตือน',
+                                text: data.message,
+                                showCancelButton: false,
+                                confirmButtonColor: '#3085d6',
+                                confirmButtonText: 'ตกลง',
+                                confirmButtonClass: 'd-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                buttonsStyling: false,
+                            })
+                            toastr['error']('Fail - ' + data.message, 'Warning!', ErrOpt);
+                        }
+                    },
+                    error: function (err) {
+                        toastr['error']('Fail', 'Warning!', ErrOpt);
+                    },
+                    complete: function (data) {
+                    }
+                });
+            }
+        })
+    }
+
+</script>

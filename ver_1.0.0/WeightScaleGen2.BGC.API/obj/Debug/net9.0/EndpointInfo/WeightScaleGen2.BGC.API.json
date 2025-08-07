@@ -1,0 +1,5828 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "WeightScaleGen2.BGC.API v1",
+    "description": "WeightScaleGen2.BGC.API Use for internal user only",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/About": {
+      "get": {
+        "tags": [
+          "About"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/About/TestConnection": {
+      "get": {
+        "tags": [
+          "About"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/About/GetConnection": {
+      "get": {
+        "tags": [
+          "About"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Company/GetCompanyListData": {
+      "get": {
+        "tags": [
+          "Company"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Company/GetSearchCompanyListData": {
+      "get": {
+        "tags": [
+          "Company"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchCompViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchCompViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchCompViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Company/PostItem": {
+      "post": {
+        "tags": [
+          "Company"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Company/PutItem": {
+      "put": {
+        "tags": [
+          "Company"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Company/DeleteItem": {
+      "delete": {
+        "tags": [
+          "Company"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetCompInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Dashboard/GetSearchListDashboardSummary": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Dashboard/GetSearchListDashboardHistorySummary": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Department/GetDepartmentListData": {
+      "get": {
+        "tags": [
+          "Department"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Department/GetSearchDepartmentListData": {
+      "get": {
+        "tags": [
+          "Department"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchDeptViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchDeptViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchDeptViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Department/PostItem": {
+      "post": {
+        "tags": [
+          "Department"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Department/PutItem": {
+      "put": {
+        "tags": [
+          "Department"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Department/DeleteItem": {
+      "delete": {
+        "tags": [
+          "Department"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetDeptInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/DocumentPO/GetSearchListDocumentPO": {
+      "get": {
+        "tags": [
+          "DocumentPO"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchDocumentPOViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchDocumentPOViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchDocumentPOViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/DocumentPO/GetDocumentPOInfo": {
+      "get": {
+        "tags": [
+          "DocumentPO"
+        ],
+        "parameters": [
+          {
+            "name": "purchase_number",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Employee/GetEmployeeListData": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Employee/GetSearchEmployeeListData": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchEmpViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchEmpViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchEmpViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Employee/GetEmployeeInfo": {
+      "get": {
+        "tags": [
+          "Employee"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamEmpInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamEmpInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamEmpInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Employee/PostEmployeeInfo": {
+      "post": {
+        "tags": [
+          "Employee"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetEmpInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetEmpInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetEmpInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Employee/PutEmployeeInfo": {
+      "put": {
+        "tags": [
+          "Employee"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetEmpInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetEmpInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetEmpInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/GroupMaster/GetGroupMasterListData": {
+      "get": {
+        "tags": [
+          "GroupMaster"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMaster/GetItemMasterListData": {
+      "get": {
+        "tags": [
+          "ItemMaster"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMaster/GetSearchItemMasterListData": {
+      "get": {
+        "tags": [
+          "ItemMaster"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchItemMasterViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchItemMasterViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchItemMasterViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMaster/GetItemMasterInfo": {
+      "get": {
+        "tags": [
+          "ItemMaster"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamItemMasterInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamItemMasterInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamItemMasterInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMaster/PostItemMasterInfo": {
+      "post": {
+        "tags": [
+          "ItemMaster"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMaster/PutItemMasterInfo": {
+      "put": {
+        "tags": [
+          "ItemMaster"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMaster/DeleteItem": {
+      "delete": {
+        "tags": [
+          "ItemMaster"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMasterRelation/GetItemMasterRelationListData": {
+      "get": {
+        "tags": [
+          "ItemMasterRelation"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMasterRelation/GetSearchItemMasterRelationListData": {
+      "get": {
+        "tags": [
+          "ItemMasterRelation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchItemMasterRelationViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchItemMasterRelationViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchItemMasterRelationViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMasterRelation/GetItemMasterRelationInfo": {
+      "get": {
+        "tags": [
+          "ItemMasterRelation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamItemMasterRelationInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamItemMasterRelationInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamItemMasterRelationInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMasterRelation/PostItemMasterRelationInfo": {
+      "post": {
+        "tags": [
+          "ItemMasterRelation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMasterRelation/PutItemMasterRelationInfo": {
+      "put": {
+        "tags": [
+          "ItemMasterRelation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ItemMasterRelation/DeleteItem": {
+      "delete": {
+        "tags": [
+          "ItemMasterRelation"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetItemMasterRelationInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Log/GetSearchLogCriteria": {
+      "get": {
+        "tags": [
+          "Log"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Log/SearchLogData": {
+      "post": {
+        "tags": [
+          "Log"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchLogViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchLogViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchLogViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Master/GetMasterListData": {
+      "get": {
+        "tags": [
+          "Master"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Master/GetMasterListDataType": {
+      "get": {
+        "tags": [
+          "Master"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Master/GetSearchMasterListData": {
+      "get": {
+        "tags": [
+          "Master"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMasterViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMasterViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMasterViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Master/PostItem": {
+      "post": {
+        "tags": [
+          "Master"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Master/PutItem": {
+      "put": {
+        "tags": [
+          "Master"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Master/DeleteItem": {
+      "delete": {
+        "tags": [
+          "Master"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetMasterInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/AuthenticateMenuUser": {
+      "get": {
+        "tags": [
+          "Menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PramGetMenuViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PramGetMenuViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/PramGetMenuViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/GetMenuRole": {
+      "get": {
+        "tags": [
+          "Menu"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/UpdateMenuRole": {
+      "put": {
+        "tags": [
+          "Menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUpdateRoleItemViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUpdateRoleItemViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUpdateRoleItemViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/UpdateMenuRoleSelect": {
+      "put": {
+        "tags": [
+          "Menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRoleItemSection"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRoleItemSection"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRoleItemSection"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/PostNewRole": {
+      "post": {
+        "tags": [
+          "Menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/GetRoleInfo": {
+      "get": {
+        "tags": [
+          "Menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/PutRole": {
+      "put": {
+        "tags": [
+          "Menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Menu/DeleteRole": {
+      "delete": {
+        "tags": [
+          "Menu"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultRoleInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/MMPO/GetSearchListMMPO": {
+      "get": {
+        "tags": [
+          "MMPO"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/MMPO/GetSearchMMPOCheckQtyPending": {
+      "get": {
+        "tags": [
+          "MMPO"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOQtyPendingViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOQtyPendingViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOQtyPendingViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/MMPO/UpdateMMPOSapToDocumentPO": {
+      "post": {
+        "tags": [
+          "MMPO"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchMMPOViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/MMPO/UpdateMMPOSapToDocumentPOData": {
+      "post": {
+        "tags": [
+          "MMPO"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Plant/GetPlantListData": {
+      "get": {
+        "tags": [
+          "Plant"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Plant/GetSearchPlantListData": {
+      "get": {
+        "tags": [
+          "Plant"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchPlantViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchPlantViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchPlantViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Plant/PostItem": {
+      "post": {
+        "tags": [
+          "Plant"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Plant/PutItem": {
+      "put": {
+        "tags": [
+          "Plant"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Plant/DeleteItem": {
+      "delete": {
+        "tags": [
+          "Plant"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetPlantInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Prefix/GetRunningDocument": {
+      "get": {
+        "tags": [
+          "Prefix"
+        ],
+        "parameters": [
+          {
+            "name": "docType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "compType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "plantType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "plantShortType",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ReturnData/GetSearchListReturnData": {
+      "get": {
+        "tags": [
+          "ReturnData"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchReturnDataViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchReturnDataViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchReturnDataViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/ReturnData/PostDataToSAP": {
+      "post": {
+        "tags": [
+          "ReturnData"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchReturnDataViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchReturnDataViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchReturnDataViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Sender/GetSenderListData": {
+      "get": {
+        "tags": [
+          "Sender"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Sender/GetSearchSenderListData": {
+      "get": {
+        "tags": [
+          "Sender"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchSenderViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchSenderViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchSenderViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Sender/GetSenderInfo": {
+      "get": {
+        "tags": [
+          "Sender"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSenderInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSenderInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSenderInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Sender/PostSenderInfo": {
+      "post": {
+        "tags": [
+          "Sender"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Sender/PutSenderInfo": {
+      "put": {
+        "tags": [
+          "Sender"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Sender/DeleteItem": {
+      "delete": {
+        "tags": [
+          "Sender"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSenderInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/SendMail/sendmailDemo/{sentto}/{type}": {
+      "get": {
+        "tags": [
+          "SendMail"
+        ],
+        "parameters": [
+          {
+            "name": "sentto",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/SendMail/sendmail": {
+      "post": {
+        "tags": [
+          "SendMail"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendMail"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendMail"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendMail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Supplier/GetSupplierListData": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Supplier/GetSearchSupplierListData": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchSupplierViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchSupplierViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchSupplierViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Supplier/GetSupplierInfo": {
+      "get": {
+        "tags": [
+          "Supplier"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSupplierInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSupplierInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSupplierInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Supplier/PostSupplierInfo": {
+      "post": {
+        "tags": [
+          "Supplier"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Supplier/PutSupplierInfo": {
+      "put": {
+        "tags": [
+          "Supplier"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/Supplier/DeleteItem": {
+      "delete": {
+        "tags": [
+          "Supplier"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetSupplierInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/System/GetSystemListData": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UOMConversion/GetUOMConversionListData": {
+      "get": {
+        "tags": [
+          "UOMConversion"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UOMConversion/GetUOMConversionListDataBy": {
+      "get": {
+        "tags": [
+          "UOMConversion"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchUOMConversionViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchUOMConversionViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchUOMConversionViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/UOMConversion/GetUOMConversionListByMaterialCode": {
+      "get": {
+        "tags": [
+          "UOMConversion"
+        ],
+        "parameters": [
+          {
+            "name": "materialCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/PostItem": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetUserInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetUserInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetUserInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetSearchUserCriteria": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetSearchUserCriteriaNotAssign": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/SearchUser": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetUser": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetUserByUsername": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetUserByName": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/UpdateUser": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUpdateUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUpdateUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUpdateUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/UploadImage": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUploadImage"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUploadImage"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamUploadImage"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetAllImage": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/User/GetUserByUsernamePassword": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamLoginUser"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamLoginUser"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamLoginUser"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightCompare/GetSearchListWeightCompare": {
+      "get": {
+        "tags": [
+          "WeightCompare"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightCompareViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightCompareViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightCompareViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightDaily/GetSearchListWeightDaily": {
+      "get": {
+        "tags": [
+          "WeightDaily"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightDailyViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightDailyViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightDailyViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightHistory/GetSearchWeightHistoryListData": {
+      "get": {
+        "tags": [
+          "WeightHistory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightHistoryViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightHistoryViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightHistoryViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightHistory/GetWeightHistoryInfo": {
+      "get": {
+        "tags": [
+          "WeightHistory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightHistoryInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightHistoryInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightHistoryInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightIn/PostWeightInInfo": {
+      "post": {
+        "tags": [
+          "WeightIn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightIn/PutWeightInInfo": {
+      "put": {
+        "tags": [
+          "WeightIn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightIn/PutWeightInStatus": {
+      "put": {
+        "tags": [
+          "WeightIn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightInInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightIn/GetSearchWeightInListData": {
+      "get": {
+        "tags": [
+          "WeightIn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightInViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightInViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightInViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightIn/GetWeightInInfo": {
+      "get": {
+        "tags": [
+          "WeightIn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightInInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightInInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightInInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightIn/GetWeightInInfoByCarLicense": {
+      "get": {
+        "tags": [
+          "WeightIn"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightInInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightInInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightInInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightInHistory/GetListWeightInHistory": {
+      "get": {
+        "tags": [
+          "WeightInHistory"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightInHistory/GetSearchWeightInHistoryListData": {
+      "get": {
+        "tags": [
+          "WeightInHistory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightInHistoryViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightInHistoryViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightInHistoryViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightMaster/CopyDeleteWeightMaster": {
+      "delete": {
+        "tags": [
+          "WeightMaster"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOut/PostWeightOutInfo": {
+      "post": {
+        "tags": [
+          "WeightOut"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOut/PutWeightOutInfo": {
+      "put": {
+        "tags": [
+          "WeightOut"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOut/PutWeightOutStatus": {
+      "put": {
+        "tags": [
+          "WeightOut"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResultGetWeightOutInfoViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOut/GetSearchWeightOutListData": {
+      "get": {
+        "tags": [
+          "WeightOut"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightOutViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightOutViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightOutViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOut/GetWeightOutInfo": {
+      "get": {
+        "tags": [
+          "WeightOut"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightOutInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightOutInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightOutInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOut/GetWeightOutInfoByCarLicense": {
+      "get": {
+        "tags": [
+          "WeightOut"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightOutInfo"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightOutInfo"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamWeightOutInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOutHistory/GetListWeightOutHistory": {
+      "get": {
+        "tags": [
+          "WeightOutHistory"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightOutHistory/GetSearchWeightOutHistoryListData": {
+      "get": {
+        "tags": [
+          "WeightOutHistory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightOutHistoryViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightOutHistoryViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightOutHistoryViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/WeightSummaryDay/GetSearchListWeightSummaryDay": {
+      "get": {
+        "tags": [
+          "WeightSummaryDay"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightSummaryDayViewModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightSummaryDayViewModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ParamSearchWeightSummaryDayViewModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BaseDLLViewModel": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_defult": {
+            "type": "boolean"
+          },
+          "is_active": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ObjectObjectValueTuple": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ParamEmpInfo": {
+        "type": "object",
+        "properties": {
+          "emp_code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamItemMasterInfo": {
+        "type": "object",
+        "properties": {
+          "product_code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamItemMasterRelationInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamJqueryDataTableColumn": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "orderable": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamJqueryDataTableOrder": {
+        "type": "object",
+        "properties": {
+          "column": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dir": {
+            "$ref": "#/components/schemas/ParamJqueryDataTable_DIR"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamJqueryDataTableSearch": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "regex": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamJqueryDataTable_DIR": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ParamLoginUser": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchCompViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "comp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "comp_name_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "comp_name_en": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchDeptViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "dept_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "dept_name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchDocumentPOViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchEmpViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "emp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchItemMasterRelationViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "product_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplier_code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchItemMasterViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "product_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "product_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchLogViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
+            "type": "string",
+            "nullable": true
+          },
+          "logDataFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "logDataTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchMMPOQtyPendingViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "document_po": {
+            "type": "string",
+            "nullable": true
+          },
+          "material_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "line_number": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchMMPOViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchMasterViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "master_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_value1": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_value2": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_value3": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_desc_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_desc_en": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchPlantViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "comp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "plant_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "plant_name_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "plant_name_en": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchReturnDataViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "user": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchSenderViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sender_name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchSupplierViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "supplier_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplier_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchUOMConversionViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "material_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "uom": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchUser": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightCompareViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "item_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplier_code": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightDailyViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "close_work": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightHistoryViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "po_number": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightInHistoryViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "car_license": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightInViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "weight_in_no": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightOutHistoryViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "car_license": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightOutViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "weight_out_no": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight_in_no": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSearchWeightSummaryDayViewModel": {
+        "type": "object",
+        "properties": {
+          "draw": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "active_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "active_range_filters": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/ObjectObjectValueTuple"
+            },
+            "nullable": true
+          },
+          "search": {
+            "$ref": "#/components/schemas/ParamJqueryDataTableSearch"
+          },
+          "order": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableOrder"
+            },
+            "nullable": true
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ParamJqueryDataTableColumn"
+            },
+            "nullable": true
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "item_group": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSenderInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamSupplierInfo": {
+        "type": "object",
+        "properties": {
+          "supplier_code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamUpdateRoleItemViewModel": {
+        "type": "object",
+        "properties": {
+          "role_item": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UpdateRoleItemSection"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamUpdateUser": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "emp_code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamUploadImage": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamWeightHistoryInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamWeightInInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "car_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "car_license": {
+            "type": "string",
+            "nullable": true
+          },
+          "company_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ParamWeightOutInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "car_license": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PramGetMenuViewModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetCompInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "comp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_th_line1": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_th_line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_en_line1": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_en_line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_th_line1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_th_line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_en_line1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_en_line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "province_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "head_report": {
+            "type": "string",
+            "nullable": true
+          },
+          "approve_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "edit_after_print": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetDeptInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "dept_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "comp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "plant_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "short_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_en": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          },
+          "is_all": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetEmpInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "emp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "comp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "plant_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "dept_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "dept_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "dept_short_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "pay_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "work_start_date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "addr_line1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "img_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "img_byte": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetItemMasterInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "item_shot": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "item_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "item_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "item_group": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetItemMasterRelationInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "supplier_code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "supplier_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "item_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "item_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double"
+          },
+          "gravity": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetMasterInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "comp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "plant_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_value1": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_value2": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_value3": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_desc_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "master_desc_en": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          },
+          "is_all": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetPlantInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "plant_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "comp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "short_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "province_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_th": {
+            "type": "string",
+            "nullable": true
+          },
+          "name_en": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_th_line1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_th_line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_en_line1": {
+            "type": "string",
+            "nullable": true
+          },
+          "addr_en_line2": {
+            "type": "string",
+            "nullable": true
+          },
+          "head_report": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetSenderInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sender_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "flag_delete": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetSupplierInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplier_code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "supplier_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetUserInfo": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "emp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_dll": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BaseDLLViewModel"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetWeightInInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight_in_no": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight_in_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "line_number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "item_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "item_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplier_code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "car_license": {
+            "type": "string",
+            "nullable": true
+          },
+          "car_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "document_po": {
+            "type": "string",
+            "nullable": true
+          },
+          "doc_type_po": {
+            "type": "string",
+            "nullable": true
+          },
+          "document_ref": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight_in": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_bag": {
+            "type": "number",
+            "format": "double"
+          },
+          "qty_bag": {
+            "type": "number",
+            "format": "double"
+          },
+          "total_weight_bag": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_pallet": {
+            "type": "number",
+            "format": "double"
+          },
+          "qty_pallet": {
+            "type": "number",
+            "format": "double"
+          },
+          "total_weight_pallet": {
+            "type": "number",
+            "format": "double"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "user_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_edit_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_edit_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_edit_3": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "reprint": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "doc_start": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "doc_stop": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "doc_send": {
+            "type": "string",
+            "nullable": true
+          },
+          "edi": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "edi_sand": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sender_id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cal_in_out": {
+            "type": "string",
+            "nullable": true
+          },
+          "percent_humidity_ok": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultGetWeightOutInfoViewModel": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "weight_out_no": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight_out_type": {
+            "type": "string",
+            "nullable": true
+          },
+          "car_license": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight_in_no": {
+            "type": "string",
+            "nullable": true
+          },
+          "base_unit": {
+            "type": "string",
+            "nullable": true
+          },
+          "unit_receive": {
+            "type": "string",
+            "nullable": true
+          },
+          "gross_uom": {
+            "type": "number",
+            "format": "double"
+          },
+          "net_uom": {
+            "type": "number",
+            "format": "double"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "before_weight_out": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_product": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_out": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_receive": {
+            "type": "number",
+            "format": "double"
+          },
+          "percent_humidity_out": {
+            "type": "number",
+            "format": "double"
+          },
+          "percent_humidity_ok": {
+            "type": "number",
+            "format": "double"
+          },
+          "percent_humidity_diff": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_bag": {
+            "type": "number",
+            "format": "double"
+          },
+          "qty_bag": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total_weight_bag": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_pallet": {
+            "type": "number",
+            "format": "double"
+          },
+          "qty_pallet": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total_weight_pallet": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_by_supplier": {
+            "type": "number",
+            "format": "double"
+          },
+          "volume_by_supplier": {
+            "type": "number",
+            "format": "double"
+          },
+          "sg_supplier": {
+            "type": "number",
+            "format": "double"
+          },
+          "sg_bg": {
+            "type": "number",
+            "format": "double"
+          },
+          "api_supplier": {
+            "type": "number",
+            "format": "double"
+          },
+          "api_bg": {
+            "type": "number",
+            "format": "double"
+          },
+          "temp_supplier": {
+            "type": "number",
+            "format": "double"
+          },
+          "temp_bg": {
+            "type": "number",
+            "format": "double"
+          },
+          "remark_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "remark_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_edit_1": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_edit_2": {
+            "type": "string",
+            "nullable": true
+          },
+          "user_edit_3": {
+            "type": "string",
+            "nullable": true
+          },
+          "reprint": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight_decrease": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_by_item": {
+            "type": "number",
+            "format": "double"
+          },
+          "supplier_code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "item_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "document_ref": {
+            "type": "string",
+            "nullable": true
+          },
+          "weight_in": {
+            "type": "number",
+            "format": "double"
+          },
+          "weight_total": {
+            "type": "number",
+            "format": "double"
+          },
+          "cal_in_out": {
+            "type": "string",
+            "nullable": true
+          },
+          "document_po": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultRoleInfo": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_name": {
+            "type": "string",
+            "nullable": true
+          },
+          "role_desc": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "modified_by": {
+            "type": "string",
+            "nullable": true
+          },
+          "modified_date": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "is_active": {
+            "type": "boolean"
+          },
+          "is_deleted": {
+            "type": "boolean"
+          },
+          "is_super_role": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SendMail": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateRoleItemSection": {
+        "type": "object",
+        "properties": {
+          "role_item_id": {
+            "type": "string",
+            "nullable": true
+          },
+          "is_display": {
+            "type": "boolean"
+          },
+          "is_action": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "basic": {
+        "type": "http",
+        "description": "Basic Authorization header using the Bearer scheme.",
+        "scheme": "basic"
+      }
+    }
+  }
+}

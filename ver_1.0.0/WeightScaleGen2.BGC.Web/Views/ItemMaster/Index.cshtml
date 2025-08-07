@@ -1,0 +1,438 @@
+﻿@using WeightScaleGen2.BGC.Web.Common
+@model WeightScaleGen2.BGC.Models.ViewModels.ItemMaster.ParamSearchItemMasterViewModel
+@{
+    ViewData["PageTitle"] = @ViewBag.MenuName;
+}
+@Html.AntiForgeryToken()
+<div class="h-100">
+    @* Header Section *@
+    <div class="pageMenuTitle">
+        <h3 class="text-black">สินค้า</h3>
+    </div>
+
+    <div id="dataContainerHeight" class="dataContainer">
+
+        <div class="flex flex-row items-center justify-between mb-3 flex-wrap gap-2">
+            <h4 class="dataTitle">สินค้า</h4>
+            <div>
+                <button type="button" onclick="CreateItem()" class="buttonAction primary-bg inline-flex items-center me-2">
+                    @* <i class="fa-solid fa-upload me-2"></i> *@
+                    <img src="~/icons/add.svg" class="" />
+                    เพิ่มสินค้า
+                </button>
+                <button type="button" onclick="ExportExcel()" class="buttonAction second-bg inline-flex items-center">
+                    @* <i class="fa-solid fa-file-excel me-2"></i> *@
+                    <img src="~/icons/excel.svg" class="" />
+                    ดาวน์โหลด
+                </button>
+            </div>
+        </div>
+
+        @* Search Section *@
+        <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm mb-2 space-y-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-2">
+                <div>
+                    <label for="product_code" class="d-block mb-2">รหัสสินค้า</label>
+                    <input type="text" id="product_code" class="border text-gray-900 block w-full p-2.5" placeholder="กรอกรหัสสินค้า" required />
+                </div>
+                <div>
+                    <label for="product_name" class="d-block mb-2">ชื่อสินค้า</label>
+                    <input type="text" id="product_name" class="border text-gray-900 block w-full p-2.5" placeholder="กรอกชื่อสินค้า" required />
+                </div>
+                <div>
+                    <label for="status" class="d-block mb-2">สถานะ</label>
+                    @Html.DropDownListFor(x => x.status, SelectListMethods.GetStatus(), Constants.SelectOption.SelectOne,
+                    new
+                    {
+                        @class = "w-100 p-2.5 text-gray-900",
+                        @id = "status",
+                    })
+                </div>
+            </div>
+
+            <div class="flex justify-content-center gap-2 flex-wrap">
+                <button type="button" onclick="Search()" class="buttonAction w-150px primary-bg inline-flex justify-content-center items-center">
+                    <img src="~/icons/search.svg" class="" />ค้นหา
+                </button>
+                <button type="button" onclick="Clear()" class="buttonAction w-150px third-bg inline-flex justify-content-center items-center">
+                    <img src="~/icons/close.svg" class="" />เคลียร์
+                </button>
+            </div>
+        </div>
+
+
+        @* Table Section *@
+        <div class="relative overflow-x-auto shadow-sm rounded-lg border border-gray-200 p-4">
+            <table id="data-list" class="w-full text-md text-left rtl:text-right text-gray-700">
+                <thead class="text-white uppercase">
+                    <tr>
+                        <th class="text-center">
+                            Action
+                        </th>
+                        <th class="text-center">
+                            Product Name
+                        </th>
+                        <th class="text-center">
+                            Product Code JDE
+                        </th>
+                        <th class="text-center">
+                            Product Group
+                        </th>
+                        <th class="text-center">
+                            Product Code Support
+                        </th>
+                        <th class="text-center">
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    $(function () {
+        Search();
+    });
+
+    var t
+    var searchParam;
+    var fromSearch = true;
+    $(function () {
+        Swal.fire({
+            title: 'รอสักครู่...',
+            allowOutsideClick: false,
+            didOpen: () => {
+                Swal.showLoading()
+            },
+        });
+
+        SearchPage.init({
+            url: '@Url.RouteUrl("SearchData")',
+            info_page_url: '@Url.RouteUrl("SearchData")',
+            tableId: "data-list"
+        });
+        setTimeout(function () { Swal.close(); }, 1000);
+        });
+
+        var SearchPage = function () {
+            var tableList;  // actual table jquery object
+            var opts;       // all param object
+            var initDataTable = function () {
+            t = tableList.DataTable({
+                                ajax: {
+                                    url: '@Url.Action("SearchData", "ItemMaster")',
+                                    type: "POST",
+                                    data: function (d) {
+                                        return $.extend({}, d, {
+                                            "product_code": $('#product_code').val(),
+                                            "product_name": $('#product_name').val(),
+                                            "status": $('#status').val()
+                                        });
+                                    },
+                                    dataType: "json",
+                                    error: function (jqXhr, txtStatus, errorThrown) {
+                                        if (typeof console === "object") {
+                                            console.log("Code: " + jqXhr.status);
+                                            console.log("Status: " + txtStatus);
+                                            console.log("Error Thrown: " + errorThrown);
+                                        }
+                                    }
+                                },
+                                ordering: false,
+                                // scrollX: true,
+                                // scrollY: "calc(100vh - 300px)",
+                                deferRender: true,
+                                iDisplayLength: 10,
+                                paging: true,
+                                serverSide: true,
+                                autoWidth: false,
+                                searching: false,
+                                info: true,
+                                // dom: '<"flex flex-wrap items-center gap-3 mb-3 view-filter"<"w-full sm:w-auto"<"mr-3"l><"mr-3"f>>>' + 't' + '<"flex justify-center mt-3 view-pager"<"w-full sm:w-auto"ip>>',
+                                language: {
+                                    paginate: {
+                                        first: 'หน้าแรก',
+                                        last: 'หน้าสุดท้าย',
+                                        next: 'ถัดไป →',
+                                        previous: '← ก่อนหน้า'
+                                    },
+                                    info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+                                    infoEmpty: "ไม่มีข้อมูลที่จะแสดง",
+                                    lengthMenu: "แสดง _MENU_ รายการ",
+                                    infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+                                    zeroRecords: "ไม่พบข้อมูลที่ค้นหา",
+                                    processing: "รอสักครู่..."
+                                },
+                                preDrawCallback: function (settings) {
+                                    Swal.fire({
+                                        title: 'รอสักครู่...',
+                                        allowOutsideClick: false,
+                                        didOpen: () => {
+                                            Swal.showLoading()
+                                        },
+                                    });
+                                },
+                                drawCallback: function (settings) {
+                                    Swal.close();
+                                },
+                                columns: [
+                                    {
+                                        data: function (data, type, dataToSet) {
+                                            return data.item_code;
+                                        },
+                                        name: "item_code",
+                                        orderable: false,
+                                        render: renderCol_Action
+                                    },
+                                    { data: "item_name", name: "item_name", className: "text-center p-4", orderable: false },
+                                    { data: "item_code", name: "item_code", className: "text-center p-4", orderable: false },
+                                    { data: "item_group", name: "item_group", className: "text-center p-4", orderable: false },
+                                    { data: "remark_1", name: "remark_1", className: "text-center p-4", orderable: false },
+                                    { data: "status", name: "status", className: "text-center p-0", orderable: false },
+                                ]
+                                //order: [[1, "asc"]]
+                            });
+            };
+
+            var renderCol_Action = function (data, type, row, meta) {
+                var response = '<div class="flex flex-row items-center justify-center gap-2">';
+                var aView = '<button type="button" onclick="EditItem(' + '\'' + data + '\'' + ');" class="buttonAction actionIconButton primary-bg"><lord-icon src="https://cdn.lordicon.com/exymduqj.json" trigger="hover" stroke="bold" colors="primary:#ffffff,secondary:#ffffff" style="width:20px;height:20px"></lord-icon></button>';
+                        aView += '<button type="button" onclick="DeleteItem(' + '\'' + data + '\'' + ');" class="buttonAction actionIconButton lightWhite-bg"><lord-icon src="https://cdn.lordicon.com/xyfswyxf.json" trigger="hover" colors="primary:#4741A6" style="width:20px;height:20px"></lord-icon></button>';
+                response += aView;
+                response += '</div>';
+
+                return response;
+            };
+
+            var reloadTable = function () {
+                if (tableList) {
+                    tableList.DataTable().ajax.reload();
+                }
+            };
+
+            return {
+                init: function (options) {
+                    opts = $.extend({
+                        ajaxUrl_GetList: '@Url.Action("SearchData", "ItemMaster")',
+                        redirectUrl_InfoPage: options.info_page_url,
+                        updateRole: options.info_page_url,
+                        table: []
+                        }, options);
+                        tableList = $("#" + opts.tableId);
+                        initDataTable();
+                        },
+                        reloadTableAjax: function () {
+                            reloadTable();
+                        }
+            };
+        }();
+
+    function Search() {
+        fromSearch = true;
+        SearchPage.reloadTableAjax();
+    }
+
+    function Clear() {
+        $('#product_code').val("");
+        $('#product_name').val("");
+        $('#status').val("A");
+    }               
+
+    function CreateItem() {
+        var url = '@Url.Action("ItemMasterInfo", "ItemMaster")' +
+        '?mode=' + '@Constants.Mode.Created' +
+        '&itemCode=' + null;
+        window.location.href = url;
+    }
+
+    function EditItem(itemCode) {
+        var url = '@Url.Action("ItemMasterInfo", "ItemMaster")' +
+        '?mode=' + '@Constants.Mode.Updated' +
+        '&itemCode=' + itemCode;
+        window.location.href = url;
+    }
+
+    function DeleteItem(data) {
+            console.log(data);
+            Swal.fire({
+                title: 'ยืนยันการลบข้อมูล ?',
+                text: '',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'ยืนยัน',
+                cancelButtonText: 'ยกเลิก',
+                confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                cancelButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-danger shadow-sm',
+                buttonsStyling: false,
+            }).then(function (result) {
+                if (result.value) {
+
+                    var _code = data;
+
+                    $.ajax({
+                        cache: false,
+                        async: true,
+                        type: "POST",
+                        url: '@Url.Action("DeleteItem", "ItemMaster")',
+                        data: {
+                            itemCode: _code,
+                        },
+                        success: function (data) {
+                            if (data.status == '@Constants.Result.Success') {
+                                var timerInterval
+                                Swal.fire({
+                                    title: 'ลบข้อมูลสำเร็จ !',
+                                    html: 'I will close in <strong></strong> seconds.',
+                                    timer: 750,
+                                    icon: "success",
+                                    showCancelButton: false, // There won't be any cancel button
+                                    showConfirmButton: false, // There won't be any confirm button
+                                    buttonsStyling: false,
+                                    onBeforeOpen: function () {
+                                        Swal.showLoading()
+                                        timerInterval = setInterval(function () {
+                                            Swal.getContent().querySelector('strong')
+                                                .textContent = Swal.getTimerLeft()
+                                        }, 100)
+                                    },
+                                    onClose: function () {
+                                        clearInterval(timerInterval)
+                                    }
+                                }).then(function (result) {
+                                    if (
+                                        // Read more about handling dismissals
+                                        result.dismiss === Swal.DismissReason.timer
+                                    ) {
+                                        console.log('หน้าต่างจะปิดในเวลา')
+                                        Search();
+                                    }
+                                })
+                            } else if (data.status == '@Constants.Result.Invalid') {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'คำเตือน',
+                                    text: data.message,
+                                    showCancelButton: false,
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'ตกลง',
+                                    confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                    buttonsStyling: false,
+                                })
+                            } else {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'คำเตือน',
+                                    text: data.message,
+                                    showCancelButton: false,
+                                    confirmButtonColor: '#3085d6',
+                                    confirmButtonText: 'ตกลง',
+                                    confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                                    buttonsStyling: false,
+                                })
+                                toastr['error']('Fail - ' + data.message, 'Warning!', ErrOpt);
+                            }
+                        },
+                        error: function (err) {
+                            toastr['error']('Fail', 'Warning!', ErrOpt);
+                        },
+                        complete: function (data) {
+                        }
+                    });
+                }
+            })
+    }
+    
+        function ExportExcel() {
+
+            Swal.fire({
+                title: 'กำลังส่งออกข้อมูล',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+
+            $.ajax({
+                url: '@Url.Action("ActionCreateExcelFile", "ItemMaster")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'product_code': $('#product_code').val(),
+                    'product_name': $('#product_name').val(),
+                    'status': $('#status').val()
+                },
+                success: function (data) {
+                    if (data.status == '@Constants.Result.Success') {
+                        OpenExcel(data.path, data.fileName);
+                        Swal.fire({
+                            title: 'ส่งออกไฟล์สำเร็จ',
+                            html: 'I will close in <strong></strong> seconds.',
+                            timer: 2000,
+                            icon: "success",
+                            showCancelButton: false, // There won't be any cancel button
+                            showConfirmButton: false, // There won't be any confirm button
+                            // confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                            onBeforeOpen: function () {
+                                Swal.showLoading()
+                                timerInterval = setInterval(function () {
+                                    Swal.getContent().querySelector('strong')
+                                        .textContent = Swal.getTimerLeft()
+                                }, 100)
+                            },
+                            onClose: function () {
+                                clearInterval(timerInterval)
+                            }
+                        }).then(function (result) {
+                            if (
+                                // Read more about handling dismissals
+                                result.dismiss === Swal.DismissReason.timer
+                            ) {
+                                clearModal();
+                                Search();
+                            }
+                        })
+                    } else if (data.status == '@Constants.Result.Invalid') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'คำเตือน',
+                            text: data.message,
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'คำเตือน',
+                            text: data.message,
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                        })
+                        toastr['error']('Fail - ' + data.message, 'Warning!', ErrOpt);
+                    }
+                },
+                error: function () {
+                    toastr['error']('Fail', 'Warning!', ErrOpt);
+                }
+            });
+        }
+
+        function OpenExcel(path, fileName) {
+            var url = '@Url.Action("ActionOpenFileExcel", "WeightHistory")' +
+                '?path=' + path +
+                '&fileName=' + fileName;
+            window.open(url, '_blank');
+        }
+    </script>
+}

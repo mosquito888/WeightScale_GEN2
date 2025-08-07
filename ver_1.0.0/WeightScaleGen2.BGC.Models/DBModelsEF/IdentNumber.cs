@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace WeightScaleGen2.BGC.Models.DBModelsEF;
+
+public partial class IdentNumber
+{
+    public string Company { get; set; }
+
+    public string Year { get; set; }
+
+    public string Month { get; set; }
+
+    public int? IdenNumber { get; set; }
+
+    public string Type { get; set; }
+}

@@ -1,0 +1,2 @@
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Web\obj\Debug\net9.0\WeightScaleGen2.BGC.Web.csproj.AssemblyReference.cache
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.Web\obj\Debug\net9.0\rpswa.dswa.cache.json
