@@ -166,8 +166,8 @@
                                                 <div class="NavModifier">
                                                     @foreach (var menu in lsMenu.Where(i => i.menu_level == 1).OrderBy(i => i.order_by))
                                                     {
-                                                        active = currentMenu == menu.menu_id ? "active text-white" : string.Empty;
                                                         var subMenus = level2.Where(i => i.parent_menu_id == menu.menu_id).OrderBy(i => i.order_by).ToList();
+                                                        active = currentMenu == menu.menu_id || subMenus.Any(s => s.menu_id == currentMenu) ? "active text-white" : string.Empty;
 
                                                         if (subMenus.Count() == 0)
                                                         {
@@ -181,8 +181,7 @@
                                                     }
                                                     else
                                                     {
-                                                        active = currentMenu == menu.menu_id ? "active text-white" : string.Empty;
-                                                        <li class="nav-SubMenu" data-target="subMenu-@menu.menu_id">
+                                                        <li class="nav-SubMenu @active" data-target="subMenu-@menu.menu_id">
                                                             @if (!String.IsNullOrEmpty(@menu.icon))
                                                             {
                                                                 <img src="~/icons/@menu.icon" class="mr-2" />
@@ -198,8 +197,8 @@
                                                         <ul id="subMenu-@menu.menu_id" class="subMenuPanel">
                                                             @foreach (var sub in subMenus)
                                                             {
-                                                                active = currentMenu == sub.menu_id ? "active text-white" : string.Empty;
-                                                                <li onclick="DirectTo('@Url.Action(sub.url, sub.url_controller)')" class="@active">
+                                                                var subActive = currentMenu == sub.menu_id ? "active text-white" : string.Empty;
+                                                                <li onclick="DirectTo('@Url.Action(sub.url, sub.url_controller)')" class="@subActive">
                                                                     <lord-icon src="https://cdn.lordicon.com/jectmwqf.json"
                                                                                trigger="hover"
                                                                                stroke="bold"
@@ -213,59 +212,8 @@
                                                         </ul>
                                                     }
                                                 }
+
                                         </div>
-
-
-                                        @* @foreach (var menu in lsMenu.Where(i => i.menu_level == 1).OrderBy(i => i.order_by))
-                                                {
-                                                    var subMenus = level2.Where(i => i.parent_menu_id == menu.menu_id).OrderBy(i => i.order_by).ToList();
-
-                                                    if (subMenus.Count == 0)
-                                                    {
-                                                        <li onclick="DirectTo('/@menu.url_controller/@menu.url');">
-                                                            <p asp-controller ="Home" asp-action="Index" class="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
-                                                                @menu.display_name
-                                                            </p>
-                                                        </li>
-                                                    }
-                                                    else
-                                                    {
-                                                        <li>
-                                                            <button id="dropdownNavbarLink_@menu.menu_id" data-dropdown-toggle="dropdownList_@menu.menu_id"
-                                                                    class="flex items-center justify-between w-full py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent">
-                                                                @menu.display_name
-                                                                <lord-icon
-                                                                    src="https://cdn.lordicon.com/gqfozvrp.json"
-                                                                    trigger="hover"
-                                                                    colors="primary:#0f172b"
-                                                                    style="width:15px;height:15px"
-                                                                    class="ml-1">
-                                                                </lord-icon>
-                                                            </button>
-                                                            <!-- Dropdown submenu -->
-                                                            <div id="dropdownList_@menu.menu_id"
-                                                                    class="z-90 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-max dark:bg-gray-700 dark:divide-gray-600">
-                                                                <ul class="text-sm text-gray-900 dark:text-gray-200">
-                                                                    @foreach (var sub in subMenus)
-                                                                    {
-                                                                        <li>
-                                                                            <p onclick="DirectTo('/@sub.url_controller/@sub.url');"
-                                                                                class="block p-3 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white flex flex-row items-center justify-start">
-                                                                                <lord-icon src="https://cdn.lordicon.com/jectmwqf.json"
-                                                                                            trigger="hover"
-                                                                                            stroke="bold"
-                                                                                            colors="primary:#1447e6,secondary:#66d7ee"
-                                                                                            style="width:15px;height:15px"
-                                                                                            class="mr-2">
-                                                                                </lord-icon>@sub.display_name
-                                                                            </p>
-                                                                        </li>
-                                                                    }
-                                                                </ul>
-                                                            </div>
-                                                        </li>
-                                                    }
-                                                } *@
 
                                         </ul>
 
