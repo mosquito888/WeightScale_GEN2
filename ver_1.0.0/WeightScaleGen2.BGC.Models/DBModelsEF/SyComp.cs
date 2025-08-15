@@ -46,4 +46,6 @@ public partial class SyComp
     public bool IsDeleted { get; set; }
 
     public string DigitSlip { get; set; }
+
+    public string PlantCode { get; set; }
 }

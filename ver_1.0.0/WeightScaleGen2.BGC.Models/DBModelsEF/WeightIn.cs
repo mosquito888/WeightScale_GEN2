@@ -60,4 +60,6 @@ public partial class WeightIn
     public int? Edi { get; set; }
 
     public int? EdiSand { get; set; }
+
+    public string PlantCode { get; set; }
 }

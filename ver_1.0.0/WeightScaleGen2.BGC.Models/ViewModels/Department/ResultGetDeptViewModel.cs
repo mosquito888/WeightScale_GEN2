@@ -1,10 +1,7 @@
-﻿using AutoMapper;
-using System;
-using WeightScaleGen2.BGC.Models.DBModels;
+﻿using System;
 
 namespace WeightScaleGen2.BGC.Models.ViewModels.Department
 {
-    [AutoMap(typeof(DepartmentData), ReverseMap = true)]
     public class ResultGetDeptViewModel
     {
         public string dept_code { get; set; }

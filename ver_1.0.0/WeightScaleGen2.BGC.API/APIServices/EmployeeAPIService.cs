@@ -8,7 +8,6 @@ using WeightScaleGen2.BGC.Models;
 using WeightScaleGen2.BGC.Models.DBModels;
 using WeightScaleGen2.BGC.Models.ServicesModels;
 using WeightScaleGen2.BGC.Models.ViewModels.Employee;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 using ILogger = WeightScaleGen2.BGC.API.Common.Logger.ILogger;
 
 namespace WeightScaleGen2.BGC.API.APIServices

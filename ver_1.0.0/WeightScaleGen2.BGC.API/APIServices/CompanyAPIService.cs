@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,7 +17,6 @@ namespace WeightScaleGen2.BGC.API.APIServices
         IDatabaseConnectionFactory _db;
         ISecurityCommon _securityCommon;
         ILogger _logger;
-        private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
         private readonly UserInfoModel _userInfo;
         private CompanyRepository _companyRepository;
@@ -27,14 +25,12 @@ namespace WeightScaleGen2.BGC.API.APIServices
             IDatabaseConnectionFactory db,
             ISecurityCommon securityCommon,
             ILogger logger,
-            IMapper mapper,
             IHttpContextAccessor context,
             UserInfoModel userInfo,
             CompanyRepository companyRepository) : base(db, securityCommon)
         {
             _db = db;
             _logger = logger;
-            _mapper = mapper;
             _context = context;
             _userInfo = _getUserInfo(_context.HttpContext.Session.GetString(Constants.Session.User)).Result;
             _companyRepository = companyRepository;
@@ -142,13 +138,72 @@ namespace WeightScaleGen2.BGC.API.APIServices
 
         private List<ResultGetCompViewModel> _initCompanyListData(List<CompanyData> lsComp)
         {
-            List<ResultGetCompViewModel> result = _mapper.Map<List<CompanyData>, List<ResultGetCompViewModel>>(lsComp);
+            List<ResultGetCompViewModel> result = new List<ResultGetCompViewModel>();
+
+            foreach (var item in lsComp)
+            {
+                ResultGetCompViewModel data = new ResultGetCompViewModel
+                {
+                    comp_code = item.comp_code,
+                    name_th_line1 = item.name_th_line1,
+                    name_th_line2 = item.name_th_line2,
+                    name_en_line1 = item.name_en_line1,
+                    name_en_line2 = item.name_en_line2,
+                    addr_th_line1 = item.addr_th_line1,
+                    addr_th_line2 = item.addr_th_line2,
+                    addr_en_line1 = item.addr_en_line1,
+                    addr_en_line2 = item.addr_en_line2,
+                    phone = item.phone,
+                    province_code = item.province_code,
+                    head_report = item.head_report,
+                    approve_name = item.approve_name,
+                    edit_after_print = item.edit_after_print,
+                    created_by = item.created_by,
+                    created_date = item.created_date,
+                    modified_by = item.modified_by,
+                    modified_date = item.modified_date,
+                    is_active = item.is_active,
+                    is_deleted = item.is_deleted
+                };
+                result.Add(data);
+            }
+
             return result;
         }
 
         private List<ResultSearchCompViewModel> _initSearchCompanyListData(List<CompanyData> lsComp)
         {
-            List<ResultSearchCompViewModel> result = _mapper.Map<List<CompanyData>, List<ResultSearchCompViewModel>>(lsComp);
+            List<ResultSearchCompViewModel> result = new List<ResultSearchCompViewModel>();
+
+            foreach (var item in lsComp)
+            {
+                ResultSearchCompViewModel data = new ResultSearchCompViewModel
+                {
+                    comp_code = item.comp_code,
+                    name_th_line1 = item.name_th_line1,
+                    name_th_line2 = item.name_th_line2,
+                    name_en_line1 = item.name_en_line1,
+                    name_en_line2 = item.name_en_line2,
+                    addr_th_line1 = item.addr_th_line1,
+                    addr_th_line2 = item.addr_th_line2,
+                    addr_en_line1 = item.addr_en_line1,
+                    addr_en_line2 = item.addr_en_line2,
+                    phone = item.phone,
+                    province_code = item.province_code,
+                    head_report = item.head_report,
+                    approve_name = item.approve_name,
+                    edit_after_print = item.edit_after_print,
+                    created_by = item.created_by,
+                    created_date = item.created_date,
+                    modified_by = item.modified_by,
+                    modified_date = item.modified_date,
+                    is_active = item.is_active,
+                    is_deleted = item.is_deleted,
+                    total_record = item.total_record
+                };
+                result.Add(data);
+            }
+
             return result;
         }
     }

@@ -20,21 +20,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="15.0.1" />
     <PackageReference Include="ExpressionPowerTools.Core" Version="0.9.7-beta">
-      <TreatAsUsed>true</TreatAsUsed>
-    </PackageReference>
-    <PackageReference Include="ExpressionPowerTools.Serialization" Version="0.9.7-beta">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
     <PackageReference Include="ExpressionPowerTools.Serialization.EFCore.AspNetCore" Version="0.9.7-beta">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6">
-      <TreatAsUsed>true</TreatAsUsed>
-    </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.7">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
       <TreatAsUsed>true</TreatAsUsed>
@@ -42,18 +35,13 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
-    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="30.1.41">
-      <TreatAsUsed>true</TreatAsUsed>
-    </PackageReference>
-    <PackageReference Include="System.Data.SqlClient" Version="4.9.0">
+    <PackageReference Include="Syncfusion.XlsIO.Net.Core" Version="30.1.42">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="DBModelsEF\" />
-    <Folder Include="DBModelsHelper\" />
-    <Folder Include="DBModelsPOHelper\" />
   </ItemGroup>
 
 </Project>

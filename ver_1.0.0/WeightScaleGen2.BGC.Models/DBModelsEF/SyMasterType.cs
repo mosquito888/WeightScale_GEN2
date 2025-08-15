@@ -15,5 +15,9 @@ public partial class SyMasterType
 
     public bool IsNotDel { get; set; }
 
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
+
     public virtual ICollection<SyMaster> SyMasters { get; set; } = new List<SyMaster>();
 }

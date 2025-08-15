@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WeightScaleGen2.BGC.API.APIServices;
 using WeightScaleGen2.BGC.Models.ViewModels.WeightHistory;

@@ -123,13 +123,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             try
             {
-                SyReturnDatum ret = dbContext.SyReturnData.Where(i => i.WeightOutNo == param.ZWGDOC && i.Sequence == Convert.ToDecimal(param.ZWGDOC_SEQ)).FirstOrDefault();
+                SyReturnDatum ret = dbContext.SyReturnData.Where(i => i.WeightOutNo == param.zwgdoc && i.Sequence == Convert.ToDecimal(param.zwgdoc_seq)).FirstOrDefault();
 
-                ret.Message = param.MESSAGE;
-                ret.MessageType = param.MSGTY;
+                ret.Message = param.message;
+                ret.MessageType = param.msgty;
                 ret.SendData = "Y";
-                ret.MaterialDocument = param.MBLNR;
-                ret.DocumentYear = Convert.ToDecimal(param.MJAHR);
+                ret.MaterialDocument = param.mblnr;
+                ret.DocumentYear = Convert.ToDecimal(param.mjahr);
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

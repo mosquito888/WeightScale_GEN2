@@ -4,7 +4,9 @@ C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\Weig
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\WeightScaleGen2.BGC.API.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\WeightScaleGen2.BGC.API.runtimeconfig.json
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\WeightScaleGen2.BGC.API.pdb
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\AutoMapper.dll
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Asp.Versioning.Abstractions.dll
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Asp.Versioning.Http.dll
+C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Asp.Versioning.Mvc.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Azure.Core.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Azure.Identity.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\BouncyCastle.Cryptography.dll
@@ -18,7 +20,6 @@ C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\Weig
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.AspNetCore.Mvc.Versioning.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.Build.dll
@@ -39,9 +40,7 @@ C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\Weig
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.EntityFrameworkCore.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.EntityFrameworkCore.Relational.Design.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.EntityFrameworkCore.SqlServer.Design.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.Extensions.Caching.Memory.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\Microsoft.Extensions.Configuration.Abstractions.dll
@@ -98,7 +97,6 @@ C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\Weig
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\System.Composition.Runtime.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\System.Composition.TypedParts.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\System.Configuration.ConfigurationManager.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\System.Data.SqlClient.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\System.Memory.Data.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\System.Reflection.MetadataLoadContext.dll
@@ -249,16 +247,9 @@ C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\Weig
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win-x64\native\sni.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win-x86\native\sni.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\unix\lib\net8.0\System.Data.SqlClient.dll
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win\lib\net8.0\System.Data.SqlClient.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\sapnco.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\sapnco_utils.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\WeightScaleGen2.BGC.Models.dll
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\WeightScaleGen2.BGC.Models.pdb
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\sapnco.pdb
-C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\sapnco_utils.pdb
 C:\Users\Phonlayut.s\source\Workspaces\Workspace\WeightScale_GEN2\ver_1.0.0\WeightScaleGen2.BGC.API\obj\Release\net9.0\PubTmp\Out\WeightScaleGen2.BGC.API.deps.json

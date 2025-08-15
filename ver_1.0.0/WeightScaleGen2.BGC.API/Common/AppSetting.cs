@@ -4,8 +4,11 @@ namespace WeightScaleGen2.BGC.API.Common
 {
     public static class AppSetting
     {
+#if DEBUG
+        private static readonly string fileconfig = "appsettings.Development.json";
+#else
         private static readonly string fileconfig = "appsettings.json";
-
+#endif
         public static string Connection()
         {
             var config = new ConfigurationBuilder().AddJsonFile(fileconfig).Build();

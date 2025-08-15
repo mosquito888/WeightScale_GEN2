@@ -14,4 +14,8 @@ public partial class SySender
     public bool? IsActive { get; set; }
 
     public bool? IsDeleted { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

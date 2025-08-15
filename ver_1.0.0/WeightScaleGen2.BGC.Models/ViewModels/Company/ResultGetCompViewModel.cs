@@ -1,10 +1,7 @@
-﻿using AutoMapper;
-using System;
-using WeightScaleGen2.BGC.Models.DBModels;
+﻿using System;
 
 namespace WeightScaleGen2.BGC.Models.ViewModels.Company
 {
-    [AutoMap(typeof(CompanyData), ReverseMap = true)]
     public class ResultGetCompViewModel
     {
         public string comp_code { get; set; }

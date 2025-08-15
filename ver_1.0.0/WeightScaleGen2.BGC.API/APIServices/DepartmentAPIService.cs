@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -18,7 +17,6 @@ namespace WeightScaleGen2.BGC.API.APIServices
         IDatabaseConnectionFactory _db;
         ISecurityCommon _securityCommon;
         ILogger _logger;
-        private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _context;
         private readonly UserInfoModel _userInfo;
         private DepartmentRepository _departmentRepository;
@@ -27,7 +25,6 @@ namespace WeightScaleGen2.BGC.API.APIServices
             IDatabaseConnectionFactory db,
             ISecurityCommon securityCommon,
             ILogger logger,
-            IMapper mapper,
             IHttpContextAccessor context,
             UserInfoModel userInfo,
             DepartmentRepository departmentRepository) : base(db, securityCommon)
@@ -35,7 +32,6 @@ namespace WeightScaleGen2.BGC.API.APIServices
             _db = db;
             _securityCommon = securityCommon;
             _logger = logger;
-            _mapper = mapper;
             _context = context;
             _userInfo = _getUserInfo(_context.HttpContext.Session.GetString(Constants.Session.User)).Result;
             _departmentRepository = departmentRepository;
@@ -143,13 +139,58 @@ namespace WeightScaleGen2.BGC.API.APIServices
 
         private List<ResultGetDeptViewModel> _initDepartmentListData(List<DepartmentData> lsDept)
         {
-            List<ResultGetDeptViewModel> result = _mapper.Map<List<DepartmentData>, List<ResultGetDeptViewModel>>(lsDept);
+            List<ResultGetDeptViewModel> result = new List<ResultGetDeptViewModel>();
+
+            foreach (var item in lsDept)
+            {
+                ResultGetDeptViewModel data = new ResultGetDeptViewModel()
+                {
+                    comp_code = item.comp_code,
+                    plant_code = item.plant_code,
+                    dept_code = item.dept_code,
+                    short_code = item.short_code,
+                    name_th = item.name_th,
+                    name_en = item.name_en,
+                    created_by = item.created_by,
+                    created_date = item.created_date,
+                    modified_by = item.modified_by,
+                    modified_date = item.modified_date,
+                    is_active = item.is_active,
+                    is_deleted = item.is_deleted,
+                    is_all = item.is_all
+                };
+                result.Add(data);
+            }
+
             return result;
         }
 
         private List<ResultSearchDeptViewModel> _initSearchDepartmentListData(List<DepartmentData> lsDept)
         {
-            List<ResultSearchDeptViewModel> result = _mapper.Map<List<DepartmentData>, List<ResultSearchDeptViewModel>>(lsDept);
+            List<ResultSearchDeptViewModel> result = new List<ResultSearchDeptViewModel>();
+
+            foreach (var item in lsDept)
+            {
+                ResultSearchDeptViewModel data = new ResultSearchDeptViewModel()
+                {
+                    comp_code = item.comp_code,
+                    plant_code = item.plant_code,
+                    dept_code = item.dept_code,
+                    short_code = item.short_code,
+                    name_th = item.name_th,
+                    name_en = item.name_en,
+                    created_by = item.created_by,
+                    created_date = item.created_date,
+                    modified_by = item.modified_by,
+                    modified_date = item.modified_date,
+                    is_active = item.is_active,
+                    is_deleted = item.is_deleted,
+                    is_all = item.is_all,
+                    total_record = item.total_record
+                };
+                result.Add(data);
+            }
+
             return result;
         }
     }

@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace WeightScaleGen2.BGC.API.Common
 {

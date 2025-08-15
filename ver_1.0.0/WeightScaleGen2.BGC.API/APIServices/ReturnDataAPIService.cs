@@ -70,56 +70,47 @@ namespace WeightScaleGen2.BGC.API.APIServices
                 var sapList = new List<SapNcoModel>();
                 if (lsData.Count > 0)
                 {
-                    var connect = _sapAPIService.ConnectionSAP(param.user, param.password).Result;
-                    if (connect.isCompleted)
+                    foreach (var item in lsData)
                     {
-                        foreach (var item in lsData)
+                        if (item.send_data != "Y" && item.message_type != "S")
                         {
-                            if (item.send_data != "Y" && item.message_type != "S")
-                            {
-                                var res = new SapNcoModel();
-                                res.ZWGDOC = item.weight_out_no;
-                                res.ZWGDOC_SEQ = Convert.ToInt32(item.sequence);
-                                res.GR_TYPE = item.gr_type.ToString();
-                                res.DOC_DATE = item.doc_date.ToString("dd/MM/yyyy");
-                                res.PSTNG_DATE = item.post_date.ToString("dd/MM/yyyy");
-                                res.REF_DOC_NO = item.ref_doc;
-                                res.GOODSMVT_CODE = item.good_movement;
-                                res.MATERIAL = item.material;
-                                res.PLANT = item.plant;
-                                res.STGE_LOC = item.sloc;
-                                res.STCK_TYPE = item.stock_type;
-                                res.ITEM_TEXT = item.item_text;
-                                res.PO_NO = item.po_number;
-                                res.PO_ITEM = Convert.ToInt32(item.po_line_number);
-                                res.TRUCK_NO = item.truck_no;
-                                res.WEIGHT_IN = item.weight_in;
-                                res.WEIGHT_OUT = item.weight_out;
-                                res.WEIGHT_REC = item.weight_rec;
-                                res.VEND_WEIGHT = item.weight_vendor;
-                                res.REJ_WEIGHT = item.weight_reject;
-                                res.WEIGHT_UNIT = item.weight_unit;
-                                res.P_STDATE = item.doc_start.Value.ToString("dd/MM/yyyy");
-                                res.P_ENDATE = item.doc_stop.Value.ToString("dd/MM/yyyy");
-                                res.ZPERM = item.doc_send;
-                                res.REV_MJAHR = item.document_year.ToString();
-                                res.REV_MBLNR = item.material_document;
-                                sapList.Add(res);
-                            }
-                        }
-
-                        var insSap = _sapAPIService.SubmissionData(sapList).Result;
-                        if (!insSap.isCompleted)
-                        {
-                            result.isCompleted = false;
-                            result.message.Add($"Insert Data to SAP Server Failed");
-                            return Task.FromResult(result);
+                            var res = new SapNcoModel();
+                            res.ZWGDOC = item.weight_out_no;
+                            res.ZWGDOC_SEQ = Convert.ToInt32(item.sequence);
+                            res.GR_TYPE = item.gr_type.ToString();
+                            res.DOC_DATE = item.doc_date.ToString("dd/MM/yyyy");
+                            res.PSTNG_DATE = item.post_date.ToString("dd/MM/yyyy");
+                            res.REF_DOC_NO = item.ref_doc;
+                            res.GOODSMVT_CODE = item.good_movement;
+                            res.MATERIAL = item.material;
+                            res.PLANT = item.plant;
+                            res.STGE_LOC = item.sloc;
+                            res.STCK_TYPE = item.stock_type;
+                            res.ITEM_TEXT = item.item_text;
+                            res.PO_NO = item.po_number;
+                            res.PO_ITEM = Convert.ToInt32(item.po_line_number);
+                            res.TRUCK_NO = item.truck_no;
+                            res.WEIGHT_IN = item.weight_in;
+                            res.WEIGHT_OUT = item.weight_out;
+                            res.WEIGHT_REC = item.weight_rec;
+                            res.VEND_WEIGHT = item.weight_vendor;
+                            res.REJ_WEIGHT = item.weight_reject;
+                            res.WEIGHT_UNIT = item.weight_unit;
+                            res.P_STDATE = item.doc_start.Value.ToString("dd/MM/yyyy");
+                            res.P_ENDATE = item.doc_stop.Value.ToString("dd/MM/yyyy");
+                            res.ZPERM = item.doc_send;
+                            res.REV_MJAHR = item.document_year.ToString();
+                            res.REV_MBLNR = item.material_document;
+                            res.CREATE_UPD_BY = param.user;
+                            sapList.Add(res);
                         }
                     }
-                    else
+
+                    var insSap = _sapAPIService.SubmissionData(sapList).Result;
+                    if (!insSap.isCompleted)
                     {
                         result.isCompleted = false;
-                        result.message.Add($"Not Connect SAP Server");
+                        result.message.Add($"Insert Data to SAP Server Failed");
                         return Task.FromResult(result);
                     }
                 }

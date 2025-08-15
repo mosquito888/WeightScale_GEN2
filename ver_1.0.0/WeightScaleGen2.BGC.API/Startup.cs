@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -70,7 +70,6 @@ namespace WeightScaleGen2.BGC.API
                 config.AssumeDefaultVersionWhenUnspecified = true;
                 // Advertise the API versions supported for the particular endpoint
                 config.ReportApiVersions = true;
-                config.UseApiBehavior = false;
             });
             #endregion [Api Versioning]
 
@@ -111,8 +110,6 @@ namespace WeightScaleGen2.BGC.API
             services.AddScoped(typeof(UserInfoModel));
 
             // auto mappper
-            services.AddAutoMapper(cfg => { });
-
 
             // session
             services.AddMvc().AddSessionStateTempDataProvider();

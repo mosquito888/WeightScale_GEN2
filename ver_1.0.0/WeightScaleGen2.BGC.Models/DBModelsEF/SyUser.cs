@@ -29,5 +29,9 @@ public partial class SyUser
 
     public bool IsDeleted { get; set; }
 
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
+
     public virtual SyRole Role { get; set; }
 }

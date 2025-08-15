@@ -62,4 +62,8 @@ public partial class HistoryWeightIn
     public int? Edi { get; set; }
 
     public string EdiSand { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

@@ -10,4 +10,8 @@ public partial class SySenderMapping
     public string WeightInNo { get; set; }
 
     public int SenderId { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

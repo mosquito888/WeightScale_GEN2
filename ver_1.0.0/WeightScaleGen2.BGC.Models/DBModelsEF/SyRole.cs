@@ -25,6 +25,10 @@ public partial class SyRole
 
     public bool IsSuperRole { get; set; }
 
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
+
     public virtual ICollection<SyRoleItem> SyRoleItems { get; set; } = new List<SyRoleItem>();
 
     public virtual ICollection<SyUser> SyUsers { get; set; } = new List<SyUser>();

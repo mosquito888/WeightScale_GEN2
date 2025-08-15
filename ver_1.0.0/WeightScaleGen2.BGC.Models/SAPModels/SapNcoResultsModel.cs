@@ -2,11 +2,11 @@
 {
     public class SapNcoResultsModel
     {
-        public string ZWGDOC { get; set; }
-        public decimal ZWGDOC_SEQ { get; set; }
-        public string MBLNR { get; set; }
-        public string MJAHR { get; set; }
-        public string MSGTY { get; set; }
-        public string MESSAGE { get; set; }
+        public string zwgdoc { get; set; }
+        public decimal zwgdoc_seq { get; set; }
+        public string mblnr { get; set; }
+        public string mjahr { get; set; }
+        public string msgty { get; set; }
+        public string message { get; set; }
     }
 }

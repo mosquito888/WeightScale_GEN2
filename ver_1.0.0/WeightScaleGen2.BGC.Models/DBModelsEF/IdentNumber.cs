@@ -14,4 +14,8 @@ public partial class IdentNumber
     public int? IdenNumber { get; set; }
 
     public string Type { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

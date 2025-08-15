@@ -20,4 +20,8 @@ public partial class SyItemMasterRelation
     public string Remark1 { get; set; }
 
     public string Remark2 { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

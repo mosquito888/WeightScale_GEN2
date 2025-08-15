@@ -15,25 +15,11 @@ public partial class ApplicationContext : DbContext
     {
     }
 
-    public virtual DbSet<ApprovePo> ApprovePos { get; set; }
-
-    public virtual DbSet<Authorize> Authorizes { get; set; }
-
-    public virtual DbSet<Company> Companies { get; set; }
-
     public virtual DbSet<HistoryWeightIn> HistoryWeightIns { get; set; }
 
     public virtual DbSet<HistoryWeightOut> HistoryWeightOuts { get; set; }
 
     public virtual DbSet<IdentNumber> IdentNumbers { get; set; }
-
-    public virtual DbSet<MaintenanceWeightIn> MaintenanceWeightIns { get; set; }
-
-    public virtual DbSet<MaintenanceWeightOut> MaintenanceWeightOuts { get; set; }
-
-    public virtual DbSet<MovementCode> MovementCodes { get; set; }
-
-    public virtual DbSet<Reason> Reasons { get; set; }
 
     public virtual DbSet<SyComp> SyComps { get; set; }
 
@@ -85,90 +71,16 @@ public partial class ApplicationContext : DbContext
 
     public virtual DbSet<UomConversion> UomConversions { get; set; }
 
-    public virtual DbSet<User> Users { get; set; }
-
-    public virtual DbSet<UserLog> UserLogs { get; set; }
-
     public virtual DbSet<WeightIn> WeightIns { get; set; }
 
     public virtual DbSet<WeightOut> WeightOuts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=10.10.20.29;Database=WEIGHT_SCALE_GEN2_DEV;User ID=sa2;Password=!QAZ2wsx;MultipleActiveResultSets=False;Encrypt=False;TrustServerCertificate=False;Connection Timeout=30;");
+        => optionsBuilder.UseSqlServer("Server=localhost\\MSSQLSERVER02;Database=WEIGHT_SCALE_GEN2_DEV;User ID=sa;Password=P@ssw0rd;Integrated Security=true;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.UseCollation("Thai_CI_AS");
-
-        modelBuilder.Entity<ApprovePo>(entity =>
-        {
-            entity.HasKey(e => new { e.DocumentNumber, e.DocumentType });
-
-            entity.ToTable("Approve_PO");
-
-            entity.Property(e => e.DocumentType).HasMaxLength(2);
-            entity.Property(e => e.DateApprove).HasColumnType("datetime");
-            entity.Property(e => e.DateRequest).HasColumnType("datetime");
-            entity.Property(e => e.Status)
-                .IsRequired()
-                .HasMaxLength(10);
-            entity.Property(e => e.UserApprove).HasMaxLength(50);
-            entity.Property(e => e.UserRequest)
-                .IsRequired()
-                .HasMaxLength(50);
-        });
-
-        modelBuilder.Entity<Authorize>(entity =>
-        {
-            entity.ToTable("Authorize");
-
-            entity.Property(e => e.Description)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Remark)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<Company>(entity =>
-        {
-            entity.HasKey(e => e.CompanyCode);
-
-            entity.ToTable("Company");
-
-            entity.Property(e => e.CompanyCode)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.Address1).HasMaxLength(50);
-            entity.Property(e => e.Address1En)
-                .HasMaxLength(50)
-                .HasColumnName("Address1EN");
-            entity.Property(e => e.Address2).HasMaxLength(50);
-            entity.Property(e => e.Address2En)
-                .HasMaxLength(50)
-                .HasColumnName("Address2EN");
-            entity.Property(e => e.Address3).HasMaxLength(50);
-            entity.Property(e => e.Address3En)
-                .HasMaxLength(50)
-                .HasColumnName("Address3EN");
-            entity.Property(e => e.CompanyName).IsUnicode(false);
-            entity.Property(e => e.CompanyNameEn)
-                .IsUnicode(false)
-                .HasColumnName("CompanyNameEN");
-            entity.Property(e => e.DigitSlip)
-                .HasMaxLength(2)
-                .IsUnicode(false);
-            entity.Property(e => e.Remark1).HasMaxLength(50);
-            entity.Property(e => e.Remark2).HasMaxLength(50);
-            entity.Property(e => e.Status)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false);
-        });
-
         modelBuilder.Entity<HistoryWeightIn>(entity =>
         {
             entity.ToTable("history_weight_in");
@@ -180,6 +92,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.CarType)
                 .HasMaxLength(50)
                 .HasColumnName("car_type");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.Company)
                 .HasMaxLength(10)
                 .IsUnicode(false)
@@ -224,6 +139,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("maintenance_no");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.Remark1)
                 .HasMaxLength(50)
                 .HasColumnName("remark_1");
@@ -285,6 +203,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.CarLicense)
                 .HasMaxLength(10)
                 .HasColumnName("car_license");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.Company)
                 .HasMaxLength(10)
                 .IsUnicode(false)
@@ -316,6 +237,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.PercentHumidityOut)
                 .HasColumnType("numeric(18, 2)")
                 .HasColumnName("percent_humidity_out");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.QtyBag)
                 .HasColumnType("numeric(18, 0)")
                 .HasColumnName("qty_bag");
@@ -424,385 +348,13 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(5)
                 .IsUnicode(false)
                 .HasColumnName("type");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.IdenNumber).HasColumnName("iden_number");
-        });
-
-        modelBuilder.Entity<MaintenanceWeightIn>(entity =>
-        {
-            entity.HasKey(e => e.MaintenanceNo);
-
-            entity.ToTable("Maintenance_Weight_In");
-
-            entity.Property(e => e.MaintenanceNo)
+            entity.Property(e => e.PlantCode)
                 .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.CarLicense)
-                .IsRequired()
-                .HasMaxLength(10)
-                .HasColumnName("Car_license");
-            entity.Property(e => e.CarLicenseE)
-                .HasMaxLength(10)
-                .HasColumnName("Car_license_E");
-            entity.Property(e => e.CarType)
-                .IsRequired()
-                .HasMaxLength(50)
-                .HasColumnName("Car_type");
-            entity.Property(e => e.CarTypeE)
-                .HasMaxLength(50)
-                .HasColumnName("Car_type_E");
-            entity.Property(e => e.Company)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.CompanyE)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("Company_E");
-            entity.Property(e => e.Date).HasColumnType("datetime");
-            entity.Property(e => e.DateApprove).HasColumnType("datetime");
-            entity.Property(e => e.DateCreate).HasColumnType("datetime");
-            entity.Property(e => e.DateE)
-                .HasColumnType("datetime")
-                .HasColumnName("Date_E");
-            entity.Property(e => e.DateEdit).HasColumnType("datetime");
-            entity.Property(e => e.DocSend).HasMaxLength(20);
-            entity.Property(e => e.DocSendE)
-                .HasMaxLength(20)
-                .HasColumnName("DocSend_E");
-            entity.Property(e => e.DocStart).HasColumnType("datetime");
-            entity.Property(e => e.DocStartE)
-                .HasColumnType("datetime")
-                .HasColumnName("DocStart_E");
-            entity.Property(e => e.DocStop).HasColumnType("datetime");
-            entity.Property(e => e.DocStopE)
-                .HasColumnType("datetime")
-                .HasColumnName("DocStop_E");
-            entity.Property(e => e.DocTypePo)
-                .IsRequired()
-                .HasMaxLength(10)
-                .HasColumnName("DocType_PO");
-            entity.Property(e => e.DocTypePoE)
-                .HasMaxLength(10)
-                .HasColumnName("DocType_PO_E");
-            entity.Property(e => e.DocumentPo)
-                .IsRequired()
-                .HasMaxLength(20)
-                .HasColumnName("Document_PO");
-            entity.Property(e => e.DocumentPoE)
-                .HasMaxLength(20)
-                .HasColumnName("Document_PO_E");
-            entity.Property(e => e.DocumentRef)
-                .IsRequired()
-                .HasMaxLength(50)
-                .HasColumnName("Document_Ref");
-            entity.Property(e => e.DocumentRefE)
-                .HasMaxLength(50)
-                .HasColumnName("Document_Ref_E");
-            entity.Property(e => e.ItemCode)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.ItemCodeE)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("ItemCode_E");
-            entity.Property(e => e.ItemName)
-                .HasMaxLength(60)
-                .IsUnicode(false);
-            entity.Property(e => e.ItemNameE)
-                .HasMaxLength(60)
-                .IsUnicode(false)
-                .HasColumnName("ItemName_E");
-            entity.Property(e => e.LineNumber).HasColumnType("numeric(5, 0)");
-            entity.Property(e => e.LineNumberE)
-                .HasColumnType("numeric(5, 0)")
-                .HasColumnName("LineNumber_E");
-            entity.Property(e => e.Note).HasColumnType("text");
-            entity.Property(e => e.Remark1).HasMaxLength(50);
-            entity.Property(e => e.Remark2).HasMaxLength(50);
-            entity.Property(e => e.Status)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.StatusE)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("Status_E");
-            entity.Property(e => e.StatusMaintenance)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.SupplierCodeE).HasColumnName("SupplierCode_E");
-            entity.Property(e => e.UserApprove)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.UserCreate)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.UserEdit)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.UserId)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("UserID");
-            entity.Property(e => e.UserIdE)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("UserID_E");
-            entity.Property(e => e.WeightIn)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_IN");
-            entity.Property(e => e.WeightInE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_IN_E");
-            entity.Property(e => e.WeightInNo)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("WeightIN_No");
-            entity.Property(e => e.WeightInType)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("WeightIN_Type");
-        });
-
-        modelBuilder.Entity<MaintenanceWeightOut>(entity =>
-        {
-            entity.HasKey(e => e.MaintenanceNo);
-
-            entity.ToTable("Maintenance_Weight_Out");
-
-            entity.Property(e => e.MaintenanceNo)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.ApiBg)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("API_BG");
-            entity.Property(e => e.ApiBgE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("API_BG_E");
-            entity.Property(e => e.ApiSupplier)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("API_Supplier");
-            entity.Property(e => e.ApiSupplierE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("API_Supplier_E");
-            entity.Property(e => e.BeforeWeightOut)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Before_Weight_Out");
-            entity.Property(e => e.BeforeWeightOutE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Before_Weight_Out_E");
-            entity.Property(e => e.CarLicense)
-                .HasMaxLength(10)
-                .HasColumnName("Car_license");
-            entity.Property(e => e.CarLicenseE)
-                .HasMaxLength(10)
-                .HasColumnName("Car_license_E");
-            entity.Property(e => e.Company)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.CompanyE)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("Company_E");
-            entity.Property(e => e.Date).HasColumnType("datetime");
-            entity.Property(e => e.DateApprove).HasColumnType("datetime");
-            entity.Property(e => e.DateCreate).HasColumnType("datetime");
-            entity.Property(e => e.DateE)
-                .HasColumnType("datetime")
-                .HasColumnName("Date_E");
-            entity.Property(e => e.DateEdit).HasColumnType("datetime");
-            entity.Property(e => e.Note).HasColumnType("text");
-            entity.Property(e => e.PercentHumidityDiff)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Percent_humidity_diff");
-            entity.Property(e => e.PercentHumidityDiffE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Percent_humidity_diff_E");
-            entity.Property(e => e.PercentHumidityOk)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Percent_humidity_OK");
-            entity.Property(e => e.PercentHumidityOut)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Percent_humidity_Out");
-            entity.Property(e => e.PercentHumidityOutE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Percent_humidity_Out_E");
-            entity.Property(e => e.QtyBag)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Qty_Bag");
-            entity.Property(e => e.QtyBagE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Qty_Bag_E");
-            entity.Property(e => e.QtyPallet)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Qty_Pallet");
-            entity.Property(e => e.QtyPalletE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Qty_Pallet_E");
-            entity.Property(e => e.Remark1).HasMaxLength(50);
-            entity.Property(e => e.Remark1E)
-                .HasMaxLength(50)
-                .HasColumnName("Remark1_E");
-            entity.Property(e => e.Remark2).HasMaxLength(50);
-            entity.Property(e => e.Remark2E)
-                .HasMaxLength(50)
-                .HasColumnName("Remark2_E");
-            entity.Property(e => e.SgBg)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("SG_BG");
-            entity.Property(e => e.SgBgE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("SG_BG_E");
-            entity.Property(e => e.SgSupplier)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("SG_Supplier");
-            entity.Property(e => e.SgSupplierE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("SG_Supplier_E");
-            entity.Property(e => e.Status)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.StatusE)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("Status_E");
-            entity.Property(e => e.StatusMaintenance)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.TempBg)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Temp_BG");
-            entity.Property(e => e.TempBgE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Temp_BG_E");
-            entity.Property(e => e.TempSupplier)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Temp_Supplier");
-            entity.Property(e => e.TempSupplierE)
-                .HasColumnType("numeric(18, 0)")
-                .HasColumnName("Temp_Supplier_E");
-            entity.Property(e => e.TotalWeightBag)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Total_Weight_Bag");
-            entity.Property(e => e.TotalWeightBagE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Total_Weight_Bag_E");
-            entity.Property(e => e.TotalWeightPallet)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Total_Weight_Pallet");
-            entity.Property(e => e.TotalWeightPalletE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Total_Weight_Pallet_E");
-            entity.Property(e => e.UserApprove)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.UserCreate)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.UserEdit)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.UserId)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("UserID");
-            entity.Property(e => e.UserIdE)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("UserID_E");
-            entity.Property(e => e.VolumeBySupplier)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Volume_By_Supplier");
-            entity.Property(e => e.VolumeBySupplierE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Volume_By_Supplier_E");
-            entity.Property(e => e.WeightBag)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Bag");
-            entity.Property(e => e.WeightBagE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Bag_E");
-            entity.Property(e => e.WeightBySupplier)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_By_Supplier");
-            entity.Property(e => e.WeightBySupplierE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_By_Supplier_E");
-            entity.Property(e => e.WeightInNo)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("WeightIN_No");
-            entity.Property(e => e.WeightInNoE)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("WeightIN_No_E");
-            entity.Property(e => e.WeightOut)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Out");
-            entity.Property(e => e.WeightOutE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Out_E");
-            entity.Property(e => e.WeightOutNo)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("WeightOut_No");
-            entity.Property(e => e.WeightOutType)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("WeightOut_Type");
-            entity.Property(e => e.WeightOutTypeE)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("WeightOut_Type_E");
-            entity.Property(e => e.WeightPallet)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Pallet");
-            entity.Property(e => e.WeightPalletE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Pallet_E");
-            entity.Property(e => e.WeightReceive)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Receive");
-            entity.Property(e => e.WeightReceiveE)
-                .HasColumnType("numeric(18, 2)")
-                .HasColumnName("Weight_Receive_E");
-        });
-
-        modelBuilder.Entity<MovementCode>(entity =>
-        {
-            entity.HasKey(e => new { e.MovementCode1, e.ForField });
-
-            entity.ToTable("MovementCode");
-
-            entity.Property(e => e.MovementCode1)
-                .HasMaxLength(2)
-                .HasColumnName("MovementCode");
-            entity.Property(e => e.ForField).HasMaxLength(10);
-            entity.Property(e => e.MovementName)
-                .IsRequired()
-                .HasMaxLength(10);
-            entity.Property(e => e.ValueFormapping)
-                .IsRequired()
-                .HasMaxLength(10);
-        });
-
-        modelBuilder.Entity<Reason>(entity =>
-        {
-            entity
-                .HasNoKey()
-                .ToTable("Reason");
-
-            entity.Property(e => e.ReasonName)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
+                .HasColumnName("plant_code");
         });
 
         modelBuilder.Entity<SyComp>(entity =>
@@ -880,6 +432,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(500)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("phone");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.ProvinceCode)
                 .HasMaxLength(50)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
@@ -1109,9 +664,15 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(10)
                 .IsUnicode(false)
                 .HasColumnName("group_code");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.GroupName)
                 .HasMaxLength(50)
                 .HasColumnName("group_name");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
         });
 
         modelBuilder.Entity<SyItemMaster>(entity =>
@@ -1124,6 +685,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("item_code");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.IsActive).HasColumnName("is_active");
             entity.Property(e => e.IsDeleted).HasColumnName("is_deleted");
             entity.Property(e => e.ItemGroup)
@@ -1134,6 +698,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .HasColumnName("item_name");
             entity.Property(e => e.ItemShot).HasColumnName("item_shot");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.Remark1)
                 .HasMaxLength(50)
                 .HasColumnName("remark_1");
@@ -1151,6 +718,9 @@ public partial class ApplicationContext : DbContext
             entity.ToTable("sy_item_master_relation");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.Gravity)
                 .HasColumnType("numeric(18, 2)")
                 .HasColumnName("gravity");
@@ -1161,6 +731,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("item_code");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.Remark1)
                 .HasMaxLength(50)
                 .HasColumnName("remark_1");
@@ -1181,6 +754,9 @@ public partial class ApplicationContext : DbContext
             entity.ToTable("sy_log");
 
             entity.Property(e => e.LogId).HasColumnName("log_id");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.LogAdditionalInfo)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("log_additional_Info");
@@ -1221,6 +797,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.LogUser)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("log_user");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
         });
 
         modelBuilder.Entity<SyMaster>(entity =>
@@ -1285,6 +864,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("master_type");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.IsAdd).HasColumnName("is_add");
             entity.Property(e => e.IsNotDel).HasColumnName("is_not_del");
             entity.Property(e => e.IsNotEdit).HasColumnName("is_not_edit");
@@ -1293,6 +875,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(500)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("master_type_desc");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
         });
 
         modelBuilder.Entity<SyMatchPlant>(entity =>
@@ -1548,6 +1133,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.Sequence)
                 .HasColumnType("decimal(5, 0)")
                 .HasColumnName("sequence");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.DocDate).HasColumnName("doc_date");
             entity.Property(e => e.DocSend)
                 .HasMaxLength(20)
@@ -1589,6 +1177,9 @@ public partial class ApplicationContext : DbContext
                 .IsRequired()
                 .HasMaxLength(4)
                 .HasColumnName("plant");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.PoLineNumber)
                 .HasColumnType("decimal(5, 0)")
                 .HasColumnName("po_line_number");
@@ -1647,6 +1238,9 @@ public partial class ApplicationContext : DbContext
             entity.ToTable("sy_role");
 
             entity.Property(e => e.RoleId).HasColumnName("role_id");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.CreatedBy)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -1665,6 +1259,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.ModifiedDate)
                 .HasColumnType("datetime")
                 .HasColumnName("modified_date");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.RoleDesc)
                 .HasMaxLength(500)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
@@ -1683,6 +1280,9 @@ public partial class ApplicationContext : DbContext
             entity.ToTable("sy_role_item");
 
             entity.Property(e => e.RoleItemId).HasColumnName("role_item_id");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.CreatedBy)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -1703,6 +1303,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.ModifiedDate)
                 .HasColumnType("datetime")
                 .HasColumnName("modified_date");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
 
             entity.HasOne(d => d.MenuSection).WithMany(p => p.SyRoleItems)
@@ -1723,12 +1326,18 @@ public partial class ApplicationContext : DbContext
             entity.ToTable("sy_sender");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.FlagDelete)
                 .HasMaxLength(1)
                 .IsUnicode(false)
                 .HasColumnName("flag_delete");
             entity.Property(e => e.IsActive).HasColumnName("is_active");
             entity.Property(e => e.IsDeleted).HasColumnName("is_deleted");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.SenderName)
                 .IsRequired()
                 .HasMaxLength(100)
@@ -1741,6 +1350,12 @@ public partial class ApplicationContext : DbContext
             entity.ToTable("sy_sender_mapping");
 
             entity.Property(e => e.Id).HasColumnName("id");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.SenderId).HasColumnName("sender_id");
             entity.Property(e => e.WeightInNo)
                 .IsRequired()
@@ -1758,8 +1373,14 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.SupplierCode)
                 .ValueGeneratedNever()
                 .HasColumnName("supplier_code");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.IsActive).HasColumnName("is_active");
             entity.Property(e => e.IsDeleted).HasColumnName("is_deleted");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.Remark1)
                 .HasMaxLength(50)
                 .HasColumnName("remark_1");
@@ -1789,6 +1410,12 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("sys_code");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.SysDesc)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("sys_desc");
@@ -1805,6 +1432,9 @@ public partial class ApplicationContext : DbContext
             entity.ToTable("sy_user");
 
             entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.CreatedBy)
                 .IsRequired()
                 .HasMaxLength(50)
@@ -1835,6 +1465,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("password");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.RoleId).HasColumnName("role_id");
             entity.Property(e => e.Username)
                 .IsRequired()
@@ -1869,6 +1502,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.BaseUomIn)
                 .HasMaxLength(3)
                 .HasColumnName("base_uom_in");
+            entity.Property(e => e.CompCode)
+                .HasMaxLength(50)
+                .HasColumnName("comp_code");
             entity.Property(e => e.ConvWeightD)
                 .HasColumnType("decimal(5, 0)")
                 .HasColumnName("conv_weight_d");
@@ -1888,6 +1524,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.NetWeight)
                 .HasColumnType("decimal(13, 3)")
                 .HasColumnName("net_weight");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.UpdatedBy)
                 .HasMaxLength(12)
                 .HasColumnName("updated_by");
@@ -1898,66 +1537,6 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.WeightUnit)
                 .HasMaxLength(3)
                 .HasColumnName("weight_unit");
-        });
-
-        modelBuilder.Entity<User>(entity =>
-        {
-            entity.ToTable("User");
-
-            entity.Property(e => e.UserId)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("UserID");
-            entity.Property(e => e.CompanyCode)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.DateRegit).HasColumnType("datetime");
-            entity.Property(e => e.Department)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Firstname)
-                .IsRequired()
-                .HasMaxLength(50);
-            entity.Property(e => e.Lastname).HasMaxLength(50);
-            entity.Property(e => e.Password)
-                .IsRequired()
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Remark1)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Remark2)
-                .HasMaxLength(50)
-                .IsUnicode(false);
-            entity.Property(e => e.Status)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false);
-        });
-
-        modelBuilder.Entity<UserLog>(entity =>
-        {
-            entity.ToTable("UserLog");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.CompanyCode)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.Date).HasColumnType("datetime");
-            entity.Property(e => e.DateIn).HasColumnType("datetime");
-            entity.Property(e => e.DateOut).HasColumnType("datetime");
-            entity.Property(e => e.Remark1).HasMaxLength(50);
-            entity.Property(e => e.Remark2).HasMaxLength(50);
-            entity.Property(e => e.Status)
-                .HasMaxLength(10)
-                .IsUnicode(false);
-            entity.Property(e => e.UserId)
-                .IsRequired()
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("UserID");
         });
 
         modelBuilder.Entity<WeightIn>(entity =>
@@ -2010,6 +1589,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.LineNumber)
                 .HasColumnType("numeric(5, 0)")
                 .HasColumnName("line_number");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.Remark1)
                 .HasMaxLength(50)
                 .HasColumnName("remark_1");
@@ -2093,6 +1675,9 @@ public partial class ApplicationContext : DbContext
             entity.Property(e => e.PercentHumidityOut)
                 .HasColumnType("numeric(18, 2)")
                 .HasColumnName("percent_humidity_out");
+            entity.Property(e => e.PlantCode)
+                .HasMaxLength(50)
+                .HasColumnName("plant_code");
             entity.Property(e => e.QtyBag)
                 .HasColumnType("numeric(18, 0)")
                 .HasColumnName("qty_bag");

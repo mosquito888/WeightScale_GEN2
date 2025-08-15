@@ -64,4 +64,8 @@ public partial class SyReturnDatum
     public string MaterialDocument { get; set; }
 
     public decimal? DocumentYear { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

@@ -12,4 +12,8 @@ public partial class SySystem
     public string SysValue { get; set; }
 
     public string SysDesc { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

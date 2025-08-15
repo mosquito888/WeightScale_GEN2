@@ -34,4 +34,8 @@ public partial class SyLog
     public string LogUser { get; set; }
 
     public string LogIpAddress { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }

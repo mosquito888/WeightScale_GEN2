@@ -82,4 +82,6 @@ public partial class WeightOut
     public int? Reprint { get; set; }
 
     public string Company { get; set; }
+
+    public string PlantCode { get; set; }
 }

@@ -28,5 +28,6 @@
         public string ZPERM { get; set; }
         public string REV_MJAHR { get; set; }
         public string REV_MBLNR { get; set; }
+        public string CREATE_UPD_BY { get; set; }
     }
 }

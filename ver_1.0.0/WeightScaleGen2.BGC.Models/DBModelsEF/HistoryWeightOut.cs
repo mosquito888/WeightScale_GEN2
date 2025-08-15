@@ -88,4 +88,8 @@ public partial class HistoryWeightOut
     public int? Edi { get; set; }
 
     public string EdiSend { get; set; }
+
+    public string PlantCode { get; set; }
+
+    public string CompCode { get; set; }
 }
