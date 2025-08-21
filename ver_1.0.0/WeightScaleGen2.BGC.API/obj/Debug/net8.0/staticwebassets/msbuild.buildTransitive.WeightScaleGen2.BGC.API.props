@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\WeightScaleGen2.BGC.API.props" />
+</Project>

@@ -1,0 +1,176 @@
+﻿@model WeightScaleGen2.BGC.Models.ViewModels.User.ResultSearchUserCriteria
+@{
+    ViewData["PageTitle"] = @ViewBag.MenuName;
+}
+@Html.AntiForgeryToken()
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h6 class="h6 mb-0 text-gray-800">@ViewBag.MenuName</h6>
+            <div class="separator mb-5"></div>
+        </div>
+    </div>
+
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="mb-4">Search User</h5>
+            <div class="form-row">
+                <div class="form-group col-md-8">
+                    <label for="inputSearch">Search</label>
+                    <input type="text" class="form-control" id="inputSearch" placeholder="Name / Email">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputRole">Role</label>
+                    @Html.DropDownListFor(x => x.role_dll,
+                    Model.role_dll.Select(s => new SelectListItem()
+                    {
+                    Text = s.text,
+                    Value = s.value,
+                    Disabled = !s.is_active
+                    }),
+                    "select", new {@class = "form-control", id = "inputRoleId"})
+                </div>
+            </div>
+            <div class=" text-right"><button type="submit" onclick="SearchUser()" class="d-none d-sm-inline-block btn btn-sm btn-outline-primary shadow-sm mb-0">Search</button></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <table id="user-list" class="data-table data-tables-pagination responsive nowrap"
+                           data-order="[[ 1, &quot;desc&quot; ]]">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Name</th>
+                                <th>E-mail</th>
+                                <th>Role</th>
+                                <th>Tools</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+    <script>
+        var t
+        var searchParam;
+        var fromSearch = true;
+        $(function () {
+            Swal.fire({
+                title: 'Please wait !',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+            SearchPage.init({
+                url: '@Url.RouteUrl("SearchUserManagement")',
+                info_page_url: '@Url.RouteUrl("UserInfo")',
+                tableId: "user-list"
+            });
+            setTimeout(function () { Swal.close(); }, 1000);
+        });
+
+        var SearchPage = function () {
+            var tableList;  // actual table jquery object
+            var opts;       // all param object
+
+            var initDataTable = function () {
+                t = tableList.DataTable({
+                    ajax: {
+                        url: '/User/SearchUserManagement',
+                        type: "POST",
+                        data: function (d) {
+                            return $.extend({}, d, {
+                                "name": $('#inputSearch').val(),
+                                "role_id": $('#inputRoleId').val()
+                            });
+                        },
+                        dataType: "json",
+                        error: function (jqXhr, txtStatus, errorThrown) {
+                            if (typeof console === "object") {
+                                console.log("Code: " + jqXhr.status);
+                                console.log("Status: " + txtStatus);
+                                console.log("Error Thrown: " + errorThrown);
+                            }
+                        }
+                    },
+                    iDisplayLength: 10,
+                    paging: true,
+                    serverSide: true,
+                    responsive: true,
+                    autoWidth: false,
+                    searching: false,
+                    info: true,
+                    sDom: '<"row view-filter"<"col-sm-12"<"float-left"l><"float-right"f><"clearfix">>>t<"row view-pager"<"col-sm-12"<"text-center"ip>>>',
+                    processing: true,
+                    language: {
+                        paginate: {
+                            previous: "<i class='simple-icon-arrow-left'></i>",
+                            next: "<i class='simple-icon-arrow-right'></i>"
+                        },
+                        processing: '<div class="flex items-center justify-center"><i class="fa fa-spinner fa-spin fa-3x fa-fw"></i><span class="sr-only">Loading...</span></div>'
+                    },
+                    columns: [
+                        { data: "name", name: "name", className: "text-left", orderable: false },
+                        { data: "email", name: "email", className: "text-left", orderable: false },
+                        { data: "role_name", name: "role_name", className: "text-left", orderable: false },
+                        { data: "user_id", name: "user_id", className: "text-center", orderable: false, render: renderCol_Tools },
+                    ],
+                    order: [[1, "asc"]]
+                });
+            };
+
+            var renderCol_Tools = function (data, type, row, meta) {
+                var response = '';
+                if (data) {
+                    var aView = '<a href="' + 'UserInfo' + '?id=' + data + '"><i class="simple-icon-note"></i></a>';
+
+                    response += '<div class="btn-group btn-group-sm">' + aView;
+                    response += '</div>';
+
+                }
+                return response;
+            };
+
+            var reloadTable = function () {
+                if (tableList) {
+                    tableList.DataTable().ajax.reload();
+                }
+            };
+
+            return {
+                init: function (options) {
+                    opts = $.extend({
+                        ajaxUrl_GetList: '/User/SearchUserManagement',
+                        redirectUrl_InfoPage: options.info_page_url,
+                        updateRole: options.info_page_url,
+
+                        table: []
+                    }, options);
+
+                    tableList = $("#" + opts.tableId);
+                    initDataTable();
+                },
+                reloadTableAjax: function () {
+                    reloadTable();
+                }
+            };
+        }();
+
+        function SearchUser() {
+            fromSearch = true;
+            SearchPage.reloadTableAjax();
+        }
+
+
+    </script>
+
+}
