@@ -255,11 +255,29 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                         sheet.PageSetup.CenterHorizontally = true;
                         sheet.PageSetup.CenterVertically = true;
 
-                        var item = _itemMasterService.GetItemMasterListData(this._Username()).data.Where(i => i.item_code == param.item_code).FirstOrDefault();
+                        var item =  _itemMasterService.GetItemMasterListData(this._Username()).data.Where(i => i.item_code == param.item_code).FirstOrDefault();
 
                         // Write Data
-                        sheet[3, 2].Text = "ช่วงวันที่ : " + param.start_date.Value.ToString("dd/MM/yyyy") + " - " + param.end_date.Value.ToString("dd/MM/yyyy");
-                        sheet[4, 4].Text = item.item_code + " - " + item.item_name;
+                        string dateValue;
+                        if (param.start_date.HasValue && param.start_date.HasValue)
+                        {
+                            dateValue = "ช่วงวันที่ : " + param.start_date.Value.ToString("dd/MM/yyyy") + " - " + param.end_date.Value.ToString("dd/MM/yyyy");
+                        }
+                        else if (param.start_date.HasValue)
+                        {
+                            dateValue = "วันที่ : " + param.start_date.Value.ToString("dd/MM/yyyy");
+                        }
+                        else if (param.end_date.HasValue)
+                        {
+                            dateValue = "วันที่ : " + param.end_date.Value.ToString("dd/MM/yyyy");
+                        }
+                        else
+                        {
+                            dateValue = "ทั้งหมด";
+                        }
+
+                        sheet[3, 2].Text = dateValue;
+                        sheet[4, 4].Text =  !String.IsNullOrEmpty(param.item_code) ? item.item_code + " - " + item.item_name : "ทั้งหมด";
                         sheet[4, 10].Text = this._Username();
                         sheet[5, 4].Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
 

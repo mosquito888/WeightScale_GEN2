@@ -43,8 +43,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@company_code", companyCode);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_copy_and_delete_data_today @company_code";
+            var query = @"EXEC sp_copy_and_delete_data_today @company_code, @plant_code";
 
             var datas = conn.Query(query, p).ToList();
             var result = new MessageReport(false, "ERROR!");

@@ -17,6 +17,7 @@ namespace WeightScaleGen2.BGC.Models.DBModels
         public DateTime modified_date { get; set; }
         public bool is_active { get; set; }
         public bool is_deleted { get; set; }
+        public string serial_port { get; set; }
         #region [ADD ON]
         public int total_record { get; set; }
         public string role_name { get; set; }

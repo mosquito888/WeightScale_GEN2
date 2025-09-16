@@ -256,6 +256,7 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                 {
                     case Constants.Mode.Created:
                     case Constants.Mode.Updated:
+                        model.status = "Deactive";
                         var resUpdate = _weightInService.UpdateWeightInStatus(this._Username(), model);
                         if (resUpdate.data)
                         {
@@ -460,22 +461,22 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                         sheet.PageSetup.FitToPagesTall = 1;
 
                         // Write Data
-                        sheet[11, 3].Text = result.data.weight_in_no;
+                        sheet[9, 3].Text = result.data.weight_in_no;
                         //sheet[11, 8].Text = result.data.sender_id != 0 ? _senderService.GetSenderListData(this._Username()).data.Where(s => s.id == result.data.sender_id).FirstOrDefault().sender_name : "-";
-                        sheet[11, 12].Text = result.data.date.Value.ToString("dd/MM/yyyy");
+                        sheet[9, 12].Text = result.data.date.Value.ToString("dd/MM/yyyy");
 
-                        sheet[14, 4].Text = result.data.car_license + " (" + result.data.car_type + ")";
-                        sheet[14, 11].Text = result.data.date.Value.ToString("dd/MM/yyyy HH:mm:ss");
+                        sheet[12, 4].Text = result.data.car_license + " (" + result.data.car_type + ")";
+                        sheet[12, 11].Text = result.data.date.Value.ToString("dd/MM/yyyy HH:mm:ss");
 
-                        sheet[16, 4].Text = result.data.item_name + " (" + result.data.item_code + ")";
-                        sheet[16, 11].Text = _supplierService.GetSupplierListData(this._Username()).data.Where(s => s.supplier_code == result.data.supplier_code).FirstOrDefault().supplier_name;
+                        sheet[13, 4].Text = result.data.item_name + " (" + result.data.item_code + ")";
+                        sheet[13, 11].Text = _supplierService.GetSupplierListData(this._Username()).data.Where(s => s.supplier_code == result.data.supplier_code).FirstOrDefault().supplier_name;
 
-                        sheet[19, 11].Text = "'" + result.data.weight_in.ToString("#,##0.00");
+                        sheet[16, 11].Text = "'" + result.data.weight_in.ToString("#,##0.00");
 
                         var resHis = _weightOutHistoryService.GetSearchWeightOutHistoryListData(this._Username(), new ParamSearchWeightOutHistoryViewModel { car_license = result.data.car_license });
                         if (resHis.isCompleted && resHis.data.Count > 0)
                         {
-                            int position = 23;
+                            int position = 20;
                             resHis.data = resHis.data.Take(3).ToList();
                             foreach (var his in resHis.data)
                             {
@@ -484,7 +485,7 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                             }
                         }
 
-                        sheet[31, 3].Text = result.data.sender_id != 0 ? _senderService.GetSenderListData(this._Username()).data.Where(s => s.id == result.data.sender_id).FirstOrDefault().sender_name : "-";
+                        sheet[28, 3].Text = result.data.sender_id != 0 ? _senderService.GetSenderListData(this._Username()).data.Where(s => s.id == result.data.sender_id).FirstOrDefault().sender_name : "-";
 
                         // save data to excel
                         workbookTemplate.SaveToFile(fileData, ExcelVersion.Version2016);

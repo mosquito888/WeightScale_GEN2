@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj": {}
+    "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj": {}
   },
   "projects": {
-    "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj": {
+    "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj",
+        "projectUniqueName": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj",
         "projectName": "WeightScaleGen2.BGC.API",
-        "projectPath": "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj",
-        "packagesPath": "C:\\Users\\nitiphat.j\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\obj\\",
+        "projectPath": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\WeightScaleGen2.BGC.API.csproj",
+        "packagesPath": "C:\\Users\\Phonlayut.s\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nitiphat.j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Phonlayut.s\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -33,8 +33,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj": {
-                "projectPath": "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj"
+              "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj": {
+                "projectPath": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj"
               }
             }
           }
@@ -81,6 +81,10 @@
               "target": "Package",
               "version": "[9.0.8, )"
             },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[112.1.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[9.0.3, )"
@@ -105,24 +109,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj": {
+    "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj",
         "projectName": "WeightScaleGen2.BGC.Models",
-        "projectPath": "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj",
-        "packagesPath": "C:\\Users\\nitiphat.j\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\BGC\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\obj\\",
+        "projectPath": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\WeightScaleGen2.BGC.Models.csproj",
+        "packagesPath": "C:\\Users\\Phonlayut.s\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\nitiphat.j\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Phonlayut.s\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -199,7 +203,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

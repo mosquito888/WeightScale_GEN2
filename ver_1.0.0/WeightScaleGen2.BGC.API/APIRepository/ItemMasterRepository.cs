@@ -66,7 +66,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     //CreatedBy = userInfo.username,
                     //CreatedDate = toDay,
                     IsActive = true,
-                    IsDeleted = false
+                    IsDeleted = false,
+                    CompCode = userInfo.comp_code,
+                    PlantCode = userInfo.plant_code
                 };
 
                 await dbContext.SyItemMasters.AddAsync(itm);
@@ -143,9 +145,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@product_code", param.product_code);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_item_master_by_item_code
                                 @product_code = @product_code
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<ItemMasterData>(query, p).FirstOrDefault();
@@ -188,12 +194,17 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@product_name", param.product_name);
             p.Add("@status", param.status);
 
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
+
             var query = @"EXEC sp_select_sy_item_master_by 
                                  @Offset = @Offset
                                 ,@PageSize = @PageSize
                                 ,@product_code = @product_code
                                 ,@product_name = @product_name
                                 ,@status = @status
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<ItemMasterData>(query, p).ToList();
@@ -225,6 +236,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 itm.Remark2 = param.remark_2;
                 itm.IsActive = true;
                 itm.IsDeleted = false;
+                itm.CompCode = userInfo.comp_code;
+                itm.PlantCode = userInfo.plant_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

@@ -12,6 +12,7 @@ namespace WeightScaleGen2.BGC.Models.ViewModels.User
         public string role_name { get; set; }
         public string user_id { get; set; }
         public string emp_code { get; set; }
+        public string serial_port { get; set; }
         public IEnumerable<BaseDLLViewModel> role_dll { get; set; }
         public ResultGetUserInfo()
         {

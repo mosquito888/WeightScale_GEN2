@@ -46,8 +46,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             using var conn = await _db.CreateConnectionAsync();
 
             var p = new DynamicParameters();
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_history_weight_in_all";
+            var query = @"EXEC sp_select_history_weight_in_all @comp_code = @comp_code, @plant_code = @plant_code";
 
             var datas = conn.Query<WeightInHistoryData>(query, p).ToList();
 
@@ -64,9 +66,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@car_license", param.car_license);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_history_weight_in_by_license
-                                 @car_license = @car_license
+                                 @car_license = @car_license,
+                                 @comp_code = @comp_code,
+                                 @plant_code = @plant_code
                         ";
 
             var datas = conn.Query<WeightInHistoryData>(query, p).ToList();

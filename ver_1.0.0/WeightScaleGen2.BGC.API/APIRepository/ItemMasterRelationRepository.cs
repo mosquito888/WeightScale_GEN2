@@ -63,7 +63,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     Gravity = param.gravity,
                     Status = param.status,
                     Remark1 = param.remark_1,
-                    Remark2 = param.remark_2
+                    Remark2 = param.remark_2,
+                    PlantCode = userInfo.plant_code,
+                    CompCode = userInfo.comp_code,
                 };
 
                 await dbContext.SyItemMasterRelations.AddAsync(itmr);
@@ -132,9 +134,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@id", param.id);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_item_master_relation_by_id
                                 @id = @id
+                               ,@comp_code = @comp_code
+                               ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<ItemMasterRelationData>(query, p).FirstOrDefault();
@@ -149,10 +155,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
         public async Task<List<ItemMasterRelationData>> Select_ItemMasterRelationListData_All(UserInfoModel userInfo)
         {
             using var conn = await _db.CreateConnectionAsync();
+            var p = new DynamicParameters();
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_sy_item_master_relation_all";
+            var query = @"EXEC sp_select_sy_item_master_relation_all @comp_code = @comp_code, @plant_code = @plant_code";
 
-            var datas = conn.Query<ItemMasterRelationData>(query).ToList();
+            var datas = conn.Query<ItemMasterRelationData>(query,p).ToList();
 
             conn.Close();
 
@@ -176,11 +185,16 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@product_code", param.product_code);
             p.Add("@supplier_code", param.supplier_code);
 
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
+
             var query = @"EXEC sp_select_sy_item_master_relation_by 
                                  @Offset = @Offset
                                 ,@PageSize = @PageSize
                                 ,@product_code = @product_code
                                 ,@supplier_code = @supplier_code
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<ItemMasterRelationData>(query, p).ToList();
@@ -212,6 +226,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 itmR.Status = param.status;
                 itmR.Remark1 = param.remark_1;
                 itmR.Remark2 = param.remark_2;
+                itmR.PlantCode = userInfo.plant_code;
+                itmR.CompCode = userInfo.comp_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

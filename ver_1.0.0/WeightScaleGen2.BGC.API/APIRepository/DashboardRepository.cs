@@ -44,8 +44,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             using var conn = await _db.CreateConnectionAsync();
 
             var p = new DynamicParameters();
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_dashboard_summary_weight
+            var query = @"EXEC sp_select_dashboard_summary_weight @comp_code = @comp_code, @plant_code = @plant_code
                         ";
 
             var datas = conn.Query<DashboardSummaryData>(query, p).ToList();
@@ -62,8 +64,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             using var conn = await _db.CreateConnectionAsync();
 
             var p = new DynamicParameters();
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_dashboard_summary_history_weight_in
+            var query = @"EXEC sp_select_dashboard_summary_history_weight_in @comp_code = @comp_code, @plant_code = @plant_code
                         ";
 
             var datas = conn.Query<DashboardSummaryHistoryData>(query, p).ToList();
@@ -80,8 +84,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             using var conn = await _db.CreateConnectionAsync();
 
             var p = new DynamicParameters();
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_dashboard_summary_history_weight_out
+            var query = @"EXEC sp_select_dashboard_summary_history_weight_out @comp_code = @comp_code, @plant_code = @plant_code
                         ";
 
             var datas = conn.Query<DashboardSummaryHistoryData>(query, p).ToList();

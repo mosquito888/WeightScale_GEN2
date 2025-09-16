@@ -310,7 +310,7 @@ namespace WeightScaleGen2.BGC.API.APIServices
             var result = new ReturnObject<bool>();
             try
             {
-                var lsData = await _MMPORepository.Select_SearchMMPOListData_By_CompanyCode("4900", _userInfo);
+                var lsData = await _MMPORepository.Select_SearchMMPOListData_By_CompanyCode(_userInfo.comp_code, _userInfo);
 
                 if (lsData.Count > 0)
                 {

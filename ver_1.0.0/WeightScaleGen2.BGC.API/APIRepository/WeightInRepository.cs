@@ -49,9 +49,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@id", param.id);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_in_by_id
                                 @id = @id
+                               ,@comp_code = @comp_code
+                               ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<WeightInData>(query, p).FirstOrDefault();
@@ -71,11 +75,15 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@car_license", param.car_license);
             p.Add("@company_code", param.company_code);
             p.Add("@status", param.status);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_in_by_car_license
                                 @car_license = @car_license,
                                 @company_code = @company_code,
-                                @status = @status
+                                @status = @status,
+                                @comp_code = @comp_code,
+                                @plant_code = @plant_code
             ";
 
             var datas = conn.Query<WeightInData>(query, p).FirstOrDefault();
@@ -136,6 +144,7 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     DocSend = param.doc_send,
                     DocStart = param.doc_start,
                     DocStop = param.doc_stop,
+                    PlantCode = userInfo.plant_code,
                 };
 
                 await dbContext.TsWeightIns.AddAsync(itm);
@@ -171,11 +180,15 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@Offset", _offset);
             p.Add("@PageSize", _pagesize);
             p.Add("@weight_in_no", param.weight_in_no);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_in_by 
                                  @Offset = @Offset
                                 ,@PageSize = @PageSize
                                 ,@weight_in_no = @weight_in_no
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<WeightInData>(query, p).ToList();
@@ -213,6 +226,7 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 itm.UserEdit3 = param.user_edit_2;
                 itm.UserEdit2 = param.user_edit_1;
                 itm.UserEdit1 = userInfo != null ? userInfo.username : "admin";
+                itm.PlantCode = userInfo.plant_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

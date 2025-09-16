@@ -61,7 +61,7 @@ namespace WeightScaleGen2.BGC.Web.Controllers
             SetPermission();
 
             var result = _weighingScaleService.GetConnectWeighingScale(this._Username());
-            if (result.isCompleted)
+            if (result.isCompleted && result.data == "OK")
             {
                 return Json(new { status = Constants.Result.Success, message = result.data });
             }
@@ -75,10 +75,10 @@ namespace WeightScaleGen2.BGC.Web.Controllers
         {
             SetPermission();
 
-            var result = _weighingScaleService.GetWeightByWeighingScale(this._Username(), "A");
+            var result = _weighingScaleService.GetWeightByWeighingScale(this._Username());
             if (result.isCompleted)
             {
-                return Json(new { status = Constants.Result.Success, data = result.data, message = result.message[0] });
+                return Json(new { status = Constants.Result.Success, data = result.data });
             }
             else
             {

@@ -9,10 +9,6 @@
       {
         "Path": "WeightScaleGen2.BGC.Web\\WeightScaleGen2.BGC.Web.csproj",
         "Action": "Start"
-      },
-      {
-        "Path": "WeightScaleGen2.BGC.SerialPortService\\WeightScaleGen2.BGC.SerialPortService.csproj",
-        "Action": "Start"
       }
     ]
   }

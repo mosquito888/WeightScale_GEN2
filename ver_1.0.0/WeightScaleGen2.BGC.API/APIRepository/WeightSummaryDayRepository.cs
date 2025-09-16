@@ -63,12 +63,24 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             {
                 p.Add("@end_date", null);
             }
-            p.Add("@item_group", param.item_group);
+
+            if (param.item_group == 0)
+            {
+                p.Add("@item_group", null);
+            }
+            else 
+            {
+                p.Add("@item_group", param.item_group);
+            }
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_summary_day_by
                                  @start_date = @start_date
                                 ,@end_date = @end_date
                                 ,@item_group = @item_group
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<WeightSummaryDayData>(query, p).ToList();

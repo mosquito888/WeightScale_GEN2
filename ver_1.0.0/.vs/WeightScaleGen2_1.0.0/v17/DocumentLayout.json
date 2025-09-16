@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1F0F0F10-838E-45CB-92F7-8BD80FD34686}|WeightScaleGen2.BGC.Web\\WeightScaleGen2.BGC.Web.csproj|c:\\users\\phonlayut.s\\source\\workspaces\\workspace\\weightscale_gen2\\ver_1.0.0\\weightscalegen2.bgc.web\\controllers\\weightoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F0F0F10-838E-45CB-92F7-8BD80FD34686}|WeightScaleGen2.BGC.Web\\WeightScaleGen2.BGC.Web.csproj|solutionrelative:weightscalegen2.bgc.web\\controllers\\weightoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1F0F0F10-838E-45CB-92F7-8BD80FD34686}|WeightScaleGen2.BGC.Web\\WeightScaleGen2.BGC.Web.csproj|c:\\users\\phonlayut.s\\source\\workspaces\\workspace\\weightscale_gen2\\ver_1.0.0\\weightscalegen2.bgc.web\\controllers\\weightincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1F0F0F10-838E-45CB-92F7-8BD80FD34686}|WeightScaleGen2.BGC.Web\\WeightScaleGen2.BGC.Web.csproj|solutionrelative:weightscalegen2.bgc.web\\controllers\\weightincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7EDC3290-03A7-437A-A7C2-F1622CDEFA9A}|WeightScaleGen2.BGC.SerialPortService\\WeightScaleGen2.BGC.SerialPortService.csproj|c:\\users\\phonlayut.s\\source\\workspaces\\workspace\\weightscale_gen2\\ver_1.0.0\\weightscalegen2.bgc.serialportservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7EDC3290-03A7-437A-A7C2-F1622CDEFA9A}|WeightScaleGen2.BGC.SerialPortService\\WeightScaleGen2.BGC.SerialPortService.csproj|solutionrelative:weightscalegen2.bgc.serialportservice\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7EDC3290-03A7-437A-A7C2-F1622CDEFA9A}|WeightScaleGen2.BGC.SerialPortService\\WeightScaleGen2.BGC.SerialPortService.csproj|C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\weightscalegen2.bgc.serialportservice\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{7EDC3290-03A7-437A-A7C2-F1622CDEFA9A}|WeightScaleGen2.BGC.SerialPortService\\WeightScaleGen2.BGC.SerialPortService.csproj|solutionrelative:weightscalegen2.bgc.serialportservice\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +35,61 @@
             {
               "$type": "Bookmark",
               "Name": "ST:12:0:{2456bd12-ecf7-4988-a4a6-67d49173f565}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "WeightOutController.cs",
+              "DocumentMoniker": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Web\\Controllers\\WeightOutController.cs",
+              "RelativeDocumentMoniker": "WeightScaleGen2.BGC.Web\\Controllers\\WeightOutController.cs",
+              "ToolTip": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Web\\Controllers\\WeightOutController.cs",
+              "RelativeToolTip": "WeightScaleGen2.BGC.Web\\Controllers\\WeightOutController.cs",
+              "ViewState": "AgIAAIEBAAAAAAAAAAAAAJEBAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T06:21:55.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WeightInController.cs",
+              "DocumentMoniker": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Web\\Controllers\\WeightInController.cs",
+              "RelativeDocumentMoniker": "WeightScaleGen2.BGC.Web\\Controllers\\WeightInController.cs",
+              "ToolTip": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.Web\\Controllers\\WeightInController.cs",
+              "RelativeToolTip": "WeightScaleGen2.BGC.Web\\Controllers\\WeightInController.cs",
+              "ViewState": "AgIAAIoBAAAAAAAAAAAYwJ8BAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T06:20:18.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.SerialPortService\\Program.cs",
+              "RelativeDocumentMoniker": "WeightScaleGen2.BGC.SerialPortService\\Program.cs",
+              "ToolTip": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.SerialPortService\\Program.cs",
+              "RelativeToolTip": "WeightScaleGen2.BGC.SerialPortService\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-16T05:55:29.878Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.SerialPortService\\App.config",
+              "RelativeDocumentMoniker": "WeightScaleGen2.BGC.SerialPortService\\App.config",
+              "ToolTip": "C:\\Users\\Phonlayut.s\\source\\Workspaces\\Workspace\\WeightScale_GEN2\\ver_1.0.0\\WeightScaleGen2.BGC.SerialPortService\\App.config",
+              "RelativeToolTip": "WeightScaleGen2.BGC.SerialPortService\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-09-16T05:54:32.682Z"
             }
           ]
         }

@@ -70,12 +70,14 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 p.Add("@end_date", null);
             }
             p.Add("@company_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"SELECT COUNT(*) OVER () AS total_record, * 
                                  FROM MM_PO
-                                 WHERE (CreatedOn >= @start_date OR @start_date IS NULL)
-                                 AND (CreatedOn <= @end_date OR @end_date IS NULL)
+                                 WHERE (@start_date IS NULL OR CONVERT(date, CreatedOn) >= @start_date)  
+                                 AND (@end_date IS NULL OR CONVERT(date, CreatedOn) <= @end_date)  
                                  AND CompanyCode = @company_code
+                                 AND Plant = @plant_code
                                  ORDER BY PurchaseNumber
                                  OFFSET @Offset ROWS
                                  FETCH NEXT @PageSize ROWS ONLY;
@@ -120,13 +122,15 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@document_po", param.document_po);
             p.Add("@material_code", param.material_code);
             p.Add("@line_number", param.line_number);
+            p.Add("@company_code", userInfo.comp_code);
 
             var query = @"SELECT * 
                                  FROM MM_PO
                                  WHERE PurchaseNumber = @document_po
                                  AND NumOfRec = @line_number
                                  AND MaterialCode = @material_code
-                                 AND STATUS != 'L' AND DlvComplete !='X';
+                                 AND STATUS != 'L' AND DlvComplete !='X'
+                                 AND CompanyCode = @company_code;
                         ";
 
             var datas = conn.Query<MMPOData>(query, p).FirstOrDefault();

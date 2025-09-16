@@ -62,7 +62,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     //CreatedBy = userInfo.username,
                     //CreatedDate = toDay,
                     IsActive = true,
-                    IsDeleted = false
+                    IsDeleted = false,
+                    CompCode = userInfo.comp_code,
+                    PlantCode = userInfo.plant_code
                 };
 
                 await dbContext.SySenders.AddAsync(sen);
@@ -127,9 +129,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@id", param.id);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_sender_by_id
                                 @id = @id
+                               ,@comp_code = @comp_code
+                               ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<SenderData>(query, p).FirstOrDefault();
@@ -169,11 +175,15 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@PageSize", _pagesize);
 
             p.Add("@sender_name", param.sender_name);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_sender_by 
                                  @Offset = @Offset
                                 ,@PageSize = @PageSize
                                 ,@sender_name = @sender_name
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<SenderData>(query, p).ToList();
@@ -205,6 +215,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 //emp.ModifiedDate = toDay;
                 sen.IsActive = true;
                 sen.IsDeleted = false;
+                sen.CompCode = userInfo.comp_code;
+                sen.PlantCode = userInfo.plant_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

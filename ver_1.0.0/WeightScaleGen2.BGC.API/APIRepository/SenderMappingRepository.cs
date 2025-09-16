@@ -56,6 +56,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 {
                     WeightInNo = param.weight_in_no,
                     SenderId = param.sender_id,
+                    CompCode = userInfo.comp_code,
+                    PlantCode = userInfo.plant_code,
                 };
 
                 await dbContext.TsSenderMappings.AddAsync(itm);
@@ -94,6 +96,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 TsSenderMapping sen = dbContext.TsSenderMappings.Where(i => i.WeightInNo == param.weight_in_no).FirstOrDefault();
 
                 sen.SenderId = param.sender_id;
+                sen.CompCode = userInfo.comp_code;
+                sen.PlantCode = userInfo.plant_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

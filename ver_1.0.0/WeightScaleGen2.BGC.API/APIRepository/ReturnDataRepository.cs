@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using NuGet.Protocol;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using WeightScaleGen2.BGC.API.APIRepository.Interface;
@@ -55,24 +56,26 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             var p = new DynamicParameters();
             p.Add("@Offset", _offset);
             p.Add("@PageSize", _pagesize);
-            if (param.start_date.HasValue)
+            if (!String.IsNullOrEmpty(param.start_date))
             {
-                p.Add("@start_date", param.start_date.Value.ToString("yyyy-MM-dd"));
+                p.Add("@start_date", DateTime.ParseExact(param.start_date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
             }
             else
             {
                 p.Add("@start_date", null);
             }
 
-            if (param.end_date.HasValue)
+            if (!String.IsNullOrEmpty(param.end_date))
             {
-                p.Add("@end_date", param.end_date.Value.ToString("yyyy-MM-dd"));
+                p.Add("@end_date", DateTime.ParseExact(param.end_date, "dd/MM/yyyy", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd"));
             }
             else
             {
                 p.Add("@end_date", null);
             }
             p.Add("@status", param.status);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_return_data_by
                                  @Offset = @Offset
@@ -80,6 +83,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                                 ,@start_date = @start_date
                                 ,@end_date = @end_date
                                 ,@status = @status
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<ReturnData>(query, p).ToList();
@@ -97,8 +102,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@company_code", companyCode);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_insert_return_data_by_weight @company_code";
+            var query = @"EXEC sp_insert_return_data_by_weight @company_code, @plant_code";
 
             var datas = conn.Query(query, p).ToList();
             var result = new MessageReport(false, "ERROR!");

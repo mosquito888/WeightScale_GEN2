@@ -707,6 +707,9 @@ public partial class ApplicationContext : DbContext
                 .HasMaxLength(50)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
                 .HasColumnName("report_type");
+            entity.Property(e => e.SerialPort)
+                .HasMaxLength(5)
+                .HasColumnName("serial_port");
             entity.Property(e => e.ShortCode)
                 .HasMaxLength(50)
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")

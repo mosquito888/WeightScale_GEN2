@@ -3868,12 +3868,10 @@
           },
           "start_date": {
             "type": "string",
-            "format": "date-time",
             "nullable": true
           },
           "end_date": {
             "type": "string",
-            "format": "date-time",
             "nullable": true
           },
           "status": {
@@ -5354,6 +5352,10 @@
             "nullable": true
           },
           "emp_code": {
+            "type": "string",
+            "nullable": true
+          },
+          "serial_port": {
             "type": "string",
             "nullable": true
           },

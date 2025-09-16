@@ -246,7 +246,24 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                         //sheet.PageSetup.CenterVertically = true;
 
                         // Write Data
-                        sheet[3, 2].Text = "ช่วงวันที่ : " + param.start_date.Value.ToString("dd/MM/yyyy") + " - " + param.end_date.Value.ToString("dd/MM/yyyy");
+                        string dateValue;
+                        if (param.start_date.HasValue && param.start_date.HasValue) {
+                            dateValue = "ช่วงวันที่ : " + param.start_date.Value.ToString("dd/MM/yyyy") + " - " + param.end_date.Value.ToString("dd/MM/yyyy");
+                        }
+                        else if (param.start_date.HasValue)
+                        {
+                            dateValue = "วันที่ : " + param.start_date.Value.ToString("dd/MM/yyyy");
+                        }
+                        else if (param.end_date.HasValue)
+                        {
+                            dateValue = "วันที่ : " + param.end_date.Value.ToString("dd/MM/yyyy");
+                        }
+                        else 
+                        {
+                            dateValue = "ทั้งหมด";
+                        }
+
+                        sheet[3, 2].Text = "'" + $@"{dateValue}";
                         sheet[4, 3].Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                         sheet[4, 8].Text = this._Username();
                         sheet[10, 4].Text = "กลุ่มสินค้า : " + result.data[0].group_name;

@@ -308,7 +308,8 @@ namespace WeightScaleGen2.BGC.API.APIServices
                 role_id = this._securityCommon.EncryptDataUrlEncoder(data.role_id.ToString()),
                 role_name = data.role_name,
                 user_id = this._securityCommon.EncryptDataUrlEncoder(data.user_id.ToString()),
-                emp_code = data.emp_code
+                emp_code = data.emp_code,
+                serial_port = data.serial_port
             };
 
             return result;

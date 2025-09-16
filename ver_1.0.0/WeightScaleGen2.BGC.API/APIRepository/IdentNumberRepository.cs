@@ -46,8 +46,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             var p = new DynamicParameters();
             p.Add("@type", param.type);
             p.Add("@company", param.company);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_get_weight_in_number @type, @company";
+            var query = @"EXEC sp_get_weight_in_number @type, @company, @plant_code";
 
             var data = conn.Query<string>(query, p).FirstOrDefault();
 

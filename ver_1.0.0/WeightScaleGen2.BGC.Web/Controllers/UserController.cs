@@ -34,7 +34,7 @@ namespace WeightScaleGen2.BGC.Web.Controllers
 
         private void SetPermission()
         {
-            this._SetViewBagCurrentUserMenu((long)BaseConst.MENU_DEFINITION.USER_MANAGEMENT);
+            this._SetViewBagCurrentUserMenu((long)BaseConst.MENU_DEFINITION.USER);
             ViewBag.view = _GetPermission(_GetControllerName(), Constants.Action.View);
             ViewBag.created = _GetPermission(_GetControllerName(), Constants.Action.Created);
             ViewBag.edit = _GetPermission(_GetControllerName(), Constants.Action.Edit);

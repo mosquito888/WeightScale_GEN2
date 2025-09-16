@@ -46,8 +46,24 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             using var conn = await _db.CreateConnectionAsync();
 
             var p = new DynamicParameters();
-            p.Add("@start_date", param.start_date.Value.ToString("yyyy-MM-dd"));
-            p.Add("@end_date", param.end_date.Value.ToString("yyyy-MM-dd"));
+            if (param.start_date.HasValue)
+            {
+                p.Add("@start_date", param.start_date.Value.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                p.Add("@start_date", null);
+            }
+
+            if (param.end_date.HasValue)
+            {
+                p.Add("@end_date", param.end_date.Value.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                p.Add("@end_date", null);
+            }
+
             p.Add("@item_code", param.item_code);
             if (param.supplier_code != 0)
             {
@@ -57,12 +73,16 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             {
                 p.Add("@supplier_code", null);
             }
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_compare_by
                                  @start_date = @start_date
                                 ,@end_date = @end_date
                                 ,@item_code = @item_code
                                 ,@supplier_code = @supplier_code
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<WeightCompareData>(query, p).ToList();

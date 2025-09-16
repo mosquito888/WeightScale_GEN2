@@ -76,7 +76,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     CreatedDate = toDay,
 
                     IsActive = true,
-                    IsDeleted = false
+                    IsDeleted = false,
+                    PlantCode = userInfo.plant_code
                 };
 
                 await dbContext.SyComps.AddAsync(compInfo);
@@ -132,6 +133,7 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
                     compInfo.ModifiedBy = userInfo.username;
                     compInfo.ModifiedDate = toDay;
+                    compInfo.PlantCode = userInfo.plant_code;
 
                     await dbContext.SaveChangesAsync();
                     await trans.CommitAsync();

@@ -47,9 +47,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@id", param.id);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_history_by_id
                                 @id = @id
+                               ,@comp_code = @comp_code
+                               ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<WeightHistoryData>(query, p).FirstOrDefault();
@@ -96,12 +100,16 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 p.Add("@date", null);
             }
             p.Add("@po_number", param.po_number);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_history_by 
                                  @Offset = @Offset
                                 ,@PageSize = @PageSize
                                 ,@date = @date
                                 ,@po_number = @po_number
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<WeightHistoryData>(query, p).ToList();
@@ -122,8 +130,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@item_code", param.item_code);
             p.Add("@line_number", param.line_number);
             p.Add("@date", param.date.ToString("yyyy-MM-dd"));
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_get_calculate_weight_history_by @document_po, @item_code, @line_number, @date";
+            var query = @"EXEC sp_get_calculate_weight_history_by @document_po, @item_code, @line_number, @date, @comp_code, @plant_code";
 
             var data = conn.Query<decimal>(query, p).FirstOrDefault();
 

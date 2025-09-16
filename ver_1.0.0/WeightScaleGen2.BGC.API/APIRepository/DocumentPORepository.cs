@@ -80,7 +80,7 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     CreatedTime = TimeOnly.FromTimeSpan(param.created_time),
                     ModifiedBy = param.modified_by,
                     ModifiedDate = DateOnly.FromDateTime(param.modified_date.Value),
-                    ModifiedTime = TimeOnly.FromTimeSpan(param.modified_time)
+                    ModifiedTime = TimeOnly.FromTimeSpan(param.modified_time),
                 };
 
                 await dbContext.TsDocumentPos.AddAsync(itm);
@@ -108,9 +108,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
         {
             using var conn = await _db.CreateConnectionAsync();
 
-            var query = @"EXEC sp_select_sy_document_po_all";
+            var p = new DynamicParameters();
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var datas = conn.Query<DocumentPOData>(query).ToList();
+            var query = @"EXEC sp_select_sy_document_po_all @comp_code = @comp_code, @plant_code = @plant_code";
+
+            var datas = conn.Query<DocumentPOData>(query, p).ToList();
 
             conn.Close();
 
@@ -147,12 +151,16 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             {
                 p.Add("@end_date", null);
             }
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_document_po_by
                                  @Offset = @Offset
                                 ,@PageSize = @PageSize
                                 ,@start_date = @start_date
                                 ,@end_date = @end_date
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<DocumentPOData>(query, p).ToList();
@@ -171,10 +179,14 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             var p = new DynamicParameters();
             p.Add("@purchase_number", purchase_number);
             p.Add("@num_of_rec", 10);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_document_po_by_purchase_number
                                  @purchase_number = @purchase_number
                                 ,@num_of_rec = @num_of_rec
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<DocumentPOData>(query, p).FirstOrDefault();

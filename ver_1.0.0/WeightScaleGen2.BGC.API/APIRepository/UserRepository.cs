@@ -233,8 +233,11 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                          ,tbu.modified_by
                          ,tbu.modified_date
                          ,tbu.is_active
-                         ,tbu.is_deleted 
+                         ,tbu.is_deleted
+                         ,sp.serial_port
                         FROM sy_user tbu
+                        LEFT JOIN sy_emp sye ON tbu.emp_code = sye.emp_code
+                        LEFT JOIN sy_plant sp ON sye.plant_code = sp.plant_code
                         WHERE 
                         tbu.is_active = 1 
                         AND tbu.is_deleted = 0

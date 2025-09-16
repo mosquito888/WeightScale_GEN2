@@ -46,10 +46,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
         public async Task<List<UOMConversionData>> Select_SearchUOMConversionListData_All(UserInfoModel userInfo)
         {
             using var conn = await _db.CreateConnectionAsync();
+            var p = new DynamicParameters();
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_uom_conversion_all";
+            var query = @"EXEC sp_select_uom_conversion_all @comp_code = @comp_code, @plant_code = @plant_code";
 
-            var datas = conn.Query<UOMConversionData>(query).ToList();
+            var datas = conn.Query<UOMConversionData>(query,p).ToList();
 
             conn.Close();
 
@@ -65,8 +68,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             var p = new DynamicParameters();
             p.Add("@material_code", param.material_code);
             p.Add("@uom", param.uom);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_uom_conversion_by @material_code = @material_code, @uom = @uom";
+            var query = @"EXEC sp_select_uom_conversion_by @material_code = @material_code, @uom = @uom, @comp_code = @comp_code, @plant_code = @plant_code";
 
             var datas = conn.Query<UOMConversionData>(query, p).ToList();
 
@@ -83,8 +88,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@material_code", materialCode);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_select_uom_conversion_by_material_code @material_code = @material_code";
+            var query = @"EXEC sp_select_uom_conversion_by_material_code @material_code = @material_code, @comp_code = @comp_code, @plant_code = @plant_code";
 
             var datas = conn.Query<UOMConversionData>(query, p).ToList();
 
@@ -124,7 +131,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     CreatedTime = TimeOnly.FromTimeSpan(param.created_time),
                     UpdatedBy = param.updated_by,
                     UpdatedOn = DateOnly.FromDateTime(param.updated_on),
-                    UpdatedTime = TimeOnly.FromTimeSpan(param.updated_time)
+                    UpdatedTime = TimeOnly.FromTimeSpan(param.updated_time),
+                    CompCode = userInfo.comp_code,
+                    PlantCode = userInfo.plant_code
                 };
 
                 await dbContext.TsUomConversions.AddAsync(itm);
@@ -172,6 +181,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 itm.UpdatedBy = param.updated_by;
                 itm.UpdatedOn = DateOnly.FromDateTime(param.updated_on);
                 itm.UpdatedTime = TimeOnly.FromTimeSpan(param.updated_time);
+                itm.CompCode = userInfo.comp_code;
+                itm.PlantCode = userInfo.plant_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

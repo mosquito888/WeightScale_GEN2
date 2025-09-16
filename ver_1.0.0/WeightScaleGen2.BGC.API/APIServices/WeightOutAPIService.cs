@@ -54,7 +54,7 @@ namespace WeightScaleGen2.BGC.API.APIServices
                 // Get Company Code
                 param.company = _userInfo.comp_code;
 
-                // Create Weight In no
+                // Create Weight Out no
                 string weightOutNo = _identNumberRepository.Select_IdentNumber(new ParamGetIdentNumberViewModel { type = "O", company = _userInfo.comp_code }, _userInfo).Result;
                 param.weight_out_no = weightOutNo;
 

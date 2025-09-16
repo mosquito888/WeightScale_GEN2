@@ -50,9 +50,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@id", param.id);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_out_by_id
                                 @id = @id
+                               ,@comp_code = @comp_code
+                               ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<WeightOutData>(query, p).FirstOrDefault();
@@ -70,9 +74,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@car_license", param.car_license);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_out_by_car_license
                                 @car_license = @car_license
+                               ,@comp_code = @comp_code
+                               ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<WeightOutData>(query, p).FirstOrDefault();
@@ -133,6 +141,7 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     UnitReceive = param.unit_receive,
                     GrossUom = param.gross_uom,
                     NetUom = param.net_uom,
+                    PlantCode = userInfo.plant_code,
                 };
 
                 await dbContext.TsWeightOuts.AddAsync(itm);
@@ -169,12 +178,16 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@PageSize", _pagesize);
             p.Add("@weight_out_no", param.weight_out_no);
             p.Add("@weight_in_no", param.weight_in_no);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_weight_out_by 
                                  @Offset = @Offset
                                 ,@PageSize = @PageSize
                                 ,@weight_out_no = @weight_out_no
                                 ,@weight_in_no = @weight_in_no
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<WeightOutData>(query, p).ToList();
@@ -195,8 +208,10 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@item_code", param.item_code);
             p.Add("@line_number", param.line_number);
             p.Add("@date", param.date.ToString("yyyy-MM-dd"));
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
-            var query = @"EXEC sp_get_calculate_weight_by @document_po, @item_code, @line_number, @date";
+            var query = @"EXEC sp_get_calculate_weight_by @document_po, @item_code, @line_number, @date, @comp_code, @plant_code";
 
             var data = conn.Query<decimal>(query, p).FirstOrDefault();
 
@@ -233,6 +248,7 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 itm.ApiSupplier = param.api_supplier;
                 itm.TempBg = param.temp_bg;
                 itm.TempSupplier = param.temp_supplier;
+                itm.PlantCode = userInfo.plant_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

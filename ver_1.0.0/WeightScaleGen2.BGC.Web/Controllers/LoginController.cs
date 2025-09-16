@@ -71,6 +71,7 @@ namespace WeightScaleGen2.BGC.Web.Controllers
             {
                 var token = _authService.GenerateToken(result.data.email);
                 _authService.SetTokenToCookie(token.Result.token);
+                _ = _mmPOService.UpdateMMPOSapToDocumentPOData(result.data.email);
             }
             return Json(result);
         }

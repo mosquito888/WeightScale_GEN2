@@ -65,7 +65,9 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                     //CreatedBy = userInfo.username,
                     //CreatedDate = toDay,
                     IsActive = true,
-                    IsDeleted = false
+                    IsDeleted = false,
+                    CompCode = userInfo.comp_code,
+                    PlantCode = userInfo.plant_code
                 };
 
                 await dbContext.SySuppliers.AddAsync(itm);
@@ -136,9 +138,13 @@ namespace WeightScaleGen2.BGC.API.APIRepository
 
             var p = new DynamicParameters();
             p.Add("@supplier_code", param.supplier_code);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_supplier_by_supplier_code
                                 @supplier_code = @supplier_code
+                               ,@comp_code = @comp_code
+                               ,@plant_code = @plant_code
             ";
 
             var datas = conn.Query<SupplierData>(query, p).FirstOrDefault();
@@ -180,6 +186,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
             p.Add("@supplier_code", param.supplier_code);
             p.Add("@supplier_name", param.supplier_name);
             p.Add("@status", param.status);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_sy_supplier_by 
                                  @Offset = @Offset
@@ -187,6 +195,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                                 ,@supplier_code = @supplier_code
                                 ,@supplier_name = @supplier_name
                                 ,@status = @status
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<SupplierData>(query, p).ToList();
@@ -217,6 +227,8 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 sup.Remark2 = param.remark_2;
                 sup.IsActive = true;
                 sup.IsDeleted = false;
+                sup.CompCode = userInfo.comp_code;
+                sup.PlantCode = userInfo.plant_code;
 
                 await dbContext.SaveChangesAsync();
                 await trans.CommitAsync();

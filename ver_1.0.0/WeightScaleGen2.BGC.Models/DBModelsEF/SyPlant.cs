@@ -42,4 +42,6 @@ public partial class SyPlant
     public bool IsActive { get; set; }
 
     public bool IsDeleted { get; set; }
+
+    public string SerialPort { get; set; }
 }

@@ -64,11 +64,15 @@ namespace WeightScaleGen2.BGC.API.APIRepository
                 p.Add("@end_date", null);
             }
             p.Add("@close_work", param.close_work);
+            p.Add("@comp_code", userInfo.comp_code);
+            p.Add("@plant_code", userInfo.plant_code);
 
             var query = @"EXEC sp_select_daily_report_by
                                  @start_date = @start_date
                                 ,@end_date = @end_date
                                 ,@close_work = @close_work
+                                ,@comp_code = @comp_code
+                                ,@plant_code = @plant_code
                         ";
 
             var datas = conn.Query<WeightDailyData>(query, p).ToList();
