@@ -1,0 +1,348 @@
+﻿@using WeightScaleGen2.BGC.Web.Common
+@model WeightScaleGen2.BGC.Models.ViewModels.User.ResultSearchUserCriteria
+@{
+    ViewData["PageTitle"] = @ViewBag.MenuName;
+}
+@Html.AntiForgeryToken()
+<div class="h-100">
+    @* Header Section *@
+    <div class="pageMenuTitle">
+        <h3 class="text-black">ผู้ใช้งาน</h3>
+    </div>
+
+    <div id="dataContainerHeight" class="dataContainer">
+
+        <div class="flex flex-row items-center justify-between mb-3 flex-wrap gap-2">
+            <h4 class="dataTitle">ผู้ใช้งาน</h4>
+            <div>
+                @* <button type="button" onclick="CreateItem()" class="buttonAction primary-bg inline-flex items-center me-2">
+                    <img src="~/icons/add.svg" class="" />
+                    เพิ่มพนักงาน
+                </button> *@
+                <button type="button" onclick="ExportExcel()" class="buttonAction second-bg inline-flex items-center">
+                    <img src="~/icons/excel.svg" class="" />
+                    ดาวน์โหลด
+                </button>
+            </div>
+        </div>
+
+        @* Search Section *@
+        <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm mb-2">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 mb-2">
+                <div>
+                    <label for="inputSearch" class="d-block mb-2">อีเมล</label>
+                    <input type="text" id="inputSearch" class="border text-gray-900 block w-full p-2.5" placeholder="กรอกอีเมล" required />
+                </div>
+                <div>
+                    <label for="inputRole" class="d-block mb-2">ตำแหน่ง</label>
+                    @Html.DropDownListFor(x => x.role_dll,
+                    Model.role_dll.Select(s => new SelectListItem()
+                    {
+                        Text = s.text,
+                        Value = s.value,
+                        Disabled = !s.is_active
+                    }),
+                                        Constants.SelectOption.SelectAll, new { @class = "border text-gray-900 block w-full p-2.5", id = "inputRoleId" })
+                </div>
+            </div>
+
+            <div class="flex justify-content-center gap-2 flex-wrap">
+                <button type="button" onclick="SearchUser()" class="buttonAction w-150px primary-bg inline-flex justify-content-center items-center">
+                    <img src="~/icons/search.svg" class="" />ค้นหา
+                </button>
+                <button type="button" onclick="Clear()" class="buttonAction w-150px third-bg inline-flex justify-content-center items-center">
+                    <img src="~/icons/close.svg" class="" />เคลียร์
+                </button>
+            </div>
+
+        </div>
+
+        @* Table Section *@
+        <div class="relative overflow-x-auto shadow-sm rounded-lg border border-gray-200 p-4">
+            <table id="user-list" class="w-full text-md text-left rtl:text-right text-gray-700">
+                <thead class="text-white uppercase">
+                    <tr>
+                        <th class="text-center">
+                            Action
+                        </th>
+                        <th class="text-center">
+                            Name
+                        </th>
+                        <th class="text-center">
+                            Email
+                        </th>
+                        <th class="text-center">
+                            Role
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        $(document).on('keypress',function(e) {
+            if(e.which == 13) {
+                SearchUser();
+            }
+        });
+
+        $(document).ready(function () {
+            $("#btn-search").click(function () {
+                OpenSearch();
+            });
+            $("#search-header").click(function () {
+                OpenSearch();
+            });
+        });
+
+        function OpenSearch() {
+            event.stopPropagation();
+            $("#search-body").slideToggle("slow", function () {
+                var isVisible = $(this).is(":visible");
+                var iconClass = isVisible ? "fa-caret-up" : "fa-caret-down";
+                $("#btn-search i").removeClass().addClass("fa-solid " + iconClass);
+            });
+        }
+
+        var t
+        var searchParam;
+        var fromSearch = true;
+        $(function () {
+            Swal.fire({
+                title: 'รอสักครู่...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+            SearchPage.init({
+                url: '@Url.RouteUrl("SearchUserManagement")',
+                info_page_url: '@Url.RouteUrl("UserInfo")',
+                tableId: "user-list"
+            });
+            setTimeout(function () { Swal.close(); }, 1000);
+        });
+
+        var SearchPage = function () {
+            var tableList;  // actual table jquery object
+            var opts;       // all param object
+            var initDataTable = function () {
+                t = tableList.DataTable({
+                    ajax: {
+                        url: '@Url.Action("SearchUserManagement", "User")',
+                        type: "POST",
+                        data: function (d) {
+                            return $.extend({}, d, {
+                                "name": $('#inputSearch').val(),
+                                "role_id": $('#inputRoleId').val()
+                            });
+                        },
+                        dataType: "json",
+                        error: function (jqXhr, txtStatus, errorThrown) {
+                            if (typeof console === "object") {
+                                console.log("Code: " + jqXhr.status);
+                                console.log("Status: " + txtStatus);
+                                console.log("Error Thrown: " + errorThrown);
+                            }
+                        }
+                    },
+                    ordering: false,
+                    // scrollX: true,
+                    // scrollY: "calc(100vh - 300px)",
+                    deferRender: true,
+                    iDisplayLength: 10,
+                    paging: true,
+                    serverSide: true,
+                    autoWidth: false,
+                    searching: false,
+                    info: true,
+                    // dom: '<"flex flex-wrap items-center gap-3 mb-3 view-filter"<"w-full sm:w-auto"<"mr-3"l><"mr-3"f>>>' + 't' + '<"flex justify-center mt-3 view-pager"<"w-full sm:w-auto"ip>>',
+                    language: {
+                        paginate: {
+                            first: 'หน้าแรก',
+                            last: 'หน้าสุดท้าย',
+                            next: 'ถัดไป →',
+                            previous: '← ก่อนหน้า'
+                        },
+                        info: "แสดง _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
+                        infoEmpty: "ไม่มีข้อมูลที่จะแสดง",
+                        lengthMenu: "แสดง _MENU_ รายการ",
+                        infoFiltered: "(กรองจากทั้งหมด _MAX_ รายการ)",
+                        zeroRecords: "ไม่พบข้อมูลที่ค้นหา",
+                        processing: "รอสักครู่..."
+                    },
+                    preDrawCallback: function (settings) {
+                        Swal.fire({
+                            title: 'รอสักครู่...',
+                            allowOutsideClick: false,
+                            didOpen: () => {
+                                Swal.showLoading()
+                            },
+                        });
+                    },
+                    drawCallback: function (settings) {
+                        Swal.close();
+                    },
+                    columns: [
+                        { data: "user_id", name: "user_id", orderable: false, render: renderCol_Tools },
+                        { data: "name", name: "name", className: "text-center p-4", orderable: false },
+                        { data: "email", name: "email", className: "text-center p-4", orderable: false },
+                        { data: "role_name", name: "role_name", className: "text-center p-4", orderable: false }
+                    ],
+                    order: [[1, "asc"]]
+                });
+            };
+
+            var renderCol_Tools = function (data, type, row, meta) {
+                var response = '<div class="flex flex-row items-center justify-center gap-2">';
+                var aView = '<button type="button" onclick="UserInfo(' + '\'' + data + '\'' + ');" class="buttonAction actionIconButton primary-bg"><lord-icon src="https://cdn.lordicon.com/exymduqj.json" trigger="hover" stroke="bold" colors="primary:#ffffff,secondary:#ffffff" style="width:20px;height:20px"></lord-icon></button>';
+                    //aView += '<button type="button" onclick="DeleteItem(' + '\'' + data + '\'' + ');" class="buttonAction actionIconButton lightWeight-bg"><lord-icon src="https://cdn.lordicon.com/xyfswyxf.json" trigger="hover" colors="primary:#4741A6" style="width:20px;height:20px"></lord-icon></button>';
+                response += aView;
+                response += '</div>';
+
+                return response;
+            };
+
+            var reloadTable = function () {
+                if (tableList) {
+                    tableList.DataTable().ajax.reload();
+                }
+            };
+
+            return {
+                init: function (options) {
+                    opts = $.extend({
+                        ajaxUrl_GetList: '@Url.Action("SearchUserManagement", "User")',
+                        redirectUrl_InfoPage: options.info_page_url,
+                        updateRole: options.info_page_url,
+
+                        table: []
+                    }, options);
+
+                    tableList = $("#" + opts.tableId);
+                    initDataTable();
+                },
+                reloadTableAjax: function () {
+                    reloadTable();
+                }
+            };
+        }();
+
+        function SearchUser() {
+            Swal.fire({
+                title: 'รอสักครู่...',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+            fromSearch = true;
+            SearchPage.reloadTableAjax();
+            setTimeout(function () { Swal.close(); }, 1000);
+        }
+
+        function UserInfo(id) {
+            var url = '@Url.Action("UserInfo", "User")' +
+            '?id=' + id
+            window.location.href = url;
+        }
+
+        function Clear() {
+            $('#inputSearch').val("");
+            $('#inputRoleId').val("");
+            $('#user-list').DataTable().clear().draw();
+        }
+
+        function ExportExcel() {
+
+            Swal.fire({
+                title: 'กำลังส่งออกข้อมูล',
+                allowOutsideClick: false,
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+
+            $.ajax({
+                url: '@Url.Action("ActionCreateExcelFile", "User")',
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    'name': $('#inputSearch').val(),
+                    'role_id': $('#inputRoleId').val()
+                },
+                success: function (data) {
+                    if (data.status == '@Constants.Result.Success') {
+                        OpenExcel(data.path, data.fileName);
+                        Swal.fire({
+                            title: 'ส่งออกไฟล์สำเร็จ',
+                            html: 'I will close in <strong></strong> seconds.',
+                            timer: 2000,
+                            icon: "success",
+                            showCancelButton: false, // There won't be any cancel button
+                            showConfirmButton: false, // There won't be any confirm button
+                            //confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                            onBeforeOpen: function () {
+                                Swal.showLoading()
+                                timerInterval = setInterval(function () {
+                                    Swal.getContent().querySelector('strong')
+                                        .textContent = Swal.getTimerLeft()
+                                }, 100)
+                            },
+                            onClose: function () {
+                                clearInterval(timerInterval)
+                            }
+                        }).then(function (result) {
+                            if (
+                                // Read more about handling dismissals
+                                result.dismiss === Swal.DismissReason.timer
+                            ) {
+                                clearModal();
+                                Search();
+                            }
+                        })
+                    } else if (data.status == '@Constants.Result.Invalid') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'คำเตือน',
+                            text: data.message,
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                        })
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'คำเตือน',
+                            text: data.message,
+                            showCancelButton: false,
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'ตกลง',
+                            confirmButtonClass: 'd-sm-inline-block btn btn-sm btn-outline-primary shadow-sm',
+                            buttonsStyling: false,
+                        })
+                        toastr['error']('Fail - ' + data.message, 'Warning!', ErrOpt);
+                    }
+                },
+                error: function () {
+                    toastr['error']('Fail', 'Warning!', ErrOpt);
+                }
+            });
+        }
+
+        function OpenExcel(path, fileName) {
+            var url = '@Url.Action("ActionOpenFileExcel", "User")' +
+                '?path=' + path +
+                '&fileName=' + fileName;
+            window.open(url, '_blank');
+        }
+
+    </script>
+}
