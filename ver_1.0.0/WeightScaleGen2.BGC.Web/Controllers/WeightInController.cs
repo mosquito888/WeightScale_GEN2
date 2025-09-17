@@ -443,8 +443,8 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                         // Set the page setup to landscape orientation
                         sheet.PageSetup.Orientation = PageOrientationType.Landscape;
 
-                        // Set paper size to A4 (PaperSize = 9 corresponds to A4)
-                        sheet.PageSetup.PaperSize = Spire.Xls.PaperSizeType.PaperA4;
+                        // Set paper size to A4 (PaperSize = 9 corresponds to A5)
+                        sheet.PageSetup.PaperSize = Spire.Xls.PaperSizeType.PaperA5;
 
                         // Set margins to 0
                         sheet.PageSetup.LeftMargin = 0;
