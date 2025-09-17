@@ -461,9 +461,10 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                         sheet.PageSetup.FitToPagesTall = 1;
 
                         // Write Data
+                        sheet[6, 12].Text = result.data.weight_in_no;
                         sheet[9, 3].Text = result.data.weight_in_no;
                         //sheet[11, 8].Text = result.data.sender_id != 0 ? _senderService.GetSenderListData(this._Username()).data.Where(s => s.id == result.data.sender_id).FirstOrDefault().sender_name : "-";
-                        sheet[9, 12].Text = result.data.date.Value.ToString("dd/MM/yyyy");
+                        sheet[9, 13].Text = result.data.date.Value.ToString("dd/MM/yyyy");
 
                         sheet[12, 4].Text = result.data.car_license + " (" + result.data.car_type + ")";
                         sheet[12, 11].Text = result.data.date.Value.ToString("dd/MM/yyyy HH:mm:ss");
