@@ -436,8 +436,8 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                         // Set the page setup to landscape orientation
                         sheet.PageSetup.Orientation = PageOrientationType.Landscape;
 
-                        // Set paper size to A4 (PaperSize = 9 corresponds to A4)
-                        sheet.PageSetup.PaperSize = Spire.Xls.PaperSizeType.PaperA4;
+                        // Set paper size to A5 (PaperSize = 9 corresponds to A5)
+                        sheet.PageSetup.PaperSize = Spire.Xls.PaperSizeType.PaperA5;
 
                         // Set margins to 0
                         sheet.PageSetup.LeftMargin = 0;
@@ -456,30 +456,34 @@ namespace WeightScaleGen2.BGC.Web.Controllers
                         var weightIn = _weightInService.GetSearchWeightInListData(this._Username(), new ParamSearchWeightInViewModel { weight_in_no = result.data.weight_in_no, start = 0, draw = int.MaxValue, length = int.MaxValue }).data;
 
                         // Write Data
-                        sheet[9, 3].Text = result.data.weight_out_no;
-                        sheet[9, 8].Text = weightIn[0].document_ref;
-                        sheet[9, 12].Text = result.data.date.Value.ToString("dd/MM/yyyy");
+                        sheet[6, 12].Text = result.data.weight_out_no;
+                        sheet[9, 3].Text = result.data.weight_out_no + " / " + weightIn[0].weight_in_no;
+                        //sheet[9, 3].Text = result.data.weight_out_no + " / " + weightIn[0].document_ref;
+                        //sheet[9, 8].Text = weightIn[0].document_ref;
+                        sheet[9, 13].Text = result.data.date.Value.ToString("dd/MM/yyyy");
 
                         sheet[12, 4].Text = result.data.car_license + " (" + weightIn[0].car_type + ")";
-                        sheet[12, 11].Text = result.data.weight_in_no + "/" + result.data.weight_out_no;
+                        //sheet[12, 11].Text = result.data.weight_in_no + "/" + result.data.weight_out_no;
+                        sheet[12, 11].Text = _supplierService.GetSupplierListData(this._Username()).data.Where(s => s.supplier_code == weightIn[0].supplier_code).FirstOrDefault().supplier_name;
 
                         sheet[13, 4].Text = weightIn[0].item_name + " (" + weightIn[0].item_code + ")";
-                        sheet[13, 11].Text = _supplierService.GetSupplierListData(this._Username()).data.Where(s => s.supplier_code == weightIn[0].supplier_code).FirstOrDefault().supplier_name;
+                        sheet[13, 12].Text = weightIn[0].document_ref;
 
-                        sheet[16, 4].Text = weightIn[0].date.Value.ToString("dd/MM/yyyy HH:mm:ss");
-                        sheet[18, 4].Text = result.data.date.Value.ToString("dd/MM/yyyy HH:mm:ss");
+                        sheet[18, 5].Text = weightIn[0].date.Value.ToString("dd/MM/yyyy HH:mm:ss");
+                        sheet[22, 5].Text = result.data.date.Value.ToString("dd/MM/yyyy HH:mm:ss");
 
-                        sheet[16, 12].Text = "'" + weightIn[0].weight_in.ToString("#,##0.00");
-                        sheet[18, 12].Text = "'" + result.data.before_weight_out.ToString("#,##0.00");
-                        sheet[20, 12].Text = "'" + result.data.weight_out.ToString("#,##0.00");
-                        sheet[22, 12].Text = "'" + "0.00";
-                        sheet[24, 12].Text = "'" + result.data.weight_out.ToString("#,##0.00");
+                        sheet[18, 12].Text = "'" + weightIn[0].weight_in.ToString("#,##0.00");
+                        sheet[20, 12].Text = "'" + result.data.before_weight_out.ToString("#,##0.00");
+                        sheet[22, 12].Text = "'" + result.data.weight_out.ToString("#,##0.00");
+                        sheet[24, 12].Text = "'" + "0.00";
+                        sheet[26, 12].Text = "'" + result.data.weight_out.ToString("#,##0.00");
 
-                        sheet[24, 5].Text = result.data.weight_by_supplier > 0 ? "'" + result.data.weight_by_supplier.ToString("#,##0.00") : "-";
-                        sheet[25, 5].Text = result.data.volume_by_supplier > 0 ? "'" + result.data.volume_by_supplier.ToString("#,##0.00") : "-";
+                        sheet[28, 5].Text = result.data.weight_by_supplier > 0 ? "'" + result.data.weight_by_supplier.ToString("#,##0.00") : "-";
+                        sheet[29, 5].Text = result.data.volume_by_supplier > 0 ? "'" + result.data.volume_by_supplier.ToString("#,##0.00") : "-";
 
-                        sheet[28, 4].Text = "'" + result.data.remark_1;
-                        sheet[29, 4].Text = "'" + result.data.remark_2;
+                        //sheet[28, 5].Text = "'" + result.data.remark_1;
+                        //sheet[29, 5].Text = "'" + result.data.remark_2;
+                        sheet[31, 4].Text = "'" + result.data.remark_1 + result.data.remark_2; ;
 
                         // save data to excel
                         workbookTemplate.SaveToFile(fileData, ExcelVersion.Version2016);
